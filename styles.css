@@ -33,10 +33,11 @@ body {
   line-height: 40px; /* Same as top-nav height to center vertically */
 }
 
-a.top-nav-item, a.top-nav-item:hover {
+.top-nav-item, .top-nav-item:hover {
   color: white;
   white-space: nowrap;
   text-decoration: none;
+  display: inline-block;
 }
 
 .top-nav-item.title {
@@ -44,11 +45,13 @@ a.top-nav-item, a.top-nav-item:hover {
 }
 
 .top-nav-item.back {
-  margin-left: 30px;
+  position: absolute;
+  left: 10px;
 }
 
 .top-nav-item.forward {
-  margin-left: -30px;
+  position: absolute;
+  right: 10px;
 }
 
 .top-nav .full-width {
