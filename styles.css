@@ -16,8 +16,48 @@ body {
   font-family: comingSoon;
 }
 
-.top-nav {
+.title {
+  font-family: indieFlower;
 }
+
+/* Top Nav */
+
+.top-nav {
+  height: 40px;
+  padding: 0px;
+  background-color: #ff89a0;
+  color: white;
+}
+
+.top-nav-item {
+  line-height: 40px; /* Same as top-nav height to center vertically */
+}
+
+a.top-nav-item, a.top-nav-item:hover {
+  color: white;
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+.top-nav-item.title {
+  font-size: 20px;
+}
+
+.top-nav-item.back {
+  margin-left: 30px;
+}
+
+.top-nav-item.forward {
+  margin-left: -30px;
+}
+
+.top-nav .full-width {
+  padding: 0px;
+  margin: 0px;
+}
+
+
+/* Screens / Pages */
 
 .screen {
   position: relative;
@@ -34,7 +74,7 @@ body {
   background-color: #624e2f;
 }
 
-.bottom-nav-button .nav-icon {
+.bottom-nav-item .nav-icon {
     width: 40px;
     height: 40px;
     background-size: contain;
@@ -46,7 +86,7 @@ body {
     background-image: url(img/book.png);
 }
 
-.bottom-nav-button.selected .nav-icon.book {
+.bottom-nav-item.selected .nav-icon.book {
     background-image: url(img/book_filled.png);
 }
 
@@ -54,7 +94,7 @@ body {
     background-image: url(img/conversations.png);
 }
 
-.bottom-nav-button.selected .nav-icon.conversations {
+.bottom-nav-item.selected .nav-icon.conversations {
     background-image: url(img/conversations_filled.png);
 }
 
@@ -62,11 +102,11 @@ body {
     background-image: url(img/star.png);
 }
 
-.bottom-nav-button.selected .nav-icon.star {
+.bottom-nav-item.selected .nav-icon.star {
     background-image: url(img/star_filled.png);
 }
 
-.bottom-nav-button span {
+.bottom-nav-item span {
   display: block;
   color: white;
   position: relative;
@@ -75,7 +115,7 @@ body {
   font-family: comingSoon;
 }
 
-.bottom-nav-button.selected span {
+.bottom-nav-item.selected span {
   color: #ffced8;
 }
 
