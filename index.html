@@ -15,10 +15,12 @@
 
     <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+    <script src="scripts.js"></script>
 </head>
 
 <body>
 
+<!-- Top Nav -->
 <nav class="navbar fixed-top top-nav">
     <a class="top-nav-item back hide" href="#">
         < Back
@@ -33,8 +35,20 @@
     </a>
 </nav>
 
-<div class="container screen">
-    <p>Hello World</p>
+<!-- Screens -->
+
+<div class="container screen" id="local-stories-screen">
+    <p>Local Story Content</p>
+    <input type="text">
+</div>
+
+<div class="container screen" id="my-story-screen">
+    <p>My Story Content</p>
+    <input type="text">
+</div>
+
+<div class="container screen" id="conversations-screen">
+    <p>Converstations Content</p>
     <input type="text">
 </div>
 
@@ -43,24 +57,24 @@
     <div class="container">
         <div class="row">
             <div class="col">
-                <a href="#">
-                    <div class="bottom-nav-item text-center">
+                <a href="#my-story">
+                    <div class="bottom-nav-item text-center" id="my-story-nav">
                         <div class="nav-icon book"></div>
                         <span>My Story</span>
                     </div>
                 </a>
             </div>
             <div class="col bordered-nav-item">
-                <a href="#">
-                    <div class="bottom-nav-item selected text-center">
+                <a href="#local-stories">
+                    <div class="bottom-nav-item selected text-center" id="local-stories-nav">
                         <div class="nav-icon star"></div>
                         <span>Local Stories</span>
                     </div>
                 </a>
             </div>
             <div class="col">
-                <a href="#">
-                    <div class="bottom-nav-item text-center">
+                <a href="#conversations">
+                    <div class="bottom-nav-item text-center" id="conversations-nav">
                         <div class="nav-icon conversations"></div>
                         <span>Conversations</span>
                     </div>

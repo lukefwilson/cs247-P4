@@ -35,6 +35,7 @@ body {
 
 .top-nav-item {
   line-height: 40px; /* Same as top-nav height to center vertically */
+  text-transform: capitalize;
 }
 
 .top-nav-item, .top-nav-item:hover {
