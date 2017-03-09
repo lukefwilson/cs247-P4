@@ -20,6 +20,10 @@ body {
   font-family: indieFlower;
 }
 
+.hide {
+  display: none !important;
+}
+
 /* Top Nav */
 
 .top-nav {
