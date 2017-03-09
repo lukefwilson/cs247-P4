@@ -1,5 +1,18 @@
-.top-nav {
+/*Light Pink: #ffced8
+Brown: #624e2f
+Dark Pink: #ff89a0*/
 
+@font-face {
+    font-family: comingSoon;
+    src: url(font/ComingSoon.ttf);
+}
+
+@font-face {
+    font-family: indieFlower;
+    src: url(font/IndieFlower.ttf);
+}
+
+.top-nav {
 }
 
 .bottom-nav {
@@ -7,9 +20,28 @@
   bottom: 0px;
   height: 50px;
   width: 100%;
+  background-color: #624e2f;
 }
 
 .screen {
   position: relative;
   top: 54px; /* size of top-nav */
+}
+
+.bottom-nav-button img {
+  width: 40px;
+}
+
+.bottom-nav-button span {
+  display: block;
+  color: white;
+  position: relative;
+  top: -4px;
+  font-size: 10px;
+  font-family: comingSoon;
+}
+
+.bordered-nav-item {
+  border-left: 1px dotted white;
+  border-right: 1px dotted white;
 }
