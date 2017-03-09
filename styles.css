@@ -1,0 +1,15 @@
+.top-nav {
+
+}
+
+.bottom-nav {
+  position: fixed;
+  bottom: 0px;
+  height: 50px;
+  width: 100%;
+}
+
+.screen {
+  position: relative;
+  top: 54px; /* size of top-nav */
+}
