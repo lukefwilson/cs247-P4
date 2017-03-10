@@ -47,6 +47,7 @@ body {
 
 .top-nav-item.title {
   font-size: 20px;
+  width:100%;
 }
 
 .top-nav-item.back {
