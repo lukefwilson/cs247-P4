@@ -138,6 +138,12 @@ body {
 
 }
 
+/* Editing my profile */
+.editing-my-story input {
+  width: 100% !important;
+  margin-top: 5px;
+}
+
 /* Bottom Nav */
 
 .bottom-nav .bottom-text {
