@@ -81,10 +81,12 @@ body {
 .screen {
   position: relative;
   top: 54px; /* size of top-nav*/
+  margin-bottom: 60px;  /* so that the dashed line shows up above the bottom nav */
 }
 
 .screen .profile-photo {
   width: 50%;
+  border-radius: 50%;
 }
 
 .screen .profile-name {
@@ -118,7 +120,7 @@ body {
 /* Chapters */
 .chapter {
   border-bottom: dashed 1px #ffced8;
-  margin-bottom: 60px;  /* so that the dashed line shows up above the bottom nav */
+  margin-bottom: 15px;
 }
 
 .chapter-title {
