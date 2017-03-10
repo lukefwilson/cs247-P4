@@ -68,9 +68,14 @@ body {
 
 /* Screens / Pages */
 
+.pretty-divider {
+  border-top: dashed 1px; 
+  color:#ffced8;
+}
+
 .screen {
   position: relative;
-  top: 54px; /* size of top-nav */
+  /* top: 54px; /* size of top-nav WHY IS THIS NEEDED*/
 }
 
 .screen .profile-photo {
@@ -88,8 +93,21 @@ body {
   color: #907A56;
 }
 
-.screen .profile-bio {
+.btn-outer {
+  background: #ff89a0;
+  padding:5px;
+}
 
+.btn-inner {
+  background: #ff89a0;
+  border-radius : 0 !important;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  border : 1px dotted #ffced8;
+  padding : 5px;
+  width : 100%;
+  color : #fff;
 }
 
 /* Bottom Nav */
