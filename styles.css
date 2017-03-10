@@ -139,7 +139,7 @@ body {
 }
 
 /* Editing my profile */
-.editing-my-story input {
+.editing-my-story input, .editing-my-story textarea {
   width: 100% !important;
   margin-top: 5px;
 }
