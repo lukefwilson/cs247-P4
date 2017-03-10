@@ -90,7 +90,7 @@ body {
 
 .screen .profile-location {
   font-size: 1em;
-  color: #907A56;
+  color: #95805c;
 }
 
 .btn-outer {
@@ -108,6 +108,23 @@ body {
   padding : 5px;
   width : 100%;
   color : #fff;
+}
+
+/* Chapters */
+.chapter {
+  border-bottom: dashed 1px #ffced8;
+  margin-bottom: 60px;  /* so that the dashed line shows up above the bottom nav */
+}
+
+.chapter-title {
+  color: #95805c;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.chapter-date {
+  color: #907A56;
+
 }
 
 /* Bottom Nav */
