@@ -50,9 +50,8 @@ body {
   display: inline-block;
 }
 
-.top-nav-item.title {
+.top-nav-item .title {
   font-size: 20px;
-  width:100%;
 }
 
 .top-nav-item.back {
@@ -75,6 +74,11 @@ body {
 
 .pretty-divider {
   border-top: dashed 1px; 
+  color:#ffced8;
+}
+
+.profile-divider {
+  border-top: solid 1px; 
   color:#ffced8;
 }
 

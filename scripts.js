@@ -3,9 +3,16 @@ $( document ).ready(function() {
     var changeToPage = function(pageName) {
         if (pageName[0] === '#') pageName = pageName.substr(1); // remove leading #
 
-        // Show correct screen
+        // Show correct screen by getting name from the url
         $('.screen').hide();
         $('#' + pageName + '-screen').show();
+
+        // special: If this is My Story, show edit mode
+        if (pageName == 'my-story') {
+            $('#edit-button-top').show();
+        } else {
+            $('#edit-button-top').hide();
+        }
 
         // Select correct nav item
         $('.bottom-nav-item').removeClass('selected');
