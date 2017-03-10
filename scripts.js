@@ -14,6 +14,15 @@ $( document ).ready(function() {
             $('#edit-button-top').hide();
         }
 
+        // if this is edit then show the save button
+        if (pageName == 'editing-my-profile') {
+            $('#footer-menu').hide();
+            $('#footer-save').show();
+        } else {
+            $('#footer-menu').show();
+            $('#footer-save').hide();
+        }
+
         // Select correct nav item
         $('.bottom-nav-item').removeClass('selected');
         $('#' + pageName + '-nav').addClass('selected');

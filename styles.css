@@ -140,6 +140,13 @@ body {
 
 /* Bottom Nav */
 
+.bottom-nav .bottom-text {
+  color: white;
+  font-size: 2em;
+  font-weight: bold;
+  margin-top: 13px;
+}
+
 .bottom-nav {
   position: fixed;
   bottom: 0px;
