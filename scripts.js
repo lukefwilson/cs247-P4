@@ -16,6 +16,17 @@ $( document ).ready(function() {
     }
 
     changeToPage('local-stories'); // start on local-stories screen
+    $('.start-conver').toggle();  // hide ALL the start conversation buttons
+
+    // Toggle collapse local story content
+    $('.read-more').click(function() {
+        // un-collapse the div with content
+        $($(this).parent().parent().parent().children()[2]).collapse('show');
+
+        // hide this button and show the Start-a-conversation button
+        $(this).parent().hide();
+        $($(this).parent().parent().children()[4]).toggle();
+    });
 
     // Handle Page Changes (anchor link clicks)
     $(window).bind( 'hashchange', function(e) {
