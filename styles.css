@@ -26,6 +26,11 @@ body {
 
 /* Top Nav */
 
+.navbar {
+  /* overriding annoying property of bootstrap */
+  min-height: 0 !important;
+}
+
 .top-nav {
   height: 40px;
   padding: 0px;
@@ -75,7 +80,7 @@ body {
 
 .screen {
   position: relative;
-  /* top: 54px; /* size of top-nav WHY IS THIS NEEDED*/
+  top: 54px; /* size of top-nav*/
 }
 
 .screen .profile-photo {
