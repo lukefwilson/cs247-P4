@@ -210,3 +210,9 @@ body {
   border-left: 1px dotted white;
   border-right: 1px dotted white;
 }
+
+#footer-save a {
+  color: white !important;
+  text-decoration: none;
+  margin-top: -6px;
+}
