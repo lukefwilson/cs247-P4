@@ -19,7 +19,7 @@ $( document ).ready(function() {
         $('#' + pageName + '-nav').addClass('selected');
 
         // Change top title
-        $('.top-nav-item.title').html( pageName.replace('-', ' ') )
+        $('.top-nav-item.title').html( pageName.replace(/-/g, ' ') )
     }
 
     changeToPage('local-stories'); // start on local-stories screen
