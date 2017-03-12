@@ -111,6 +111,7 @@ p.button-label{
 	line-height: 80px;
 	font-size: 20px;
 	font-family: "Coming Soon", cursive;
+	border-radius: 10px;
 }
 
 input.next-half-button{
@@ -125,4 +126,30 @@ input.next-half-button{
 	font-size: 24px;
 }
 
+p.firstchapt-label{
+	display: inline-block;
+	color: #ff89a0;
+	font-size: 20px;
+	font-family: "Coming Soon", cursive;
+}
 
+#firstchapt-title{
+	display: inline-block;
+	width: 300px;
+	height: 40px;
+	border: thin dashed #ff89a0;
+	border-radius: 10px;
+	padding: 10px;
+	font-family: "Coming Soon", cursive;
+	font-size: 14px;
+	color: #624e2f;
+}
+
+textarea{
+	border: thin dashed #ff89a0;
+	border-radius: 10px;
+	padding: 10px;
+	font-family: "Coming Soon", cursive;
+	font-size: 14px;
+	color: #595554;
+}

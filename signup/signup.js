@@ -1,6 +1,7 @@
 var name; var age; var filename;
 var marital; var kid;
 var stage; var diagnose;
+var firstchTitle; var firstch;
 function gofamily(){
 	name = document.getElementById('name_input').value;
 	age = document.getElementById('age_input').value;
@@ -24,6 +25,16 @@ function gowrite(){
 	stage = document.getElementById('stage_input').value;
 	diagnose = document.getElementById('diagnose_input').value;
 	window.location = "write.html" ;
+}
+
+function gobackwrite(){
+	window.location = "medical.html" ;
+}
+
+function gotag(){
+	firstchTitle = document.getElementById('firstchapt-title').value;
+	firstch = document.getElementById('firstchapt').value;
+	// window.location = "tag.html" ;
 }
 
 function single(){
