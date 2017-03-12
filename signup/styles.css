@@ -1,0 +1,195 @@
+/*Light Pink: #ffced8
+Brown: #624e2f
+Dark Pink: #ff89a0*/
+
+@font-face {
+    font-family: comingSoon;
+    src: url(font/ComingSoon.ttf);
+}
+
+@font-face {
+    font-family: indieFlower;
+    src: url(font/IndieFlower.ttf);
+}
+
+body {
+  font-family: comingSoon;
+}
+
+.title {
+  font-family: indieFlower;
+}
+
+.hide {
+  display: none !important;
+}
+
+/* Top Nav */
+
+.navbar {
+  /* overriding annoying property of bootstrap */
+  min-height: 0 !important;
+}
+
+.top-nav {
+  height: 40px;
+  padding: 0px;
+  background-color: #ff89a0;
+  color: white;
+}
+
+.top-nav-item {
+  line-height: 40px; /* Same as top-nav height to center vertically */
+  text-transform: capitalize;
+}
+
+.top-nav-item, .top-nav-item:hover {
+  color: white;
+  white-space: nowrap;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.top-nav-item.title {
+  font-size: 20px;
+  width:100%;
+}
+
+.top-nav-item.back {
+  position: absolute;
+  left: 10px;
+}
+
+.top-nav-item.forward {
+  position: absolute;
+  right: 10px;
+}
+
+.top-nav .full-width {
+  padding: 0px;
+  margin: 0px;
+}
+
+
+/* Screens / Pages */
+
+.pretty-divider {
+  border-top: dashed 1px; 
+  color:#ffced8;
+}
+
+.screen {
+  position: relative;
+  top: 54px; /* size of top-nav*/
+  margin-bottom: 60px;  /* so that the dashed line shows up above the bottom nav */
+}
+
+.screen .profile-photo {
+  width: 50%;
+  border-radius: 50%;
+}
+
+.screen .profile-name {
+  font-family : indieFlower;
+  font-size : 2em;
+  color : #624e2f;
+}
+
+.screen .profile-location {
+  font-size: 1em;
+  color: #95805c;
+}
+
+.btn-outer {
+  background: #ff89a0;
+  padding:5px;
+}
+
+.btn-inner {
+  background: #ff89a0;
+  border-radius : 0 !important;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  border : 1px dotted #ffced8;
+  padding : 5px;
+  width : 100%;
+  color : #fff;
+}
+
+/* Chapters */
+.chapter {
+  border-bottom: dashed 1px #ffced8;
+  margin-bottom: 15px;
+}
+
+.chapter-title {
+  color: #95805c;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.chapter-date {
+  color: #907A56;
+
+}
+
+/* Bottom Nav */
+
+.bottom-nav {
+  position: fixed;
+  bottom: 0px;
+  height: 50px;
+  width: 100%;
+  background-color: #624e2f;
+}
+
+.bottom-nav-item .nav-icon {
+    width: 40px;
+    height: 40px;
+    background-size: contain;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.nav-icon.book {
+    background-image: url(img/book.png);
+}
+
+.bottom-nav-item.selected .nav-icon.book {
+    background-image: url(img/book_filled.png);
+}
+
+.nav-icon.conversations {
+    background-image: url(img/conversations.png);
+}
+
+.bottom-nav-item.selected .nav-icon.conversations {
+    background-image: url(img/conversations_filled.png);
+}
+
+.nav-icon.star {
+    background-image: url(img/star.png);
+}
+
+.bottom-nav-item.selected .nav-icon.star {
+    background-image: url(img/star_filled.png);
+}
+
+.bottom-nav-item span {
+  display: block;
+  color: white;
+  position: relative;
+  top: -4px;
+  font-size: 10px;
+  font-family: comingSoon;
+}
+
+.bottom-nav-item.selected span {
+  color: #ffced8;
+}
+
+.bordered-nav-item {
+  border-left: 1px dotted white;
+  border-right: 1px dotted white;
+}

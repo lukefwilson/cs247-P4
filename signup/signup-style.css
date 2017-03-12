@@ -1,0 +1,128 @@
+/*Light Pink: #ffced8
+Brown: #624e2f
+Dark Pink: #ff89a0*/
+
+body{
+	position: fixed;
+}
+
+.top-nav-item{
+	background-color: #ff89a0;
+	color: white;
+	height: 80px;
+	line-height: 80px;
+	font-family:"Indie Flower", cursive;
+	font-size: 24px;
+}
+
+.row.direct-button{
+	background-color: #624e2f;
+	height: 80px;
+	line-height: 80px;
+	position: fixed;
+	left: 0px;
+	right: 0px;
+	bottom:0px;
+	color: white;
+	font-family:"Indie Flower", cursive;
+	font-size: 24px;
+}
+
+.row.q_card{
+	border-top: thin solid #ff89a0;
+	height: 130px;
+}
+
+p.descrpt{
+	padding: 0px 20px;
+	font-family: "Coming Soon", cursive;
+	color: #624e2f;
+	font-size: 14px;
+}
+
+p.qcard_title{
+	text-align: center;
+	font-family: "Indie Flower", cursive;
+	font-size: 16px;
+	padding: 20px 0px 5px 0px;
+	color: #624e2f;
+}
+
+input[type="file"] {
+    display: none;
+}
+.custom-file-upload {
+    background-color: #ff89a0;
+	border-radius: 10px;
+    display: inline-block;
+	width: 300px;
+	height: 40px;
+    padding: 6px 12px;
+    cursor: pointer;
+}
+
+input.next-button{
+	position: fixed;
+	bottom: 0px;
+	left: 0px;
+	width:100%;
+	border: none;
+	background-color: #624e2f;
+	height: 100px;
+	color: white;
+	font-family: "Indie Flower", cursive;
+	font-size: 24px;
+}
+
+p.button-label{
+	line-height: 30px;
+	color: white;
+	font-family: "Coming Soon", cursive;
+	font-size: 16px;
+}
+
+#name_input, #age_input, #diagnose_input, #stage_input{
+	width: 300px;
+	height: 40px;
+	border: thin dashed #ff89a0;
+	padding: 10px;
+	color: #ff89a0;
+	border-radius: 10px;
+	font-size: 20px;
+	font-family: "Coming Soon", cursive;
+}
+
+#diagnose_input, #stage_input{
+	margin-top: 30px;
+}
+
+/* family */
+.row.q_card_2{
+	border-top: thin solid #ff89a0;
+	height: 210px;
+}
+
+#marital-single, #marital-married, #kid-yes, #kid-no{
+	border: thin dashed #ff89a0;
+	width: 150px;
+	height: 80px;
+	display: inline-block;
+	color: #ff89a0;
+	line-height: 80px;
+	font-size: 20px;
+	font-family: "Coming Soon", cursive;
+}
+
+input.next-half-button{
+	position: fixed;
+	bottom: 0px;
+	width:50%;
+	border: none;
+	background-color: #624e2f;
+	height: 100px;
+	color: white;
+	font-family: "Indie Flower", cursive;
+	font-size: 24px;
+}
+
+
