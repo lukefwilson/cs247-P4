@@ -67,6 +67,9 @@ body {
   margin: 0px;
 }
 
+.pull-right{
+	right: 10px;
+}
 
 /* Screens / Pages */
 
@@ -110,6 +113,7 @@ body {
 .btn-outer {
   background: #ff89a0;
   padding:5px;
+  border-radius: 10px;
 }
 
 .btn-inner {
@@ -122,6 +126,10 @@ body {
   padding : 5px;
   width : 100%;
   color : #fff;
+}
+
+div.header, div.chapter{
+	padding: 0px 10px;
 }
 
 /* Chapters */
@@ -146,6 +154,8 @@ body {
   width: 100% !important;
   margin-top: 5px;
 }
+
+
 
 /* Bottom Nav */
 
@@ -232,6 +242,7 @@ body {
 
 .footer {
   color: white;
+  font-family: Indie Flower;
 }
 
 /* Conversations view */
@@ -394,4 +405,125 @@ body {
   border-color:transparent #fff;
 }
 
+/*--------Welcome views-----------*/
+p.welcome-pbar-label{
+	padding: 0px 20px;
+	font-family: "Coming Soon", cursive;
+	color: #624e2f;
+	font-size: 14px;
+}
 
+.row.q_card{
+	border-top: thin solid #ff89a0;
+	height: 120px;
+}
+
+p.qcard_title{
+	text-align: center;
+	font-family: "Indie Flower", cursive;
+	font-size: 16px;
+	padding: 20px 0px 5px 0px;
+	color: #624e2f;
+}
+
+#name_input, #age_input, #diagnose_input, #stage_input, #bio_input{
+	width: 300px;
+	height: 40px;
+	border: thin dashed #ff89a0;
+	padding: 10px;
+	color: #ff89a0;
+	border-radius: 10px;
+	font-size: 20px;
+	font-family: "Coming Soon", cursive;
+}
+
+#diagnose_input, #stage_input{
+	margin-top: 30px;
+}
+
+input[type="file"] {
+    display: none;
+}
+.custom-file-upload {
+    background-color: #ff89a0;
+	border-radius: 10px;
+    display: inline-block;
+	width: 300px;
+	height: 40px;
+    padding: 6px 12px;
+    cursor: pointer;
+}
+p.button-label{
+	line-height: 30px;
+	color: white;
+	font-family: "Coming Soon", cursive;
+	font-size: 16px;
+}
+
+.row.q_card_2{
+	border-top: thin solid #ff89a0;
+	height: 280px;
+	padding-top: 20px;
+}
+
+#marital-single, #marital-married, #kid-yes, #kid-no, 
+#stage-one, #stage-two, #stage-three, #stage-four{
+	border: thin dashed #ff89a0;
+	width: 150px;
+	height: 80px;
+	display: inline-block;
+	color: #ff89a0;
+	line-height: 80px;
+	font-size: 20px;
+	font-family: "Coming Soon", cursive;
+	border-radius: 10px;
+	margin: 5px;
+}
+
+.row.welcome-tab-row{
+	margin-top: 20px;
+}
+
+p.firstchapt-label{
+	display: inline-block;
+	color: #ff89a0;
+	font-size: 20px;
+	font-family: "Coming Soon", cursive;
+}
+
+#firstchapt-title{
+	display: inline-block;
+	width: 300px;
+	height: 40px;
+	border: thin dashed #ff89a0;
+	border-radius: 10px;
+	padding: 10px;
+	font-family: "Coming Soon", cursive;
+	font-size: 14px;
+	color: #624e2f;
+}
+
+textarea{
+	margin-top: 10px;
+	border: thin dashed #ff89a0;
+	border-radius: 10px;
+	padding: 10px;
+	font-family: "Coming Soon", cursive;
+	font-size: 14px;
+	color: #595554;
+}
+
+#firstchpt-tag-chemo,#firstchpt-tag-medicine,#firstchpt-tag-hospital,
+#firstchpt-tag-surgery,#firstchpt-tag-family,#firstchpt-tag-reflection{
+	display: inline-block;
+	width: 100px;
+	height: 100px;
+}
+
+
+p.welcome-tag-title{
+	ext-align: center;
+	font-family: "Indie Flower", cursive;
+	font-size: 16px;
+	color: #624e2f;
+}

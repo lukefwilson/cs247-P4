@@ -39,7 +39,7 @@
         <a class="top-nav-item forward hide" href="#">
             Forward >
         </a>
-        <a id="edit-button-top" class="top-nav-item glyphicon glyphicon-edit col-xs-2 pull-right" href="#editing-my-profile"></a>
+        <a id="edit-button-top" class="top-nav-item col-xs-2 pull-right" href="#editing-my-profile">Edit</a>
     </div>
 </nav>
 
@@ -173,9 +173,6 @@
             <input class="text-center profile-name" value="Shawna Bunch" placeholder="Your Name"></input><br>
             <input class="text-center profile-location" value="Raleigh, North Carolina" placeholder="Your Location"></input><br>
             <input class="text-center profile-bio" value="It's a blessing to spend time with my Family." placeholder="Write a brief bio"></input>
-            <div class="btn-outer text-center write-chapter">
-                <button class="btn btn-inner">Write a New Chapter</button>
-            </div>
         </div>
         <hr style="" class="pretty-divider" />
         <div class="main">
@@ -191,39 +188,108 @@
 
 <!-- WELCOME SCREENS ENSEMBLE -->
 <div class="container screen" id="welcome1-screen">
+	<center>
     <div class="row">
         <img style="padding: 5px;" src="img/signup-img/p_bar_1.png">
     </div>
     <div id="welcome-message">
-        <p>We'd love to know more about you! Let's start with your basic details. All this information can be modified later.</p>
+        <p class="welcome-pbar-label">Welcome! Please help us to learn you more. Note that all profile information can be modified later.</p>
     </div>
-    <hr class="profile-divider" />
-    <input class="chapter-title" value="" placeholder="Your Name"></input>
-    <input class="chapter-title" value="" placeholder="Your Bio/Status"></input>
+	</center>
+	<div class="container">
+		<div class="row q_card">
+			<p class="qcard_title">Name</p>
+			<center>
+			<input type="text" name="name" placeholder="Your name" id="name_input"/>
+			</center>
+		</div>
+		<div class="row q_card">
+			<p class="qcard_title">Profile Photo</p>
+			<center>
+			<label for="file-upload" class="custom-file-upload">
+			<p class="button-label">Choose A Photo</p>
+			</label>
+			<input id="file-upload" type="file"/>
+			</center>
+		</div>
+		<div class="row q_card">
+			<p class="qcard_title" >Age</p>
+			<center>
+			<input type="text" placeholder="Your age" name="age" id="age_input"/>
+			</center>
+		</div>
+		<div class="row q_card">
+			<p class="qcard_title" >Bio/Motto</p>
+			<center>
+			<input type="text" placeholder="Your bio/motto" name="bio" id="bio_input"/>
+			</center>
+		</div>
+	</div>
 </div>
 
 <div class="container screen" id="welcome2-screen">
+	<center>
     <div class="row">
         <img style="padding: 5px;" src="img/signup-img/p_bar_2.png">
     </div>
     <div id="welcome-message">
-        <p></p>
+        <p class="welcome-pbar-label">Step 2: Please tell us a little about your family.</p>
     </div>
-    <hr class="profile-divider" />
-    <input class="chapter-title" value="" placeholder="Some other stuff"></input>
-    <input class="chapter-title" value="" placeholder="More stuff"></input>
+	</center>
+    <div class="container">
+		<div class="row q_card_2">
+			<p class="qcard_title">Marital Status</p>
+			<center>
+			<div class="row welcome-tab-row">
+				<div id="marital-single" OnClick = "single()">Single</div>
+				<div id="marital-married" OnClick = "married()">Married</div>
+			</div>
+			</center>
+		</div>
+		<div class="row q_card_2" >
+			<p class="qcard_title">Have Children</p>
+			<center>
+			<div class="row welcome-tab-row" >
+				<div id="kid-yes" OnClick = haveKid()>Yes</div>
+				<div id="kid-no" OnClick = noKid()>No</div>
+			</div>
+			</center>
+		</div>
+	</div>
 </div>
 
 <div class="container screen" id="welcome3-screen">
+	<center>
     <div class="row">
         <img style="padding: 5px;" src="img/signup-img/p_bar_3.png">
     </div>
     <div id="welcome-message">
-        <p></p>
+        <p class="welcome-pbar-label">Step 3: Please tell us about your breast cancer stage and when were you diagnosed.</p>
     </div>
-    <hr class="profile-divider" />
-    <input class="chapter-title" value="" placeholder="Some other stuff"></input>
-    <input class="chapter-title" value="" placeholder="More stuff"></input>
+	</center>
+    <div class="container">
+		<div class="row q_card_2" style="padding: 5px;">
+			<p class="qcard_title">Stage</p>
+			<center>
+				<div class="row">
+				<div id="stage-one" OnClick = "stageOne()">Stage I</div>
+				<div id="stage-two" OnClick = "stageTwo()">Stage II</div>
+				</div>
+				<div class="row">
+				<div id="stage-three" OnClick = "stageThree()">Stage III</div>
+				<div id="stage-four" OnClick = "stageFour()">Stage IV</div>
+				</div>
+			</center>
+		</div>
+		<div class="row q_card_2" >
+			<p class="qcard_title" style="margin-top: 20px;">Diagnosed Date</p>
+			<center>
+			<div class="row welcome-tab-row">
+			<input placeholder="MM/YYYY"  type="text" name="diagnose" id="diagnose_input"/>
+			<div>
+			</center>
+		</div>
+	</div>
 </div>
 
 <div class="container screen" id="welcome4-screen">
@@ -231,11 +297,42 @@
         <img style="padding: 5px;" src="img/signup-img/p_bar_4.png">
     </div>
     <div id="welcome-message">
-        <p></p>
+        <p class="welcome-pbar-label">Step 4: Your profile is ready. Now please write a chapter to start your story.</p>
     </div>
-    <hr class="profile-divider" />
-    <input class="chapter-title" value="" placeholder="Some other stuff"></input>
-    <input class="chapter-title" value="" placeholder="More stuff"></input>
+    <div class="container" style="border-top: thin solid #ff89a0; padding-top: 20px;">
+		<p class="firstchapt-label">Title </p> <input type="text" name="stage" id="firstchapt-title">
+		
+		<textarea placeholder="What are you thinking right now ...? " rows="20" cols="44" id="firstchapt"></textarea>
+	</div>
+</div>
+
+<div class="container screen" id="welcome5-screen">
+    <div class="row">
+        <img style="padding: 5px;" src="img/signup-img/p_bar_4.png">
+    </div>
+    <div id="welcome-message">
+        <p class="welcome-pbar-label">Step 4: Hi! Welcome to the "tag" page. Tags indicate the subject about the chapter. Please tap on two tags below to help your story readers know you better and faster.</p>
+    </div>
+	<center>
+	<hr style="" class="pretty-divider" />
+	<p class="welcome-tag-title"> Treatment </p>
+    <div class="row">
+		<img id="firstchpt-tag-chemo" OnClick="chemoTag()" src="tags/chemo-tag.png"/>
+		<img id="firstchpt-tag-medicine" OnClick="medicineTag()" src="tags/medicine-tag.png" />
+	</div>
+	<hr style="" class="pretty-divider" />
+	<p class="welcome-tag-title"> Doctor </p>
+	<div class="row">
+		<img id="firstchpt-tag-hospital" OnClick="hospitalTag()" src="tags/hospital-tag.png"/>
+		<img id="firstchpt-tag-surgery" OnClick="surgeryTag()" src="tags/surgery-tag.png" />
+	</div>
+	<hr style="" class="pretty-divider" />
+	<p class="welcome-tag-title"> Instrinsic </p>
+	<div class="row">
+		<img id="firstchpt-tag-family" OnClick="famTag()" src="tags/family-tag.png"/>
+		<img id="firstchpt-tag-reflection" OnClick="refTag()"  src="tags/reflection-tag.png"/>
+	</div>
+	</center>
 </div>
 
 <!-- Bottom Nav -->
@@ -271,13 +368,13 @@
 </footer>
 
 <footer class="bottom-nav bg-faded row" id="footer-save">
-    <h3><a href="#my-story" class="col-xs-6 text-center glyphicon glyphicon-remove footer" style="border-right: 1px dotted"></a></h3>
-    <h3><a href="#my-story" class="col-xs-6 text-center glyphicon glyphicon-ok footer"></a></h3>
+    <h3><a href="#my-story" class="col-xs-6 text-center footer" style="border-right: 1px dotted">Cancel</a></h3>
+    <h3><a href="#my-story" class="col-xs-6 text-center footer">Save</a></h3>
 </footer>
 
 <footer class="bottom-nav bg-faded row" id="footer-signup">
-    <h3><a onclick="javascript:nextWelcome(-1)" class="col-xs-6 text-center glyphicon glyphicon-chevron-left footer" style="border-right: 1px dotted" id="footer-back-button"></a></h3>
-    <h3><a onclick="javascript:nextWelcome(1)" class="col-xs-6 text-center glyphicon glyphicon-chevron-right footer"></a></h3>
+    <h3><a onclick="javascript:nextWelcome(-1)" class="col-xs-6 text-center footer" style="border-right: 1px dotted" id="footer-back-button">&lt Prev</a></h3>
+    <h3><a onclick="javascript:nextWelcome(1)" class="col-xs-6 text-center footer">Next &gt</a></h3>
 </footer>
 
 </body>
@@ -294,11 +391,11 @@
         const updatedScreen = currentWelcomeScreen + increment;
 
         // TODO: Perform checks before sending to my story view
-        if (updatedScreen == 5) {
+        if (updatedScreen == 6) {
             document.location.hash = "#my-story"; 
         }
 
-        if (updatedScreen < 1 || updatedScreen > 4) {
+        if (updatedScreen < 1 || updatedScreen > 5) {
             return;
         } else {
             // grey out BACK button if 1
