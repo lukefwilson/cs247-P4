@@ -3,16 +3,32 @@ $( document ).ready(function() {
     var changeToPage = function(pageName) {
         if (pageName[0] === '#') pageName = pageName.substr(1); // remove leading #
 
-        // Show correct screen
+        // Show correct screen by getting name from the url
         $('.screen').hide();
         $('#' + pageName + '-screen').show();
+
+        // special: If this is My Story, show edit mode
+        if (pageName == 'my-story') {
+            $('#edit-button-top').show();
+        } else {
+            $('#edit-button-top').hide();
+        }
+
+        // if this is edit then show the save button
+        if (pageName == 'editing-my-profile') {
+            $('#footer-menu').hide();
+            $('#footer-save').show();
+        } else {
+            $('#footer-menu').show();
+            $('#footer-save').hide();
+        }
 
         // Select correct nav item
         $('.bottom-nav-item').removeClass('selected');
         $('#' + pageName + '-nav').addClass('selected');
 
         // Change top title
-        $('.top-nav-item.title').html( pageName.replace('-', ' ') )
+        $('.top-nav-item.title').html( pageName.replace(/-/g, ' ') )
     }
 
     changeToPage('local-stories'); // start on local-stories screen

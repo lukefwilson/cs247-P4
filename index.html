@@ -20,19 +20,24 @@
 
 <body>
 
-<!-- Top Nav -->
-<nav class="navbar navbar-fixed-top top-nav">
-    <a class="top-nav-item back hide" href="#">
-        < Back
-    </a>
+<!-- Top Nav test with git -->
+<nav class="navbar navbar-fixed-top top-nav row container">
+    <div class="col-xs-4">
+        <a class="top-nav-item back hide col-xs-4" href="#">
+            < Back
+        </a>
+    </div>
 
-    <div class="top-nav-item title text-center">
+    <div class="top-nav-item title text-center col-xs-4">
         Local Stories
     </div>
 
-    <a class="top-nav-item forward hide" href="#">
-        Forward >
-    </a>
+    <div clas="col-xs-4 row">
+        <a class="top-nav-item forward hide" href="#">
+            Forward >
+        </a>
+        <a id="edit-button-top" class="top-nav-item glyphicon glyphicon-edit col-xs-2 pull-right" href="#editing-my-profile"></a>
+    </div>
 </nav>
 
 <!-- Screens -->
@@ -51,7 +56,7 @@
                 <button class="btn btn-inner read-more">Read More</button>
             </div>
         </div>
-        <hr style="" class="pretty-divider" />
+        <hr class="profile-divider" />
         <div class="main collapse">
             <div class="chapter">
                 <h1 class="chapter-title">Starting on Anastrazole</h1>
@@ -117,8 +122,31 @@
     <input type="text">
 </div>
 
+<div class="container screen" id="editing-my-profile-screen">
+    <div class="editing-my-story">
+        <div class="header">
+            <img class="profile-photo img-responsive center-block" src="img/bunch-shawna.jpg">
+            <input class="text-center profile-name" value="Shawna Bunch" placeholder="Your Name"></input><br>
+            <input class="text-center profile-location" value="Raleigh, North Carolina" placeholder="Your Location"></input><br>
+            <input class="text-center profile-bio" value="It's a blessing to spend time with my Family." placeholder="Write a brief bio"></input>
+            <div class="btn-outer text-center write-chapter">
+                <button class="btn btn-inner">Write a New Chapter</button>
+            </div>
+        </div>
+        <hr style="" class="pretty-divider" />
+        <div class="main">
+            <div class="chapter">
+                <input class="chapter-title" value="Starting on Anastrazole" placeholder="Chapter Title"></input>
+                <input class="chapter-date form-control" value="March 8th, 2017" placeholder="Chapter Date"></input>
+                <textarea class="chapter-text" rows="10" placeholder="Share something...">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam pulvinar lacinia felis, at placerat dui finibus quis. Pellentesque vitae tellus cursus, laoreet metus sit amet, ornare diam. Donec finibus dignissim nibh, ut consectetur nunc tristique et. Sed in ipsum aliquam, ullamcorper dolor vitae, tempus magna. Phasellus gravida malesuada nisi, a malesuada erat laoreet in. Maecenas iaculis sem eget felis maximus venenatis. Aliquam erat volutpat. Integer vitae justo non ante blandit dapibus vitae eget enim. Vestibulum finibus suscipit mauris et aliquet. Morbi convallis viverra lorem eget cursus.
+                </textarea>
+            </div>
+        </div>
+    </div>
+</div>
+
 <!-- Bottom Nav -->
-<footer class="bottom-nav bg-faded">
+<footer class="bottom-nav bg-faded" id="footer-menu">
     <div class="container">
         <div class="row">
             <div class="col-xs-4">
@@ -147,6 +175,10 @@
             </div>
         </div>
     </div>
+</footer>
+<footer class="bottom-nav bg-faded row" id="footer-save">
+    <h3><a href="#my-story" class="col-xs-6 text-center glyphicon glyphicon-remove" style="border-right: 1px dotted"></a></h3>
+    <h3><a href="#my-story" class="col-xs-6 text-center glyphicon glyphicon-ok"></a></h3>
 </footer>
 
 </body>

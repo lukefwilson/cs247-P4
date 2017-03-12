@@ -50,9 +50,8 @@ body {
   display: inline-block;
 }
 
-.top-nav-item.title {
+.top-nav-item .title {
   font-size: 20px;
-  width:100%;
 }
 
 .top-nav-item.back {
@@ -75,6 +74,11 @@ body {
 
 .pretty-divider {
   border-top: dashed 1px; 
+  color:#ffced8;
+}
+
+.profile-divider {
+  border-top: solid 1px; 
   color:#ffced8;
 }
 
@@ -134,7 +138,20 @@ body {
 
 }
 
+/* Editing my profile */
+.editing-my-story input, .editing-my-story textarea {
+  width: 100% !important;
+  margin-top: 5px;
+}
+
 /* Bottom Nav */
+
+.bottom-nav .bottom-text {
+  color: white;
+  font-size: 2em;
+  font-weight: bold;
+  margin-top: 13px;
+}
 
 .bottom-nav {
   position: fixed;
@@ -192,4 +209,10 @@ body {
 .bordered-nav-item {
   border-left: 1px dotted white;
   border-right: 1px dotted white;
+}
+
+#footer-save a {
+  color: white !important;
+  text-decoration: none;
+  margin-top: -6px;
 }
