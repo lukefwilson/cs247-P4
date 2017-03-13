@@ -77,6 +77,20 @@ $( document ).ready(function() {
       }
     }
 
+    var renderMyStoryPage = function () {
+      var source   = $("#my-story-template").html();
+      var myStoryTemplate = Handlebars.compile(source);
+      var $screen = $('#my-chapters-rendered');
+      $screen.html('');
+
+      for (var i = myStoriesData.length-1 ; i >= 0; i--) {
+        var story = myStoriesData[i];
+
+        var html = myStoryTemplate(story);
+        $screen.append(html);
+      }
+    }
+
     var renderConversationWithUser = function(user) {
         var $screen = $('#messages-index');
         $screen.html('');
@@ -119,6 +133,7 @@ $( document ).ready(function() {
         // special: If this is My Story, show edit mode
         if (pageName == 'my-story') {
             $('#edit-button-top').show();
+            renderMyStoryPage();
         } else {
             $('#edit-button-top').hide();
         }

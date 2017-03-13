@@ -109,15 +109,16 @@
             </div>
         </div>
         <hr style="" class="pretty-divider" />
-        <div class="main">
-            <div class="chapter">
-                <h1 class="chapter-title">Starting on Anastrazole</h1>
-                <p class="chapter-date">March 8th, 2017</p>
-                <p class="chapter-text">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam pulvinar lacinia felis, at placerat dui finibus quis. Pellentesque vitae tellus cursus, laoreet metus sit amet, ornare diam. Donec finibus dignissim nibh, ut consectetur nunc tristique et. Sed in ipsum aliquam, ullamcorper dolor vitae, tempus magna. Phasellus gravida malesuada nisi, a malesuada erat laoreet in. Maecenas iaculis sem eget felis maximus venenatis. Aliquam erat volutpat. Integer vitae justo non ante blandit dapibus vitae eget enim. Vestibulum finibus suscipit mauris et aliquet. Morbi convallis viverra lorem eget cursus.
-                </p>
-            </div>
+        <div class="main" id="my-chapters-rendered">
+            <!-- the chapters will go here from handlebars -->
         </div>
+        <script id="my-story-template" type="text/x-handlebars-template">
+            <div class="chapter">
+                <h1 class="chapter-title">{{ title }}</h1>
+                <p class="chapter-date"> March 13, 2017</p>
+                <p class="chapter-text">{{ content }}</p>
+            </div>
+        </script>
     </div>
 </div>
 
