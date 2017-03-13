@@ -101,7 +101,7 @@ $( document ).ready(function() {
     $("#footer-back-button").addClass("greyed-out");   
     $('.start-conver').toggle();  // hide ALL the start conversation buttons
 
-    /*=========== start on welcome screen =========*/
+    /*=============================================*/
 
     // Toggle collapse local story content
     $('.read-more').click(function() {
