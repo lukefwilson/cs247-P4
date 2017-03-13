@@ -467,8 +467,9 @@ p.button-label{
 
 .row.q_card_2{
 	border-top: thin solid #ff89a0;
-	height: 280px;
+	min-height: 200px;
 	padding-top: 20px;
+  margin-bottom: 15px;
 }
 
 #marital-single, #marital-married, #kid-yes, #kid-no, 

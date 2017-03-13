@@ -233,7 +233,7 @@
             <img class="img-responsive center-block welcrumb-breadcome"  src="img/signup-img/p_bar_2.png">
         </div>
         <div id="welcome-message">
-            <p class="welcome-pbar-label">Step 2: Please tell us a little about your family.</p>
+            <p class="welcome-pbar-label">You're doing great! Please tell us a little about your family.</p>
         </div>
 	</center>
     <div class="container">
@@ -264,12 +264,12 @@
         <img class="img-responsive center-block welcrumb-breadcome" src="img/signup-img/p_bar_3.png">
     </div>
     <div id="welcome-message">
-        <p class="welcome-pbar-label">Step 3: Please tell us about your breast cancer stage and when were you diagnosed.</p>
+        <p class="welcome-pbar-label">Please tell us about your breast cancer stage and when were you diagnosed. This will help us match you with other members of the community.</p>
     </div>
 	</center>
     <div class="container">
 		<div class="row q_card_2" style="padding: 5px;">
-			<p class="qcard_title">Stage</p>
+			<p class="qcard_title">What stage are you at right now?</p>
 			<center>
 				<div class="row">
 				<div id="stage-one" OnClick = "stageOne()">Stage I</div>
@@ -282,7 +282,7 @@
 			</center>
 		</div>
 		<div class="row q_card_2" >
-			<p class="qcard_title" style="margin-top: 20px;">Diagnosed Date</p>
+			<p class="qcard_title">When were you first diagnosed?</p>
 			<center>
 			<div class="row welcome-tab-row">
 			<input type="month" name="diagnose" id="diagnose_input"/>
@@ -297,12 +297,13 @@
         <img class="img-responsive center-block welcrumb-breadcome" src="img/signup-img/p_bar_4.png">
     </div>
     <div id="welcome-message">
-        <p class="welcome-pbar-label">Step 4: Your profile is ready. Now please write a chapter to start your story.</p>
+        <p class="welcome-pbar-label">You're done! We'd now invite you to start writing the first chapter of your story. Think of this as you're online diary where you can share your thoughts and feelings with the community. No one but trusted members of the community can read these. </p>
     </div>
     <div class="container" style="border-top: thin solid #ff89a0; padding-top: 20px;">
-		<p class="firstchapt-label">Title </p> <input type="text" name="stage" id="firstchapt-title">
+		<!--p class="firstchapt-label">Title </p--> 
+        <input type="text" class="chapter-title" name="stage" id="firstchapt-title" placeholder="Title of your Chapter" />
 		
-		<textarea placeholder="Here's where you can share your thoughts. Be as expressive as you want. Let others know what you're going through. Here's where you can make a connection with others in the community." class="chapter-text" rows="10" id="firstchapt"></textarea>
+		<textarea placeholder="Here's where you can share your thoughts in the first chapter of your story. Be as expressive as you want. Let others know what you're going through. Here's where you can make a connection with others in the community." class="chapter-text" rows="10" id="firstchapt"></textarea>
 	</div>
 </div>
 
@@ -311,23 +312,23 @@
         <img class="img-responsive center-block welcrumb-breadcome" src="img/signup-img/p_bar_4.png">
     </div>
     <div id="welcome-message">
-        <p class="welcome-pbar-label">Step 4: Hi! Welcome to the "tag" page. Tags indicate the subject about the chapter. Please tap on two tags below to help your story readers know you better and faster.</p>
+        <p class="welcome-pbar-label">You're doing a fantastic job! Now we're at the "tag" page. Tags are a way to categorize your story - this helps members of the community find stories on topics that matter to them the most. Please tap on two tags below which you believe are most strongly associated with the chapter you just wrote.</p>
     </div>
 	<center>
 	<hr style="" class="pretty-divider" />
-	<p class="welcome-tag-title"> Treatment </p>
+	<p class="welcome-tag-title"> The Treatment Process </p>
     <div class="row">
 		<img id="firstchpt-tag-chemo" OnClick="chemoTag()" src="tags/chemo-tag.png"/>
 		<img id="firstchpt-tag-medicine" OnClick="medicineTag()" src="tags/medicine-tag.png" />
 	</div>
 	<hr style="" class="pretty-divider" />
-	<p class="welcome-tag-title"> Doctor </p>
+	<p class="welcome-tag-title"> Interactions at the Hospital </p>
 	<div class="row">
 		<img id="firstchpt-tag-hospital" OnClick="hospitalTag()" src="tags/hospital-tag.png"/>
 		<img id="firstchpt-tag-surgery" OnClick="surgeryTag()" src="tags/surgery-tag.png" />
 	</div>
 	<hr style="" class="pretty-divider" />
-	<p class="welcome-tag-title"> Instrinsic </p>
+	<p class="welcome-tag-title"> Things closest to your heart </p>
 	<div class="row">
 		<img id="firstchpt-tag-family" OnClick="famTag()" src="tags/family-tag.png"/>
 		<img id="firstchpt-tag-reflection" OnClick="refTag()"  src="tags/reflection-tag.png"/>
