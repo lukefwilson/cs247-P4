@@ -100,10 +100,10 @@
 <div class="container screen" id="my-story-screen">
     <div class="local-story">
         <div class="header">
-            <img class="profile-photo img-responsive center-block" src="img/bunch-shawna.jpg">
-            <h1 class="text-center profile-name">Shawna Bunch</h1>
-            <p class="text-center profile-location">Raleigh, North Carolina</p>
-            <p class="text-center profile-bio">It's a blessing to spend time with my Family.</p>
+            <img id="profile-image-preview" class="profile-photo img-responsive center-block" src="img/bunch-shawna.jpg">
+            <h1 class="text-center profile-name">Your Name</h1>
+            <p id="profile-location" class="text-center profile-location">Stanford, California</p>
+            <p id="my-bio" class="text-center profile-bio">Your Bio</p>
             <div class="btn-outer text-center write-chapter">
                 <button class="btn btn-inner">Write a New Chapter</button>
             </div>
@@ -171,8 +171,8 @@
     <div class="editing-my-story">
         <div class="header">
             <img class="profile-photo img-responsive center-block" src="img/bunch-shawna.jpg">
-            <input class="text-center profile-name" value="Shawna Bunch" placeholder="Your Name"></input><br>
-            <input class="text-center profile-location" value="Raleigh, North Carolina" placeholder="Your Location"></input><br>
+            <input class="text-center profile-name" id="edit-profile-name" placeholder="Your Name"></input><br>
+            <input class="text-center profile-location" id="edit-profile-location" value="Stanford, California" placeholder="Your Location"></input><br>
             <input class="text-center profile-bio" value="It's a blessing to spend time with my Family." placeholder="Write a brief bio"></input>
         </div>
         <hr style="" class="pretty-divider" />
@@ -369,8 +369,8 @@
 </footer>
 
 <footer class="bottom-nav bg-faded row" id="footer-save">
-    <h3><a href="#my-story" class="col-xs-6 text-center footer" style="border-right: 1px dotted">Cancel</a></h3>
-    <h3><a href="#my-story" class="col-xs-6 text-center footer">Save</a></h3>
+    <h3><a href="#my-story" class="col-xs-6 text-center footer" onclick="setProfileData()" style="border-right: 1px dotted">Cancel</a></h3>
+    <h3><a href="#my-story" class="col-xs-6 text-center footer" onclick="saveProfile()">Save</a></h3>
 </footer>
 
 <footer class="bottom-nav bg-faded row" id="footer-signup">
@@ -393,6 +393,10 @@
 
         // TODO: Perform checks before sending to my story view
         if (updatedScreen == 6) {
+            // update the user's story
+            appendChapterToStory();
+
+            // take them to the my story page
             document.location.hash = "#my-story"; 
         }
 
@@ -425,6 +429,12 @@
 
             reader.readAsDataURL(input.files[0]);
         }
+    }
+
+    // clicking save button while editing profile
+    function saveProfile() {
+        $('#profile-location').html($('#edit-profile-location').val());
+        $('#my-bio').html($('.profile-bio').val());
     }
 </script>
 </html>

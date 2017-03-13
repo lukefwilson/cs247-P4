@@ -1,4 +1,48 @@
+var myProfile = {};
+var myStoriesData = [];
+var currentTags = {
+  "chemo" : 0, 
+  "medicine" : 0, 
+  "hospital" : 0,
+  "surgery" : 0, 
+  "fam" : 0, 
+  "ref" : 0,
+};
+
+function resetTags() {
+  // reset all tags to 0
+  for (tag in currentTags) {
+    currentTags[tag] = 0;
+  }
+}
+
+function appendChapterToStory() {
+  // append the current object to the array of myStoriesData
+  myStoriesData.push({
+      "title" : $('#firstchapt-title').val(),
+      "content" : $('#firstchapt').val(),
+      "tags" : currentTags
+  });
+
+  // and then reset the tags
+  resetTags();
+}
+
 $( document ).ready(function() {
+    // set the "my story" fields the same as those in the welcome screen
+    $('#name_input').change(function() {
+      $('.profile-name').html($('#name_input').val());
+      $('#edit-profile-name').val($('#name_input').val());
+    });
+
+    $('#bio_input').change(function() {
+      $('#my-bio').html($('#bio_input').val());
+    });
+
+    $('#bio_input').change(function() {
+      $('#my-bio').html($('#bio_input').val());
+      $('.profile-bio').val($('#bio_input').val());
+    });  
 
     var renderConversationsIndex = function() {
       var source   = $("#conversations-index-template").html();
@@ -221,68 +265,68 @@ function stageFour(){
 }
 
 /*---Tags---*/
-var chemo=0; var medicine=0; var hospital=0; var surgery=0; var fam=0; var ref=0;
+// var chemo=0; var medicine=0; var hospital=0; var surgery=0; var fam=0; var ref=0;
 var selectBorder="thin dashed #ff89a0";
 var deselectBorder="none";
 function chemoTag(){
-	if (chemo == 0){
+	if (currentTags["chemo"] == 0){
 		document.getElementById("firstchpt-tag-chemo").style.border=selectBorder;
-		chemo = 1;
+		currentTags["chemo"] = 1;
 	}
 	else{
 		document.getElementById("firstchpt-tag-chemo").style.border=deselectBorder;
-		chemo = 0;
+    currentTags["chemo"] = 0;
 	}
 }
 
 function medicineTag(){
-	if (medicine == 0){
+	if (currentTags["medicine"] == 0){
 		document.getElementById("firstchpt-tag-medicine").style.border=selectBorder;
-		medicine = 1;
+		currentTags["medicine"] = 1;
 	}
 	else{
 		document.getElementById("firstchpt-tag-medicine").style.border=deselectBorder;
-		medicine = 0;
+    currentTags["medicine"] = 0;
 	}
 }
 
 function hospitalTag(){
-	if (hospital == 0){
+	if (currentTags["hospital"] == 0){
 		document.getElementById("firstchpt-tag-hospital").style.border=selectBorder;
-		hospital = 1;
+		currentTags["hospital"] = 1;
 	}
 	else{
 		document.getElementById("firstchpt-tag-hospital").style.border=deselectBorder;
-		hospital = 0;
+		currentTags["hospital"] = 0;
 	}
 }
 function surgeryTag(){
-	if (surgery == 0){
+	if (currentTags["surgery"] == 0){
 		document.getElementById("firstchpt-tag-surgery").style.border=selectBorder;
-		surgery = 1;
+		currentTags["surgery"] = 1;
 	}
 	else{
 		document.getElementById("firstchpt-tag-surgery").style.border=deselectBorder;
-		surgery = 0;
+		currentTags["surgery"] = 0;
 	}
 }
 function famTag(){
-	if (fam == 0){
+	if (currentTags["fam"] == 0){
 		document.getElementById("firstchpt-tag-family").style.border=selectBorder;
-		fam = 1;
+		currentTags["fam"] = 1;
 	}
 	else{
 		document.getElementById("firstchpt-tag-family").style.border=deselectBorder;
-		fam = 0;
+		currentTags["fam"] = 0;
 	}
 }
 function refTag(){
-	if (ref == 0){
+	if (currentTags["ref"] == 0){
 		document.getElementById("firstchpt-tag-reflection").style.border=selectBorder;
-		ref = 1;
+		currentTags["ref"] = 1;
 	}
 	else{
 		document.getElementById("firstchpt-tag-reflection").style.border=deselectBorder;
-		ref = 0;
+		currentTags["ref"] = 0;
 	}
 }
