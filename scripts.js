@@ -95,10 +95,13 @@ $( document ).ready(function() {
         $('#' + pageName + '-nav').addClass('selected');
     }
 
-    // start on welcome screen
-    changeToPage('welcome');
-    document.location.hash = "#welcome1";    
+    /*=========== start on welcome screen =========*/
+    changeToPage('welcome1');
+    document.location.hash = "#welcome1"; 
+    $("#footer-back-button").addClass("greyed-out");   
     $('.start-conver').toggle();  // hide ALL the start conversation buttons
+
+    /*=========== start on welcome screen =========*/
 
     // Toggle collapse local story content
     $('.read-more').click(function() {

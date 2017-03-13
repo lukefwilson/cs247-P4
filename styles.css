@@ -215,9 +215,23 @@ body {
 }
 
 .bottom-nav a {
-  color: white !important;
+  /* color: white !important; */
   text-decoration: none;
   margin-top: -6px;
+  cursor: pointer;
+}
+
+.bottom-nav a:hover {
+  color: white;
+}
+
+/* bottom nav classes */
+.greyed-out {
+  color: #735f40 !important;
+}
+
+.footer {
+  color: white;
 }
 
 /* Conversations view */

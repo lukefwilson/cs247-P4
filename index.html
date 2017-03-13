@@ -189,16 +189,53 @@
     </div>
 </div>
 
-<div class="container screen" id="welcome-screen">
+<!-- WELCOME SCREENS ENSEMBLE -->
+<div class="container screen" id="welcome1-screen">
     <div class="row">
         <img style="padding: 5px;" src="img/signup-img/p_bar_1.png">
     </div>
     <div id="welcome-message">
-        <p>We'd love to know more about you! All this information can be modified later.</p>
+        <p>We'd love to know more about you! Let's start with your basic details. All this information can be modified later.</p>
     </div>
     <hr class="profile-divider" />
     <input class="chapter-title" value="" placeholder="Your Name"></input>
     <input class="chapter-title" value="" placeholder="Your Bio/Status"></input>
+</div>
+
+<div class="container screen" id="welcome2-screen">
+    <div class="row">
+        <img style="padding: 5px;" src="img/signup-img/p_bar_2.png">
+    </div>
+    <div id="welcome-message">
+        <p></p>
+    </div>
+    <hr class="profile-divider" />
+    <input class="chapter-title" value="" placeholder="Some other stuff"></input>
+    <input class="chapter-title" value="" placeholder="More stuff"></input>
+</div>
+
+<div class="container screen" id="welcome3-screen">
+    <div class="row">
+        <img style="padding: 5px;" src="img/signup-img/p_bar_3.png">
+    </div>
+    <div id="welcome-message">
+        <p></p>
+    </div>
+    <hr class="profile-divider" />
+    <input class="chapter-title" value="" placeholder="Some other stuff"></input>
+    <input class="chapter-title" value="" placeholder="More stuff"></input>
+</div>
+
+<div class="container screen" id="welcome4-screen">
+    <div class="row">
+        <img style="padding: 5px;" src="img/signup-img/p_bar_4.png">
+    </div>
+    <div id="welcome-message">
+        <p></p>
+    </div>
+    <hr class="profile-divider" />
+    <input class="chapter-title" value="" placeholder="Some other stuff"></input>
+    <input class="chapter-title" value="" placeholder="More stuff"></input>
 </div>
 
 <!-- Bottom Nav -->
@@ -234,13 +271,13 @@
 </footer>
 
 <footer class="bottom-nav bg-faded row" id="footer-save">
-    <h3><a href="#my-story" class="col-xs-6 text-center glyphicon glyphicon-remove" style="border-right: 1px dotted"></a></h3>
-    <h3><a href="#my-story" class="col-xs-6 text-center glyphicon glyphicon-ok"></a></h3>
+    <h3><a href="#my-story" class="col-xs-6 text-center glyphicon glyphicon-remove footer" style="border-right: 1px dotted"></a></h3>
+    <h3><a href="#my-story" class="col-xs-6 text-center glyphicon glyphicon-ok footer"></a></h3>
 </footer>
 
 <footer class="bottom-nav bg-faded row" id="footer-signup">
-    <h3><a onclick="javascript:nextWelcome(-1)" class="col-xs-6 text-center glyphicon glyphicon-chevron-left" style="border-right: 1px dotted"></a></h3>
-    <h3><a onclick="javascript:nextWelcome(1)" class="col-xs-6 text-center glyphicon glyphicon-chevron-right"></a></h3>
+    <h3><a onclick="javascript:nextWelcome(-1)" class="col-xs-6 text-center glyphicon glyphicon-chevron-left footer" style="border-right: 1px dotted" id="footer-back-button"></a></h3>
+    <h3><a onclick="javascript:nextWelcome(1)" class="col-xs-6 text-center glyphicon glyphicon-chevron-right footer"></a></h3>
 </footer>
 
 </body>
@@ -254,11 +291,25 @@
         var currentWelcomeScreen = parseInt(docHash.substring(docHash.length - 1));
 
         // Check for edge cases
-        if (currentWelcomeScreen + increment < 0 || currentWelcomeScreen + increment > 4) {
+        const updatedScreen = currentWelcomeScreen + increment;
+
+        // TODO: Perform checks before sending to my story view
+        if (updatedScreen == 5) {
+            document.location.hash = "#my-story"; 
+        }
+
+        if (updatedScreen < 1 || updatedScreen > 4) {
             return;
         } else {
+            // grey out BACK button if 1
+            if (updatedScreen == 1) {
+                $("#footer-back-button").addClass("greyed-out");
+            } else {
+                $("#footer-back-button").removeClass("greyed-out");
+            }
+
             // increment and call the next page in the series
-            document.location.hash = docHash.substring(1, docHash.length-1) + String(currentWelcomeScreen + increment);
+            document.location.hash = docHash.substring(1, docHash.length-1) + String(updatedScreen);
         }
     }
 </script>
