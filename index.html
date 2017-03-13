@@ -437,6 +437,11 @@
             $('#footer-next-button').html('Next &gt');
         }
 
+        if (increment == -1 && document.location.hash == "#edit-chapter1") {
+            document.location.hash = "#my-story"; 
+            return;
+        }
+
         // TODO: Perform checks before sending to my story view
         if (document.location.hash == "#edit-chapter2" && increment == 1) {
             // if this is the edit chapter view's second page,

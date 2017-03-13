@@ -120,7 +120,11 @@ $( document ).ready(function() {
 
         if (document.location.hash.substring(document.location.hash.length - 1) == 1 ) {
           // if this is the first page in a sequence, grey out the <PREV button
-          $("#footer-back-button").addClass("greyed-out");
+          if (document.location.hash == '#welcome1') {
+            $("#footer-back-button").addClass("greyed-out");  
+          } else {
+            $("#footer-back-button").html("< Back");
+          }
         } 
 
         if (pageName[0] === '#') pageName = pageName.substr(1); // remove leading #
