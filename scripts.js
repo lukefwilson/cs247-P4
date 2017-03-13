@@ -15,6 +15,10 @@ function resetTags() {
     currentTags[tag] = 0;
     $(".firstchpt-tag-" + tag).css("border", deselectBorder);
   }
+
+  // clear the text inputs in write chapter mode as well
+  $('#chapt-title').val("");
+  $('#chapt').val("");
 }
 
 function appendChapterToStory() {
