@@ -193,7 +193,7 @@
         <img style="padding: 5px;" src="img/signup-img/p_bar_1.png">
     </div>
     <div id="welcome-message">
-        <p class="welcome-pbar-label">Welcome! Please help us to learn you more. Note that all profile information can be modified later.</p>
+        <p class="welcome-pbar-label">Welcome! Please help us to learn more about you. Note that all profile information can be modified later.</p>
     </div>
 	</center>
 	<div class="container">
@@ -206,10 +206,11 @@
 		<div class="row q_card">
 			<p class="qcard_title">Profile Photo</p>
 			<center>
-			<label for="file-upload" class="custom-file-upload">
-			<p class="button-label">Choose A Photo</p>
-			</label>
-			<input id="file-upload" type="file"/>
+                <img id="profile-image-preview" class="profile-photo img-responsive center-block hide" src="#" style="margin-bottom:15px"/> 
+    			<label for="file-upload" class="custom-file-upload">
+    			     <p class="button-label" id="choose-photo">Choose A Photo</p>
+    			</label>
+    			<input id="file-upload" type="file" onchange="previewPic(this);"/>
 			</center>
 		</div>
 		<div class="row q_card">
@@ -221,7 +222,7 @@
 		<div class="row q_card">
 			<p class="qcard_title" >Bio/Motto</p>
 			<center>
-			<input type="text" placeholder="Your bio/motto" name="bio" id="bio_input"/>
+			     <input type="text" placeholder="Your bio/motto" name="bio" id="bio_input"/>
 			</center>
 		</div>
 	</div>
@@ -229,12 +230,12 @@
 
 <div class="container screen" id="welcome2-screen">
 	<center>
-    <div class="row">
-        <img style="padding: 5px;" src="img/signup-img/p_bar_2.png">
-    </div>
-    <div id="welcome-message">
-        <p class="welcome-pbar-label">Step 2: Please tell us a little about your family.</p>
-    </div>
+        <div class="row">
+            <img style="padding: 5px;" src="img/signup-img/p_bar_2.png">
+        </div>
+        <div id="welcome-message">
+            <p class="welcome-pbar-label">Step 2: Please tell us a little about your family.</p>
+        </div>
 	</center>
     <div class="container">
 		<div class="row q_card_2">
@@ -407,6 +408,22 @@
 
             // increment and call the next page in the series
             document.location.hash = docHash.substring(1, docHash.length-1) + String(updatedScreen);
+        }
+    }
+
+    // preview profile picture
+    function previewPic(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('#profile-image-preview')
+                    .attr('src', e.target.result)
+                    .removeClass('hide');
+                $('#choose-photo').html("Choose Another Photo");
+            };
+
+            reader.readAsDataURL(input.files[0]);
         }
     }
 </script>

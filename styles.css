@@ -415,7 +415,7 @@ p.welcome-pbar-label{
 
 .row.q_card{
 	border-top: thin solid #ff89a0;
-	height: 120px;
+	min-height: 120px;
 }
 
 p.qcard_title{
