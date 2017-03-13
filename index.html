@@ -239,15 +239,27 @@
 </footer>
 
 <footer class="bottom-nav bg-faded row" id="footer-signup">
-    <h3><a class="col-xs-6 text-center glyphicon glyphicon-chevron-left" style="border-right: 1px dotted"></a></h3>
-    <h3><a onclick="javascript:nextWelcome()" class="col-xs-6 text-center glyphicon glyphicon-chevron-right"></a></h3>
+    <h3><a onclick="javascript:nextWelcome(-1)" class="col-xs-6 text-center glyphicon glyphicon-chevron-left" style="border-right: 1px dotted"></a></h3>
+    <h3><a onclick="javascript:nextWelcome(1)" class="col-xs-6 text-center glyphicon glyphicon-chevron-right"></a></h3>
 </footer>
 
 </body>
 <script>
     // welcome screen - clicking next
-    var nextWelcome = function() {
-        console.log(document.location.hash);
+    var nextWelcome = function(increment) {
+        var increment = parseInt(increment)
+
+        // get current welcome screen
+        var docHash = document.location.hash;
+        var currentWelcomeScreen = parseInt(docHash.substring(docHash.length - 1));
+
+        // Check for edge cases
+        if (currentWelcomeScreen + increment < 0 || currentWelcomeScreen + increment > 4) {
+            return;
+        } else {
+            // increment and call the next page in the series
+            document.location.hash = docHash.substring(1, docHash.length-1) + String(currentWelcomeScreen + increment);
+        }
     }
 </script>
 </html>

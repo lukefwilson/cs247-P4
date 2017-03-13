@@ -97,7 +97,7 @@ $( document ).ready(function() {
 
     // start on welcome screen
     changeToPage('welcome');
-    document.location.hash = "#welcome";    
+    document.location.hash = "#welcome1";    
     $('.start-conver').toggle();  // hide ALL the start conversation buttons
 
     // Toggle collapse local story content
