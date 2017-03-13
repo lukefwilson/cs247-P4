@@ -142,6 +142,9 @@ div.header, div.chapter{
   color: #95805c;
   font-size: 1.5em;
   font-weight: bold;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .chapter-date {
