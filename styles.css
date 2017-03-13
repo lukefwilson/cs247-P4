@@ -55,13 +55,11 @@ body {
 }
 
 .top-nav-item.back {
-  position: absolute;
-  left: 10px;
+  margin-left: 10px;
 }
 
 .top-nav-item.forward {
-  position: absolute;
-  right: 10px;
+  margin-right: 10px;
 }
 
 .top-nav .full-width {
@@ -73,13 +71,18 @@ body {
 /* Screens / Pages */
 
 .pretty-divider {
-  border-top: dashed 1px; 
+  border-top: dashed 1px;
   color:#ffced8;
 }
 
 .profile-divider {
-  border-top: solid 1px; 
+  border-top: solid 1px;
   color:#ffced8;
+}
+
+.profile-divider.small-margin {
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 
 .screen {
@@ -215,4 +218,23 @@ body {
   color: white !important;
   text-decoration: none;
   margin-top: -6px;
+}
+
+/* Conversations view */
+
+.conversation-img {
+  border-radius: 50%;
+  width: 75px;
+}
+
+.conversation-link {
+  border-bottom: 1px solid gray;
+}
+
+.conversation-link, .conversation-link:hover {
+  text-decoration: none;
+}
+
+.conversation-link:hover .media{
+  background-color: #e8e8e8;
 }

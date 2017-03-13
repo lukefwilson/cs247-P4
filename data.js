@@ -23,7 +23,7 @@ var db = {
             }
 }
 
-function User(id, name, age, diagnosisDate, stage, bio, married, kids, location) {
+function User(id, name, age, diagnosisDate, stage, bio, married, kids, location, img, messages) {
     this.id = id;
     this.fullName = name;
     this.firstName = name.split(' ')[0];
@@ -36,6 +36,8 @@ function User(id, name, age, diagnosisDate, stage, bio, married, kids, location)
     this.kids = kids;
     this.location = location;
     this.stories = [];
+    this.img = img;
+    this.messages = messages || [];
 }
 
 function Story(title, content, tags, user_id) {
@@ -46,17 +48,17 @@ function Story(title, content, tags, user_id) {
     this.user = undefined;
 }
 
-db.addUser(new User(1, 'Audrey Allen', 34, '12/2013', 2, 'This is my bio yo', true, 2, 'San Francisco, CA'));
+db.addUser(new User(1, 'Audrey Allen', 34, '12/2013', 2, 'This is my bio yo', true, 2, 'San Francisco, CA', 'aa-photo.png', ['filler message and good stuff', 'filler message and good stuff', 'filler message and good stuff']));
 db.addStory(new Story('Story Title', 'Some great content', [0, 2, 5], 1));
 db.addStory(new Story('Story Title', 'Some great content', [0, 2, 5], 1));
 db.addStory(new Story('Story Title', 'Some great content', [0, 2, 5], 1));
 
-db.addUser(new User(2, 'Sally Jenkins', 34, '12/2013', 2, 'This is my bio yo', true, 2, 'San Francisco, CA'));
+db.addUser(new User(2, 'Shawna Bunch', 34, '12/2013', 2, 'This is my bio yo', true, 2, 'San Francisco, CA', 'bunch-shawna.jpg', ['filler message and good stuff', 'filler message and good stuff', 'Say what!?']));
 db.addStory(new Story('Story Title', 'Some great content', [0, 2, 5], 2));
 db.addStory(new Story('Story Title', 'Some great content', [0, 2, 5], 2));
 db.addStory(new Story('Story Title', 'Some great content', [0, 2, 5], 2));
 
-db.addUser(new User(3, 'Sally Jenkins', 34, '12/2013', 2, 'This is my bio yo', true, 2, 'San Francisco, CA'));
+db.addUser(new User(3, 'Samantha Stephenson', 34, '12/2013', 2, 'This is my bio yo', true, 2, 'San Francisco, CA', 'stephenson-samantha.jpg'));
 db.addStory(new Story('Story Title', 'Some great content', [0, 2, 5], 3));
 db.addStory(new Story('Story Title', 'Some great content', [0, 2, 5], 3));
 db.addStory(new Story('Story Title', 'Some great content', [0, 2, 5], 3));

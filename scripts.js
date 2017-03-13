@@ -1,5 +1,22 @@
 $( document ).ready(function() {
 
+    var reloadConversationsIndex = function() {
+      var source   = $("#conversations-index-template").html();
+      var conversationPreviewTemplate = Handlebars.compile(source);
+      var $screen = $('#conversations-index');
+      $screen.html('');
+
+
+      for (var i = 0; i < db.users.length; i++) {
+        var user = db.users[i];
+
+        if (user.messages.length > 0) {
+          var html = conversationPreviewTemplate({user: user, lastMessage: user.messages[user.messages.length-1]});
+          $screen.append(html);
+        }
+      }
+    }
+
     var changeToPage = function(pageName) {
         if (pageName[0] === '#') pageName = pageName.substr(1); // remove leading #
 
@@ -21,6 +38,16 @@ $( document ).ready(function() {
         } else {
             $('#footer-menu').show();
             $('#footer-save').hide();
+        }
+
+        if (pageName == 'conversations') {
+          reloadConversationsIndex();
+        }
+
+        if (pageName.indexOf('conversation-with') >= 0) {
+          $('#conversations-back').removeClass('hide');
+        } else {
+          $('#conversations-back').addClass('hide');
         }
 
         // Select correct nav item

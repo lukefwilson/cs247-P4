@@ -15,6 +15,8 @@
 
     <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+    <script src="handlebars-v4.0.5.js"></script>
+    <script src="jquery.dotdotdot.min.js"></script>
     <script src="data.js"></script>
     <script src="scripts.js"></script>
 </head>
@@ -23,17 +25,20 @@
 
 <!-- Top Nav test with git -->
 <nav class="navbar navbar-fixed-top top-nav row container">
-    <div class="col-xs-4">
-        <a class="top-nav-item back hide col-xs-4" href="#">
+    <div class="col-xs-2">
+        <a class="top-nav-item back hide" href="#">
+            < Back
+        </a>
+        <a class="top-nav-item back hide" href="#conversations" id="conversations-back">
             < Back
         </a>
     </div>
 
-    <div class="top-nav-item title text-center col-xs-4">
+    <div class="top-nav-item title text-center col-xs-8">
         Local Stories
     </div>
 
-    <div clas="col-xs-4 row">
+    <div clas="col-xs-2 row">
         <a class="top-nav-item forward hide" href="#">
             Forward >
         </a>
@@ -119,8 +124,24 @@
 </div>
 
 <div class="container screen" id="conversations-screen">
-    <p>Converstations Content</p>
-    <input type="text">
+    <div id="conversations-index">
+
+    </div>
+
+    <script id="conversations-index-template" type="text/x-handlebars-template">
+        <a class="conversation-link" href="#conversation-with-{{user.firstName}}">
+            <div class="media">
+              <div class="media-left media-middle">
+                  <img class="media-object conversation-img" src="img/{{user.img}}">
+              </div>
+              <div class="media-body">
+                <h4 class="title">{{user.fullName}}</h4>
+                <p>{{lastMessage}}</p>
+              </div>
+            </div>
+        </a>
+        <hr class="profile-divider small-margin">
+    </script>
 </div>
 
 <div class="container screen" id="editing-my-profile-screen">
