@@ -260,14 +260,12 @@ body {
 .triangle-border {
   position:relative;
   padding:15px;
-  margin:1em 0 3em;
-  border:5px solid #5a8f00;
+  border:2px solid #ffced8;
   color:#333;
   background:#fff;
   /* css3 */
-  -webkit-border-radius:10px;
-  -moz-border-radius:10px;
-  border-radius:10px;
+  /*-webkit-border-radius:10px;*/
+  /*-moz-border-radius:10px;*/
 }
 
 /* Variant : for left positioned triangle
@@ -275,6 +273,8 @@ body {
 
 .triangle-border.left {
   margin-left:30px;
+  border-radius:10px 10px 10px 0px;
+  border-color: #e8e8e8;
 }
 
 /* Variant : for right positioned triangle
@@ -282,6 +282,7 @@ body {
 
 .triangle-border.right {
   margin-right:30px;
+  border-radius:10px 10px 0px 10px;
 }
 
 /* THE TRIANGLE
@@ -340,19 +341,19 @@ body {
 
 /* creates the larger triangle */
 .triangle-border.left:before {
-  top:10px; /* controls vertical position */
-  bottom:auto;
+  top:auto; /* controls vertical position */
+  bottom:-2px;
   left:-30px; /* value = - border-left-width - border-right-width */
-  border-width:15px 30px 15px 0;
-  border-color:transparent #5a8f00;
+  border-width:15px 30px 0px 0;
+  border-color:transparent #e8e8e8;
 }
 
 /* creates the smaller  triangle */
 .triangle-border.left:after {
-  top:16px; /* value = (:before top) + (:before border-top) - (:after border-top) */
-  bottom:auto;
+    top: auto;
+    bottom: 0px;
   left:-21px; /* value = - border-left-width - border-right-width */
-  border-width:9px 21px 9px 0;
+  border-width:11px 23px 0px 0;
   border-color:transparent #fff;
 }
 
@@ -361,21 +362,21 @@ body {
 
 /* creates the larger triangle */
 .triangle-border.right:before {
-  top:10px; /* controls vertical position */
-  bottom:auto;
+  top:auto; /* controls vertical position */
+  bottom:-2px;
   left:auto;
   right:-30px; /* value = - border-left-width - border-right-width */
-  border-width:15px 0 15px 30px;
-  border-color:transparent #5a8f00;
+  border-width:15px 0 0px 30px;
+  border-color:transparent #ffced8;
 }
 
 /* creates the smaller  triangle */
 .triangle-border.right:after {
-  top:16px; /* value = (:before top) + (:before border-top) - (:after border-top) */
-  bottom:auto;
-  left:auto;
-  right:-21px; /* value = - border-left-width - border-right-width */
-  border-width:9px 0 9px 21px;
+    top: auto;
+    bottom: 0px;
+    left: auto;
+    right: -23px;
+    border-width: 11px 0px 0px 23px;
   border-color:transparent #fff;
 }
 
