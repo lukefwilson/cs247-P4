@@ -105,7 +105,7 @@
             <p id="profile-location" class="text-center profile-location">Stanford, California</p>
             <p id="my-bio" class="text-center profile-bio">Your Bio</p>
             <div class="btn-outer text-center write-chapter">
-                <button class="btn btn-inner">Write a New Chapter</button>
+                <a class="btn btn-inner" href="#edit-chapter1">Write a New Chapter</a>
             </div>
         </div>
         <hr style="" class="pretty-divider" />
@@ -173,7 +173,7 @@
             <img class="profile-photo img-responsive center-block" src="img/bunch-shawna.jpg">
             <input class="text-center profile-name" id="edit-profile-name" placeholder="Your Name"></input><br>
             <input class="text-center profile-location" id="edit-profile-location" value="Stanford, California" placeholder="Your Location"></input><br>
-            <input class="text-center profile-bio" value="It's a blessing to spend time with my Family." placeholder="Write a brief bio"></input>
+            <input class="text-center profile-bio" id="edit-profile-bio" placeholder="Write a brief bio"></input>
         </div>
         <hr style="" class="pretty-divider" />
         <div class="main">
@@ -301,7 +301,7 @@
     </div>
     <div class="container" style="border-top: thin solid #ff89a0; padding-top: 20px;">
 		<!--p class="firstchapt-label">Title </p--> 
-        <input type="text" class="chapter-title" name="stage" id="firstchapt-title" placeholder="Title of your Chapter" />
+        <input type="text" class="edit-chapter-title" name="stage" id="firstchapt-title" placeholder="Title of your Chapter" />
 		
 		<textarea placeholder="Here's where you can share your thoughts in the first chapter of your story. Be as expressive as you want. Let others know what you're going through. Here's where you can make a connection with others in the community." class="chapter-text" rows="10" id="firstchapt"></textarea>
 	</div>
@@ -334,6 +334,44 @@
 		<img id="firstchpt-tag-reflection" OnClick="refTag()"  src="tags/reflection-tag.png"/>
 	</div>
 	</center>
+</div>
+
+<div class="container screen" id="edit-chapter1-screen">
+    <div id="welcome-message">
+        <p class="welcome-pbar-label">Think of this as you're online diary where you can share your thoughts and feelings with the community. No one but trusted members of the community can read these. </p>
+    </div>
+    <div class="container" style="border-top: thin solid #ff89a0; padding-top: 20px;">
+        <!--p class="firstchapt-label">Title </p--> 
+        <input type="text" class="edit-chapter-title" name="stage" id="chapt-title" placeholder="Title of your Chapter" />
+        
+        <textarea placeholder="Here's where you can share your thoughts in the first chapter of your story. Be as expressive as you want. Let others know what you're going through. Here's where you can make a connection with others in the community." class="chapter-text" rows="10" id="chapt"></textarea>
+    </div>
+</div>
+
+<div class="container screen" id="edit-chapter2-screen">
+    <div id="welcome-message">
+        <p class="welcome-pbar-label">Tags are a way to categorize your story - this helps members of the community find stories on topics that matter to them the most. Please tap on two tags below which you believe are most strongly associated with the chapter you just wrote.</p>
+    </div>
+    <center>
+    <hr style="" class="pretty-divider" />
+    <p class="welcome-tag-title"> The Treatment Process </p>
+    <div class="row">
+        <img id="firstchpt-tag-chemo" OnClick="chemoTag()" src="tags/chemo-tag.png"/>
+        <img id="firstchpt-tag-medicine" OnClick="medicineTag()" src="tags/medicine-tag.png" />
+    </div>
+    <hr style="" class="pretty-divider" />
+    <p class="welcome-tag-title"> Interactions at the Hospital </p>
+    <div class="row">
+        <img id="firstchpt-tag-hospital" OnClick="hospitalTag()" src="tags/hospital-tag.png"/>
+        <img id="firstchpt-tag-surgery" OnClick="surgeryTag()" src="tags/surgery-tag.png" />
+    </div>
+    <hr style="" class="pretty-divider" />
+    <p class="welcome-tag-title"> Things closest to your heart </p>
+    <div class="row">
+        <img id="firstchpt-tag-family" OnClick="famTag()" src="tags/family-tag.png"/>
+        <img id="firstchpt-tag-reflection" OnClick="refTag()"  src="tags/reflection-tag.png"/>
+    </div>
+    </center>
 </div>
 
 <!-- Bottom Nav -->
@@ -374,14 +412,14 @@
 </footer>
 
 <footer class="bottom-nav bg-faded row" id="footer-signup">
-    <h3><a onclick="javascript:nextWelcome(-1)" class="col-xs-6 text-center footer" style="border-right: 1px dotted" id="footer-back-button">&lt Prev</a></h3>
-    <h3><a onclick="javascript:nextWelcome(1)" class="col-xs-6 text-center footer">Next &gt</a></h3>
+    <h3><a onclick="javascript:nextPage(-1)" class="col-xs-6 text-center footer" style="border-right: 1px dotted" id="footer-back-button">&lt Prev</a></h3>
+    <h3><a onclick="javascript:nextPage(1)" class="col-xs-6 text-center footer">Next &gt</a></h3>
 </footer>
 
 </body>
 <script>
     // welcome screen - clicking next
-    var nextWelcome = function(increment) {
+    var nextPage = function(increment) {
         var increment = parseInt(increment)
 
         // get current welcome screen
@@ -434,7 +472,7 @@
     // clicking save button while editing profile
     function saveProfile() {
         $('#profile-location').html($('#edit-profile-location').val());
-        $('#my-bio').html($('.profile-bio').val());
+        $('#my-bio').html($('#edit-profile-bio').val());
     }
 </script>
 </html>

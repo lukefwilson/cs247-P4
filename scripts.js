@@ -88,6 +88,11 @@ $( document ).ready(function() {
         // scroll to top
         window.scrollTo(0, 0);
 
+        if (document.location.hash.substring(document.location.hash.length - 1) == 1 ) {
+          // if this is the first page in a sequence, grey out the <PREV button
+          $("#footer-back-button").addClass("greyed-out");
+        } 
+
         if (pageName[0] === '#') pageName = pageName.substr(1); // remove leading #
 
         currentPage = pageName;
@@ -110,8 +115,12 @@ $( document ).ready(function() {
             $('#footer-save').show();
             $('#footer-menu').hide();
             $('#footer-signup').hide();
-        } else  if (pageName.substring(0, 7) == 'welcome') {
-            $('.top-nav-item.title').html("Welcome!");
+        } else  if (pageName.substring(0, 7) == 'welcome' || pageName.substring(0, 12) == 'edit-chapter') {
+            if (pageName.substring(0, 7) == 'welcome') {
+              $('.top-nav-item.title').html("Welcome!");
+            } else {
+              $('.top-nav-item.title').html("Write a New Chapter");
+            }
             $('#footer-save').hide();
             $('#footer-menu').hide();
             $('#footer-signup').show();
@@ -144,8 +153,7 @@ $( document ).ready(function() {
 
     /*=========== start on welcome screen =========*/
     changeToPage('welcome1');
-    document.location.hash = "#welcome1"; 
-    $("#footer-back-button").addClass("greyed-out");   
+    document.location.hash = "#welcome1";   
     $('.start-conver').toggle();  // hide ALL the start conversation buttons
 
     /*=============================================*/

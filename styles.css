@@ -497,7 +497,7 @@ p.firstchapt-label{
 	font-family: comingSoon, cursive;
 }
 
-#firstchapt-title{
+.edit-chapter-title{
 	display: inline-block;
 	width: 300px;
 	height: 40px;
