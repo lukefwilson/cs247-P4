@@ -1,11 +1,11 @@
 var myProfile = {};
 var myStoriesData = [];
 var currentTags = {
-  "chemo" : 0, 
-  "medicine" : 0, 
+  "chemo" : 0,
+  "medicine" : 0,
   "hospital" : 0,
-  "surgery" : 0, 
-  "fam" : 0, 
+  "surgery" : 0,
+  "fam" : 0,
   "ref" : 0,
 };
 
@@ -38,7 +38,7 @@ function appendChapterToStory() {
       "tags" : $.extend({}, currentTags)
     });
   }
-  
+
 
   // and then reset the tags
   resetTags();
@@ -58,7 +58,7 @@ $( document ).ready(function() {
     $('#bio_input').change(function() {
       $('#my-bio').html($('#bio_input').val());
       $('.profile-bio').val($('#bio_input').val());
-    });  
+    });
 
     var renderConversationsIndex = function() {
       var source   = $("#conversations-index-template").html();
@@ -113,6 +113,7 @@ $( document ).ready(function() {
     }
 
     var currentPage;
+    var previousPage;
 
     var changeToPage = function(pageName) {
         // scroll to top
@@ -121,14 +122,15 @@ $( document ).ready(function() {
         if (document.location.hash.substring(document.location.hash.length - 1) == 1 ) {
           // if this is the first page in a sequence, grey out the <PREV button
           if (document.location.hash == '#welcome1') {
-            $("#footer-back-button").addClass("greyed-out");  
+            $("#footer-back-button").addClass("greyed-out");
           } else {
             $("#footer-back-button").html("< Back");
           }
-        } 
+        }
 
         if (pageName[0] === '#') pageName = pageName.substr(1); // remove leading #
 
+        previousPage = currentPage;
         currentPage = pageName;
         // Show correct screen by getting name from the url
         $('.screen').hide();
@@ -170,14 +172,14 @@ $( document ).ready(function() {
         }
 
         if (pageName.indexOf('conversation-with') >= 0) {
-          $('#conversations-back').show();
+          $('#back').show();
           $('#footer-menu').hide();
           $('#direct-conversation-screen').show();
 
           var user = db.getUserByFirstName(pageName.substr(18));
           renderConversationWithUser(user);
         } else {
-          $('#conversations-back').hide();
+          $('#back').hide();
           $('#footer-menu').show();
         }
 
@@ -188,7 +190,7 @@ $( document ).ready(function() {
 
     /*=========== start on welcome screen =========*/
     changeToPage('welcome1');
-    document.location.hash = "#welcome1";   
+    document.location.hash = "#welcome1";
     $('.start-conver').toggle();  // hide ALL the start conversation buttons
 
     /*=============================================*/
@@ -229,6 +231,13 @@ $( document ).ready(function() {
     $('#send-message-button').click(function(e) {
       sendMessage();
     })
+
+    $('#back').click(function(e) {
+      changeToPage(previousPage);
+
+      e.preventDefault();
+      return false;
+    });
 });
 
 /*------sign up tab--------*/
@@ -238,7 +247,7 @@ function single(){
 	document.getElementById("marital-single").style.color="white";
 	document.getElementById("marital-married").style.backgroundColor="white";
 	document.getElementById("marital-married").style.color="#ff89a0";
-	
+
 	marital = 0;
 }
 

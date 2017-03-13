@@ -27,7 +27,7 @@
 <!-- Top Nav test with git -->
 <nav class="navbar navbar-fixed-top top-nav row container">
     <div class="col-xs-2">
-        <a class="top-nav-item back" href="#conversations" id="conversations-back">
+        <a class="top-nav-item back" href="#" id="back">
             < Back
         </a>
     </div>
@@ -208,7 +208,7 @@
 		<div class="row q_card">
 			<p class="qcard_title">Profile Photo</p>
 			<center>
-                <img id="profile-image-preview" class="profile-photo img-responsive center-block hide" src="#" style="margin-bottom:15px"/> 
+                <img id="profile-image-preview" class="profile-photo img-responsive center-block hide" src="#" style="margin-bottom:15px"/>
     			<label for="file-upload" class="custom-file-upload">
     			     <p class="button-label" id="choose-photo">Choose A Photo</p>
     			</label>
@@ -301,9 +301,9 @@
         <p class="welcome-pbar-label">You're done! We'd now invite you to start writing the first chapter of your story. Think of this as you're online diary where you can share your thoughts and feelings with the community. No one but trusted members of the community can read these. </p>
     </div>
     <div class="container" style="border-top: thin solid #ff89a0; padding-top: 20px;">
-		<!--p class="firstchapt-label">Title </p--> 
+		<!--p class="firstchapt-label">Title </p-->
         <input type="text" class="edit-chapter-title" name="stage" id="firstchapt-title" placeholder="Title of your Chapter" />
-		
+
 		<textarea placeholder="Here's where you can share your thoughts in the first chapter of your story. Be as expressive as you want. Let others know what you're going through. Here's where you can make a connection with others in the community." class="chapter-text" rows="10" id="firstchapt"></textarea>
 	</div>
 </div>
@@ -342,9 +342,9 @@
         <p class="welcome-pbar-label">Think of this as you're online diary where you can share your thoughts and feelings with the community. No one but trusted members of the community can read these. </p>
     </div>
     <div class="container" style="border-top: thin solid #ff89a0; padding-top: 20px;">
-        <!--p class="firstchapt-label">Title </p--> 
+        <!--p class="firstchapt-label">Title </p-->
         <input type="text" class="edit-chapter-title" name="stage" id="chapt-title" placeholder="Title of your Chapter" />
-        
+
         <textarea placeholder="Here's where you can share your thoughts in the first chapter of your story. Be as expressive as you want. Let others know what you're going through. Here's where you can make a connection with others in the community." class="chapter-text" rows="10" id="chapt"></textarea>
     </div>
 </div>
@@ -438,7 +438,7 @@
         }
 
         if (increment == -1 && document.location.hash == "#edit-chapter1") {
-            document.location.hash = "#my-story"; 
+            document.location.hash = "#my-story";
             return;
         }
 
@@ -449,18 +449,18 @@
             appendChapterToStory();
 
             // take them to the my story page
-            document.location.hash = "#my-story"; 
+            document.location.hash = "#my-story";
             return;
         }
 
         if (updatedScreen == 6) {
-            // This is only for the "Welcome" view. 
+            // This is only for the "Welcome" view.
             // NOTE: legacy and inefficient code but will NOT be changed at this stage.
             // update the user's story
             appendChapterToStory();
 
             // take them to the my story page
-            document.location.hash = "#my-story"; 
+            document.location.hash = "#my-story";
         }
 
         if (updatedScreen < 1 || updatedScreen > 5) {
