@@ -207,7 +207,11 @@ $( document ).ready(function() {
 
     // Handle Page Changes (anchor link clicks)
     $(window).bind( 'hashchange', function(e) {
-        changeToPage(document.location.hash);
+        if (document.location.hash == '#back') {
+          changeToPage(previousPage);
+        } else {
+          changeToPage(document.location.hash);
+        }
     });
 
 
@@ -231,13 +235,6 @@ $( document ).ready(function() {
     $('#send-message-button').click(function(e) {
       sendMessage();
     })
-
-    $('#back').click(function(e) {
-      changeToPage(previousPage);
-
-      e.preventDefault();
-      return false;
-    });
 });
 
 /*------sign up tab--------*/
