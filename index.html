@@ -115,7 +115,14 @@
         <script id="my-story-template" type="text/x-handlebars-template">
             <div class="chapter">
                 <h1 class="chapter-title">{{ title }}</h1>
-                <p class="chapter-date"> March 13, 2017</p>
+                <div class="row">
+                    <p class="chapter-date col-xs-6"> March 13, 2017</p>
+                    {{#each tags}}
+                        {{#ifCond this 1}}
+                            {{@key}}
+                        {{/ifCond}}
+                    {{/each}}
+                </div>
                 <p class="chapter-text">{{ content }}</p>
             </div>
         </script>

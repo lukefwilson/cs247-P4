@@ -9,6 +9,14 @@ var currentTags = {
   "ref" : 0,
 };
 
+// http://stackoverflow.com/questions/8853396/logical-operator-in-a-handlebars-js-if-conditional
+Handlebars.registerHelper('ifCond', function(v1, v2, options) {
+  if(v1 === v2) {
+    return options.fn(this);
+  }
+  return options.inverse(this);
+});
+
 function resetTags() {
   // reset all tags to 0
   for (tag in currentTags) {
