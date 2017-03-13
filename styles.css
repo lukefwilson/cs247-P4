@@ -211,7 +211,7 @@ body {
   border-right: 1px dotted white;
 }
 
-#footer-save a {
+.bottom-nav a {
   color: white !important;
   text-decoration: none;
   margin-top: -6px;

@@ -145,6 +145,18 @@
     </div>
 </div>
 
+<div class="container screen" id="welcome-screen">
+    <div class="row">
+        <img style="padding: 5px;" src="img/signup-img/p_bar_1.png">
+    </div>
+    <div id="welcome-message">
+        <p>We'd love to know more about you! All this information can be modified later.</p>
+    </div>
+    <hr class="profile-divider" />
+    <input class="chapter-title" value="" placeholder="Your Name"></input>
+    <input class="chapter-title" value="" placeholder="Your Bio/Status"></input>
+</div>
+
 <!-- Bottom Nav -->
 <footer class="bottom-nav bg-faded" id="footer-menu">
     <div class="container">
@@ -176,10 +188,22 @@
         </div>
     </div>
 </footer>
+
 <footer class="bottom-nav bg-faded row" id="footer-save">
     <h3><a href="#my-story" class="col-xs-6 text-center glyphicon glyphicon-remove" style="border-right: 1px dotted"></a></h3>
     <h3><a href="#my-story" class="col-xs-6 text-center glyphicon glyphicon-ok"></a></h3>
 </footer>
 
+<footer class="bottom-nav bg-faded row" id="footer-signup">
+    <h3><a class="col-xs-6 text-center glyphicon glyphicon-chevron-left" style="border-right: 1px dotted"></a></h3>
+    <h3><a onclick="javascript:nextWelcome()" class="col-xs-6 text-center glyphicon glyphicon-chevron-right"></a></h3>
+</footer>
+
 </body>
+<script>
+    // welcome screen - clicking next
+    var nextWelcome = function() {
+        console.log(document.location.hash);
+    }
+</script>
 </html>
