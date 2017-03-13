@@ -413,7 +413,7 @@
 
 <footer class="bottom-nav bg-faded row" id="footer-signup">
     <h3><a onclick="javascript:nextPage(-1)" class="col-xs-6 text-center footer" style="border-right: 1px dotted" id="footer-back-button">&lt Prev</a></h3>
-    <h3><a onclick="javascript:nextPage(1)" class="col-xs-6 text-center footer">Next &gt</a></h3>
+    <h3><a onclick="javascript:nextPage(1)" class="col-xs-6 text-center footer" id="footer-next-button">Next &gt</a></h3>
 </footer>
 
 </body>
@@ -428,6 +428,13 @@
 
         // Check for edge cases
         const updatedScreen = currentWelcomeScreen + increment;
+
+        // hard-code the two views where you'd show the bottom "NEXT" button as "DONE"
+        if (increment == 1 && (document.location.hash == "#edit-chapter1" || document.location.hash == "#welcome4")) {
+            $('#footer-next-button').html('DONE &gt');
+        } else {
+            $('#footer-next-button').html('Next &gt');
+        }
 
         // TODO: Perform checks before sending to my story view
         if (document.location.hash == "#edit-chapter2") {
