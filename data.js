@@ -25,7 +25,7 @@ var db = {
                           for (var i = 0; i < this.users.length; i++) {
                             var user = this.users[i];
 
-                            if (user.firstName == firstName) {
+                            if (user.firstName.toLowerCase() == firstName.toLowerCase()) {
                               return user;
                             }
                           }

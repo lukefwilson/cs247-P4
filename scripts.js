@@ -25,10 +25,16 @@ $( document ).ready(function() {
         var source   = $("#message-template").html();
         var messageTemplate = Handlebars.compile(source);
 
-        for (var i = 0; i < user.messages.length; i++) {
-          var text = user.messages[i];
-          var html = messageTemplate({message: text, sentFromMe: i % 2 == 0})
-          $screen.append(html);
+        if (user.messages.length == 0) {
+          $('#empty-messages-text').html('Reach out to ' + user.firstName + '. What grabbed you about her story? Schedule a lunch date!');
+          $('#empty-messages-text').show();
+        } else {
+          $('#empty-messages-text').hide();
+          for (var i = 0; i < user.messages.length; i++) {
+            var text = user.messages[i];
+            var html = messageTemplate({message: text, sentFromMe: i % 2 == 0})
+            $screen.append(html);
+          }
         }
     }
 
