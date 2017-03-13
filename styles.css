@@ -150,7 +150,7 @@ div.header, div.chapter{
 }
 
 /* Editing my profile */
-.editing-my-story input, .editing-my-story textarea {
+.editing-my-story input, .editing-my-story textarea, .chapter-text {
   width: 100% !important;
   margin-top: 5px;
 }
@@ -406,6 +406,10 @@ div.header, div.chapter{
 }
 
 /*--------Welcome views-----------*/
+.welcrumb-breadcome {
+  margin-bottom: 10px;
+}
+
 p.welcome-pbar-label{
 	padding: 0px 20px;
 	font-family: comingSoon, cursive;
@@ -439,6 +443,7 @@ p.qcard_title{
 
 #diagnose_input, #stage_input{
 	margin-top: 30px;
+  background: white;
 }
 
 input[type="file"] {

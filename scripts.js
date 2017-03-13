@@ -41,6 +41,9 @@ $( document ).ready(function() {
     var currentPage;
 
     var changeToPage = function(pageName) {
+        // scroll to top
+        window.scrollTo(0, 0);
+
         if (pageName[0] === '#') pageName = pageName.substr(1); // remove leading #
 
         currentPage = pageName;
