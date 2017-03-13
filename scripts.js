@@ -13,16 +13,28 @@ function resetTags() {
   // reset all tags to 0
   for (tag in currentTags) {
     currentTags[tag] = 0;
+    $(".firstchpt-tag-" + tag).css("border", deselectBorder);
   }
 }
 
 function appendChapterToStory() {
   // append the current object to the array of myStoriesData
-  myStoriesData.push({
+  if (myStoriesData.length == 0) {
+    // This is the first chapter - get it from the first edit message thing
+    myStoriesData.push({
       "title" : $('#firstchapt-title').val(),
       "content" : $('#firstchapt').val(),
-      "tags" : currentTags
-  });
+      "tags" : $.extend({}, currentTags)    // make deepcopy - otherwise it'll copy by reference
+    });
+  } else {
+    // This is a normal story - get it from the edit-story view
+    myStoriesData.push({
+      "title" : $('#chapt-title').val(),
+      "content" : $('#chapt').val(),
+      "tags" : $.extend({}, currentTags)
+    });
+  }
+  
 
   // and then reset the tags
   resetTags();
@@ -277,64 +289,64 @@ function stageFour(){
 var selectBorder="thin dashed #ff89a0";
 var deselectBorder="none";
 function chemoTag(){
-	if (currentTags["chemo"] == 0){
-		document.getElementById("firstchpt-tag-chemo").style.border=selectBorder;
-		currentTags["chemo"] = 1;
-	}
-	else{
-		document.getElementById("firstchpt-tag-chemo").style.border=deselectBorder;
+  if (currentTags["chemo"] == 0){
+    $(".firstchpt-tag-chemo").css("border", selectBorder);
+    currentTags["chemo"] = 1;
+  }
+  else{
+    $(".firstchpt-tag-chemo").css("border", deselectBorder);
     currentTags["chemo"] = 0;
-	}
+  }
 }
 
 function medicineTag(){
-	if (currentTags["medicine"] == 0){
-		document.getElementById("firstchpt-tag-medicine").style.border=selectBorder;
-		currentTags["medicine"] = 1;
-	}
-	else{
-		document.getElementById("firstchpt-tag-medicine").style.border=deselectBorder;
+  if (currentTags["medicine"] == 0){
+    $(".firstchpt-tag-medicine").css("border", selectBorder);
+    currentTags["medicine"] = 1;
+  }
+  else{
+    $(".firstchpt-tag-medicine").css("border", deselectBorder);
     currentTags["medicine"] = 0;
-	}
+  }
 }
 
 function hospitalTag(){
-	if (currentTags["hospital"] == 0){
-		document.getElementById("firstchpt-tag-hospital").style.border=selectBorder;
-		currentTags["hospital"] = 1;
-	}
-	else{
-		document.getElementById("firstchpt-tag-hospital").style.border=deselectBorder;
-		currentTags["hospital"] = 0;
-	}
+  if (currentTags["hospital"] == 0){
+    $(".firstchpt-tag-hospital").css("border", selectBorder);
+    currentTags["hospital"] = 1;
+  }
+  else{
+    $(".firstchpt-tag-hospital").css("border", deselectBorder);
+    currentTags["hospital"] = 0;
+  }
 }
 function surgeryTag(){
-	if (currentTags["surgery"] == 0){
-		document.getElementById("firstchpt-tag-surgery").style.border=selectBorder;
-		currentTags["surgery"] = 1;
-	}
-	else{
-		document.getElementById("firstchpt-tag-surgery").style.border=deselectBorder;
-		currentTags["surgery"] = 0;
-	}
+  if (currentTags["surgery"] == 0){
+    $(".firstchpt-tag-surgery").css("border", selectBorder);
+    currentTags["surgery"] = 1;
+  }
+  else{
+    $(".firstchpt-tag-surgery").css("border", deselectBorder);
+    currentTags["surgery"] = 0;
+  }
 }
 function famTag(){
-	if (currentTags["fam"] == 0){
-		document.getElementById("firstchpt-tag-family").style.border=selectBorder;
-		currentTags["fam"] = 1;
-	}
-	else{
-		document.getElementById("firstchpt-tag-family").style.border=deselectBorder;
-		currentTags["fam"] = 0;
-	}
+  if (currentTags["fam"] == 0){
+    $(".firstchpt-tag-fam").css("border", selectBorder);
+    currentTags["fam"] = 1;
+  }
+  else{
+    $(".firstchpt-tag-fam").css("border", deselectBorder);
+    currentTags["fam"] = 0;
+  }
 }
 function refTag(){
-	if (currentTags["ref"] == 0){
-		document.getElementById("firstchpt-tag-reflection").style.border=selectBorder;
-		currentTags["ref"] = 1;
-	}
-	else{
-		document.getElementById("firstchpt-tag-reflection").style.border=deselectBorder;
-		currentTags["ref"] = 0;
-	}
+  if (currentTags["ref"] == 0){
+    $(".firstchpt-tag-ref").css("border", selectBorder);
+    currentTags["ref"] = 1;
+  }
+  else{
+    $(".firstchpt-tag-ref").css("border", deselectBorder);
+    currentTags["ref"] = 0;
+  }
 }

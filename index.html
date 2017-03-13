@@ -318,20 +318,20 @@
 	<hr style="" class="pretty-divider" />
 	<p class="welcome-tag-title"> The Treatment Process </p>
     <div class="row">
-		<img id="firstchpt-tag-chemo" OnClick="chemoTag()" src="tags/chemo-tag.png"/>
-		<img id="firstchpt-tag-medicine" OnClick="medicineTag()" src="tags/medicine-tag.png" />
+		<img class="firstchpt-tag-chemo" OnClick="chemoTag()" src="tags/chemo-tag.png"/>
+		<img class="firstchpt-tag-medicine" OnClick="medicineTag()" src="tags/medicine-tag.png" />
 	</div>
 	<hr style="" class="pretty-divider" />
 	<p class="welcome-tag-title"> Interactions at the Hospital </p>
 	<div class="row">
-		<img id="firstchpt-tag-hospital" OnClick="hospitalTag()" src="tags/hospital-tag.png"/>
-		<img id="firstchpt-tag-surgery" OnClick="surgeryTag()" src="tags/surgery-tag.png" />
+		<img class="firstchpt-tag-hospital" OnClick="hospitalTag()" src="tags/hospital-tag.png"/>
+		<img class="firstchpt-tag-surgery" OnClick="surgeryTag()" src="tags/surgery-tag.png" />
 	</div>
 	<hr style="" class="pretty-divider" />
 	<p class="welcome-tag-title"> Things closest to your heart </p>
 	<div class="row">
-		<img id="firstchpt-tag-family" OnClick="famTag()" src="tags/family-tag.png"/>
-		<img id="firstchpt-tag-reflection" OnClick="refTag()"  src="tags/reflection-tag.png"/>
+		<img class="firstchpt-tag-fam" OnClick="famTag()" src="tags/family-tag.png"/>
+		<img class="firstchpt-tag-ref" OnClick="refTag()"  src="tags/reflection-tag.png"/>
 	</div>
 	</center>
 </div>
@@ -356,20 +356,20 @@
     <hr style="" class="pretty-divider" />
     <p class="welcome-tag-title"> The Treatment Process </p>
     <div class="row">
-        <img id="firstchpt-tag-chemo" OnClick="chemoTag()" src="tags/chemo-tag.png"/>
-        <img id="firstchpt-tag-medicine" OnClick="medicineTag()" src="tags/medicine-tag.png" />
+        <img class="firstchpt-tag-chemo" OnClick="chemoTag()" src="tags/chemo-tag.png"/>
+        <img class="firstchpt-tag-medicine" OnClick="medicineTag()" src="tags/medicine-tag.png" />
     </div>
     <hr style="" class="pretty-divider" />
     <p class="welcome-tag-title"> Interactions at the Hospital </p>
     <div class="row">
-        <img id="firstchpt-tag-hospital" OnClick="hospitalTag()" src="tags/hospital-tag.png"/>
-        <img id="firstchpt-tag-surgery" OnClick="surgeryTag()" src="tags/surgery-tag.png" />
+        <img class="firstchpt-tag-hospital" OnClick="hospitalTag()" src="tags/hospital-tag.png"/>
+        <img class="firstchpt-tag-surgery" OnClick="surgeryTag()" src="tags/surgery-tag.png" />
     </div>
     <hr style="" class="pretty-divider" />
     <p class="welcome-tag-title"> Things closest to your heart </p>
     <div class="row">
-        <img id="firstchpt-tag-family" OnClick="famTag()" src="tags/family-tag.png"/>
-        <img id="firstchpt-tag-reflection" OnClick="refTag()"  src="tags/reflection-tag.png"/>
+        <img class="firstchpt-tag-fam" OnClick="famTag()" src="tags/family-tag.png"/>
+        <img class="firstchpt-tag-ref" OnClick="refTag()"  src="tags/reflection-tag.png"/>
     </div>
     </center>
 </div>
@@ -430,7 +430,19 @@
         const updatedScreen = currentWelcomeScreen + increment;
 
         // TODO: Perform checks before sending to my story view
+        if (document.location.hash == "#edit-chapter2") {
+            // if this is the edit chapter view's second page,
+            // it's time to save to the myStoriesData array
+            appendChapterToStory();
+
+            // take them to the my story page
+            document.location.hash = "#my-story"; 
+            return;
+        }
+
         if (updatedScreen == 6) {
+            // This is only for the "Welcome" view. 
+            // NOTE: legacy and inefficient code but will NOT be changed at this stage.
             // update the user's story
             appendChapterToStory();
 

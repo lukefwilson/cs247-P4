@@ -519,8 +519,8 @@ textarea{
 	color: #595554;
 }
 
-#firstchpt-tag-chemo,#firstchpt-tag-medicine,#firstchpt-tag-hospital,
-#firstchpt-tag-surgery,#firstchpt-tag-family,#firstchpt-tag-reflection{
+.firstchpt-tag-chemo, .firstchpt-tag-medicine, .firstchpt-tag-hospital,
+.firstchpt-tag-surgery, .firstchpt-tag-fam, .firstchpt-tag-ref{
 	display: inline-block;
 	width: 100px;
 	height: 100px;
