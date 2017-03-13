@@ -26,10 +26,7 @@
 <!-- Top Nav test with git -->
 <nav class="navbar navbar-fixed-top top-nav row container">
     <div class="col-xs-2">
-        <a class="top-nav-item back hide" href="#">
-            < Back
-        </a>
-        <a class="top-nav-item back hide" href="#conversations" id="conversations-back">
+        <a class="top-nav-item back" href="#conversations" id="conversations-back">
             < Back
         </a>
     </div>
@@ -127,6 +124,7 @@
     <div id="conversations-index">
 
     </div>
+    <p class="muted text-center small top-margin">Connect with more people by reading stories<br>and starting conversations!</p>
 
     <script id="conversations-index-template" type="text/x-handlebars-template">
         <a class="conversation-link" href="#conversation-with-{{user.firstName}}">
@@ -141,6 +139,30 @@
             </div>
         </a>
         <hr class="profile-divider small-margin">
+    </script>
+</div>
+
+<div class="container screen" id="direct-conversation-screen">
+    <div id="messages-index">
+
+    </div>
+    <div class="row message-input-row">
+      <div class="col-xs-12 message-input-col">
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Type Message" id="send-message-input">
+          <span class="input-group-btn">
+            <button class="btn btn-default" type="button" id="send-message-button">Send</button>
+          </span>
+        </div><!-- /input-group -->
+      </div><!-- /.col-xs-12 -->
+    </div><!-- /.row -->
+
+    <script id="message-template" type="text/x-handlebars-template">
+        {{#if sentFromMe}}
+        <p class="triangle-border right">{{message}}</p>
+        {{else}}
+        <p class="triangle-border left">{{message}}</p>
+        {{/if}}
     </script>
 </div>
 

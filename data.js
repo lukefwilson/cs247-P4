@@ -20,7 +20,16 @@ var db = {
               }
 
               this.stories.push(story);
-            }
+            },
+  getUserByFirstName: function(firstName) {
+                          for (var i = 0; i < this.users.length; i++) {
+                            var user = this.users[i];
+
+                            if (user.firstName == firstName) {
+                              return user;
+                            }
+                          }
+                      }
 }
 
 function User(id, name, age, diagnosisDate, stage, bio, married, kids, location, img, messages) {

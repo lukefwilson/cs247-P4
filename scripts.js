@@ -1,6 +1,6 @@
 $( document ).ready(function() {
 
-    var reloadConversationsIndex = function() {
+    var renderConversationsIndex = function() {
       var source   = $("#conversations-index-template").html();
       var conversationPreviewTemplate = Handlebars.compile(source);
       var $screen = $('#conversations-index');
@@ -17,9 +17,27 @@ $( document ).ready(function() {
       }
     }
 
+    var renderConversationWithUser = function(user) {
+        var $screen = $('#messages-index');
+        $screen.html('');
+        $('#send-message-input').val('');
+
+        var source   = $("#message-template").html();
+        var messageTemplate = Handlebars.compile(source);
+
+        for (var i = 0; i < user.messages.length; i++) {
+          var text = user.messages[i];
+          var html = messageTemplate({message: text, sentFromMe: i % 2 == 0})
+          $screen.append(html);
+        }
+    }
+
+    var currentPage;
+
     var changeToPage = function(pageName) {
         if (pageName[0] === '#') pageName = pageName.substr(1); // remove leading #
 
+        currentPage = pageName;
         // Show correct screen by getting name from the url
         $('.screen').hide();
         $('#' + pageName + '-screen').show();
@@ -41,13 +59,19 @@ $( document ).ready(function() {
         }
 
         if (pageName == 'conversations') {
-          reloadConversationsIndex();
+          renderConversationsIndex();
         }
 
         if (pageName.indexOf('conversation-with') >= 0) {
-          $('#conversations-back').removeClass('hide');
+          $('#conversations-back').show();
+          $('#footer-menu').hide();
+          $('#direct-conversation-screen').show();
+
+          var user = db.getUserByFirstName(pageName.substr(18));
+          renderConversationWithUser(user);
         } else {
-          $('#conversations-back').addClass('hide');
+          $('#conversations-back').hide();
+          $('#footer-menu').show();
         }
 
         // Select correct nav item
@@ -75,4 +99,26 @@ $( document ).ready(function() {
     $(window).bind( 'hashchange', function(e) {
         changeToPage(document.location.hash);
     });
+
+
+    var sendMessage = function() {
+        if ($('#send-message-input').val() == '') {
+          return;
+        }
+
+        var user = db.getUserByFirstName(currentPage.substr(18));
+
+        user.messages.push($('#send-message-input').val());
+
+        renderConversationWithUser(user);
+    }
+
+    $('#send-message-input').keyup(function(e){
+        if(e.keyCode == 13) { // enter key
+          sendMessage()
+        }
+    });
+    $('#send-message-button').click(function(e) {
+      sendMessage();
+    })
 });
