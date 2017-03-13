@@ -101,7 +101,7 @@
     <div class="local-story">
         <div class="header">
             <img id="profile-image-preview" class="profile-photo img-responsive center-block" src="img/bunch-shawna.jpg">
-            <h1 class="text-center profile-name">Your Name</h1>
+            <h1 class="text-center profile-name" id="my-name">Your Name</h1>
             <p id="profile-location" class="text-center profile-location">Stanford, California</p>
             <p id="my-bio" class="text-center profile-bio">Your Bio</p>
             <div class="btn-outer text-center write-chapter">
@@ -498,6 +498,7 @@
     function saveProfile() {
         $('#profile-location').html($('#edit-profile-location').val());
         $('#my-bio').html($('#edit-profile-bio').val());
+        $('#my-name').html($('#edit-profile-name').val());
     }
 </script>
 </html>
