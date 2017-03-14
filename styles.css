@@ -73,6 +73,11 @@ body {
 
 /* Screens / Pages */
 
+.container.screen {
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
 .pretty-divider {
   border-top: dashed 1px;
   color:#ffced8;
@@ -95,7 +100,7 @@ body {
 }
 
 .screen .profile-photo {
-  width: 50%;
+  width: 80px;
   border-radius: 50%;
 }
 
@@ -131,6 +136,40 @@ body {
 div.header, div.chapter{
 	padding: 0px 10px;
 }
+
+/*Local Stories Card*/
+
+.local-story-profile-card {
+  border: 1.5px solid #ffced8;
+  margin: 10px 0px;
+  padding: 5px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.local-story-profile-card .pretty-divider {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.recent-chapters-title {
+  font-weight: bold;
+  color: #ff89a0;
+}
+
+.recent-chapters-list {
+  padding: 0px;
+  padding-left: 20px;
+}
+
+.recent-chapters-list li {
+  list-style-type: square;
+}
+
+p.profile-bio {
+  margin: 10px 0 10px 0;
+}
+
 
 /* Chapters */
 .chapter {
@@ -475,7 +514,7 @@ p.button-label{
   margin-bottom: 15px;
 }
 
-#marital-single, #marital-married, #kid-yes, #kid-no, 
+#marital-single, #marital-married, #kid-yes, #kid-no,
 #stage-one, #stage-two, #stage-three, #stage-four{
 	border: thin dashed #ff89a0;
 	width: 150px;

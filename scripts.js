@@ -112,6 +112,20 @@ $( document ).ready(function() {
         }
     }
 
+    var renderLocalStoriesPage = function() {
+      var source   = $("#local-story-card-template").html();
+      var localStoryCardTemplate = Handlebars.compile(source);
+      var $screen = $('#local-stories-rendered');
+      $screen.html('');
+
+      for (var i = 0; i < db.users.length; i++) {
+        var user = db.users[i];
+
+        var html = localStoryCardTemplate({user: user});
+        $screen.append(html);
+      }
+    }
+
     var currentPage;
     var previousPage;
 
@@ -171,6 +185,10 @@ $( document ).ready(function() {
           renderConversationsIndex();
         }
 
+        if (pageName =='local-stories') {
+          renderLocalStoriesPage();
+        }
+
         if (pageName.indexOf('conversation-with') >= 0) {
           $('#back').show();
           $('#footer-menu').hide();
@@ -189,9 +207,11 @@ $( document ).ready(function() {
     }
 
     /*=========== start on welcome screen =========*/
-    changeToPage('welcome1');
-    document.location.hash = "#welcome1";
-    $('.start-conver').toggle();  // hide ALL the start conversation buttons
+    changeToPage('local-stories');
+    document.location.hash = "#local-stories";
+    // changeToPage('welcome1');
+    // document.location.hash = "#welcome1";
+    // $('.start-conver').toggle();  // hide ALL the start conversation buttons
 
     /*=============================================*/
 
