@@ -65,12 +65,12 @@ db.addStory(new Story('Story Title', 'Some great content', [0, 2, 5], 1));
 db.addStory(new Story('Story Title', 'Some great content', [0, 2, 5], 1));
 db.addStory(new Story('Story Title', 'Some great content', [0, 2, 5], 1));
 
-db.addUser(new User(2, 'Shawna Bunch', 34, '12/2013', 2, 'This is my bio yo', true, 2, 'San Francisco, CA', 'bunch-shawna.jpg', ['filler message and good stuff', 'filler message and good stuff', 'Say what!?'],'Shawna lives in your neighborhood. She is a mother and cares about her family alot.'));
+db.addUser(new User(2, 'Shawna Bunch', 34, '12/2013', 2, 'This is my bio yo', true, 2, 'San Francisco, CA', 'bs-photo.png', ['filler message and good stuff', 'filler message and good stuff', 'Say what!?'],'Shawna lives in your neighborhood. She is a mother and cares about her family alot.'));
 db.addStory(new Story('Story Title', 'Some great content', [0, 2, 5], 2));
 db.addStory(new Story('Story Title', 'Some great content', [0, 2, 5], 2));
 db.addStory(new Story('Story Title', 'Some great content', [0, 2, 5], 2));
 
-db.addUser(new User(3, 'Samantha Stephenson', 34, '12/2013', 2, 'This is my bio yo', true, 2, 'San Francisco, CA', 'stephenson-samantha.jpg', [], 'Samantha lives in your neighborhood. She is a mother and cares about her family alot.'));
+db.addUser(new User(3, 'Samantha Stephenson', 34, '12/2013', 2, 'This is my bio yo', true, 2, 'San Francisco, CA', 'ss-photo.png', [], 'Samantha lives in your neighborhood. She is a mother and cares about her family alot.'));
 db.addStory(new Story('Story Title', 'Some great content', [0, 2, 5], 3));
 db.addStory(new Story('Story Title', 'Some great content', [0, 2, 5], 3));
 db.addStory(new Story('Story Title', 'Some great content', [0, 2, 5], 3));

@@ -206,7 +206,7 @@ p.profile-bio {
 
 /* Editing my profile */
 .editing-my-story input, .editing-my-story textarea, .chapter-text {
-  width: 100% !important;
+  width: 90% !important;
   margin-top: 5px;
 }
 
@@ -229,12 +229,14 @@ p.profile-bio {
   background-color: #624e2f;
 }
 
+
 .bottom-nav-item .nav-icon {
     width: 40px;
     height: 40px;
     background-size: contain;
     margin-left: auto;
     margin-right: auto;
+    margin-top: -2px;
 }
 
 .nav-icon.book {
@@ -265,7 +267,7 @@ p.profile-bio {
   display: block;
   color: white;
   position: relative;
-  top: -4px;
+  top: -3px;
   font-size: 10px;
   font-family: comingSoon;
 }
@@ -297,7 +299,7 @@ p.profile-bio {
 
 .footer {
   color: white;
-  font-family: indieFlower;
+  font-family: comingSoon;
 }
 
 /* Conversations view */
@@ -340,6 +342,7 @@ p.profile-bio {
   position: fixed;
   bottom: 0px;
   padding: 0px;
+  left: 0px;
 }
 
 /* Speech Bubbles */
@@ -476,11 +479,11 @@ p.welcome-pbar-label{
 	padding: 0px 20px;
 	font-family: comingSoon, cursive;
 	color: #624e2f;
-	font-size: 14px;
+	/*font-size: 14px;*/
 }
 
 .row.q_card{
-	border-top: thin solid #ff89a0;
+	border-top: thin solid #ffced8;
 	min-height: 120px;
 }
 
@@ -497,15 +500,19 @@ p.qcard_title{
 	height: 40px;
 	border: thin dashed #ff89a0;
 	padding: 10px;
-	color: #ff89a0;
+	/*color: #ff89a0;*/
 	border-radius: 10px;
-	font-size: 20px;
+	font-size: 14px;
 	font-family: comingSoon, cursive;
 }
 
 #diagnose_input, #stage_input{
-	margin-top: 30px;
+	/*margin-top: 30px;*/
   background: white;
+}
+
+.screen.full-width {
+  padding: 0px;
 }
 
 input[type="file"] {
@@ -528,7 +535,7 @@ p.button-label{
 }
 
 .row.q_card_2{
-	border-top: thin solid #ff89a0;
+	border-top: thin solid #ffced8;
 	min-height: 200px;
 	padding-top: 20px;
   margin-bottom: 15px;
@@ -546,6 +553,7 @@ p.button-label{
 	font-family: comingSoon, cursive;
 	border-radius: 10px;
 	margin: 5px;
+  background: white;
 }
 
 .row.welcome-tab-row{
@@ -561,7 +569,7 @@ p.firstchapt-label{
 
 .edit-chapter-title{
 	display: inline-block;
-	width: 300px;
+  width: 90%;
 	height: 40px;
 	border: thin dashed #ff89a0;
 	border-radius: 10px;
@@ -594,4 +602,16 @@ p.welcome-tag-title{
 	font-family: "indieFlower", cursive;
 	font-size: 16px;
 	color: #624e2f;
+}
+
+
+.share-chapter {
+  margin-top:30px;
+    width: 140px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.btn:hover {
+  color: white;
 }
