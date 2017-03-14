@@ -47,7 +47,7 @@
 <!-- Screens -->
 
 <div class="container screen" id="local-stories-screen">
-    <p class="muted text-center small">Connect with more people by reading stories and starting conversations!</p>
+    <p class="muted text-center small">We've found a lot of local women just like you.<br>Connect with them by reading their stories and reaching out.</p>
     <div id="local-stories-rendered">
     </div>
 </div>
@@ -98,24 +98,24 @@
 </div>
 
 <div class="container screen" id="conversations-screen">
+    <p class="muted text-center small">Connect with more people by reading stories and starting conversations.</p>
     <div id="conversations-index">
 
     </div>
-    <p class="muted text-center small top-margin">Connect with more people by reading stories<br>and starting conversations!</p>
 
     <script id="conversations-index-template" type="text/x-handlebars-template">
-        <a class="conversation-link" href="#conversation-with-{{user.firstName}}">
+        <div class="conversation-link" onclick="document.location.hash = 'conversation-with-{{user.firstName}}'">
             <div class="media">
               <div class="media-left media-middle">
                   <img class="media-object conversation-img" src="img/{{user.img}}">
               </div>
               <div class="media-body">
-                <h4 class="title">{{user.fullName}}</h4>
+                <h4 class="message-name">{{user.fullName}}</h4>
                 <p>{{lastMessage}}</p>
               </div>
             </div>
-        </a>
-        <hr class="profile-divider small-margin">
+        </div>
+        <hr class="profile-divider no-margin">
     </script>
 </div>
 

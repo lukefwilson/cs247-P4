@@ -1,4 +1,7 @@
-/*Light Pink: #ffced8
+/*
+Very light Pink: #fff5f5; // background
+Quite Light Pink: #ffced8; // light hover color
+Light Pink: #ffced8 // darker hover color
 Brown: #624e2f
 Dark Pink: #ff89a0*/
 
@@ -14,6 +17,7 @@ Dark Pink: #ff89a0*/
 
 body {
   font-family: comingSoon;
+  background-color: #fff5f5;
 }
 
 .title {
@@ -88,9 +92,9 @@ body {
   color:#ffced8;
 }
 
-.profile-divider.small-margin {
-  margin-top: 5px;
-  margin-bottom: 5px;
+.profile-divider.no-margin {
+  margin-top: 0px;
+  margin-bottom: 0px;
 }
 
 .screen {
@@ -127,7 +131,7 @@ body {
   box-sizing: border-box;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
-  border : 1px dotted #ffced8;
+  border : 1px dashed #ffced8;
   padding : 5px;
   width : 100%;
   color : #fff;
@@ -145,6 +149,11 @@ div.header, div.chapter{
   padding: 5px;
   border-radius: 10px;
   cursor: pointer;
+  background-color: white;
+}
+
+.local-story-profile-card:hover {
+    background-color: #fbe6e6;
 }
 
 .local-story-profile-card .pretty-divider {
@@ -262,8 +271,8 @@ p.profile-bio {
 }
 
 .bordered-nav-item {
-  border-left: 1px dotted white;
-  border-right: 1px dotted white;
+  border-left: 1px dashed white;
+  border-right: 1px dashed white;
 }
 
 .bottom-nav a {
@@ -289,25 +298,35 @@ p.profile-bio {
 
 /* Conversations view */
 
+#conversations-index {
+    border-top: 1px solid #ffced8;
+}
+
 .conversation-img {
   border-radius: 50%;
   width: 75px;
 }
 
 .conversation-link {
-  border-bottom: 1px solid gray;
+  cursor: pointer;
+  padding: 10px 10px;
+  margin: 0px -10px;
+  background-color: white;
+  /*padding-left: 10px;
+  padding-right: 10px;*/
 }
 
-.conversation-link, .conversation-link:hover {
-  text-decoration: none;
-}
-
-.conversation-link:hover .media{
-  background-color: #e8e8e8;
+.conversation-link:hover{
+  background-color: #fff5f5;
 }
 
 .top-margin {
   margin-top: 15px;
+}
+
+.message-name {
+  font-weight: bold;
+  color: #ff89a0;
 }
 
 /* Messaging */
