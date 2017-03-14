@@ -29,6 +29,8 @@ var db = {
                               return user;
                             }
                           }
+
+                          return false;
                       }
 }
 

@@ -28,6 +28,10 @@ body {
   display: none !important;
 }
 
+#back:hover {
+  cursor: pointer;
+}
+
 /* Top Nav */
 
 .navbar {
@@ -93,8 +97,7 @@ body {
 }
 
 .profile-divider.no-margin {
-  margin-top: 0px;
-  margin-bottom: 0px;
+    margin: 0px -10px;
 }
 
 .screen {
@@ -127,7 +130,8 @@ body {
 
 .btn-inner {
   background: #ff89a0;
-  border-radius : 0 !important;
+  border-radius: 8px;
+  /*border-radius : 0 !important;*/
   box-sizing: border-box;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -298,9 +302,6 @@ p.profile-bio {
 
 /* Conversations view */
 
-#conversations-index {
-    border-top: 1px solid #ffced8;
-}
 
 .conversation-img {
   border-radius: 50%;
