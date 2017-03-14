@@ -231,7 +231,11 @@ $( document ).ready(function() {
 
         // Select correct nav item
         $('.bottom-nav-item').removeClass('selected');
-        $('#' + pageName + '-nav').addClass('selected');
+        if (userProfile) {
+          $('#local-stories-nav').addClass('selected');
+        } else {
+          $('#' + pageName + '-nav').addClass('selected');
+        }
     }
 
     /*=========== start on whatever page is in hash =========*/

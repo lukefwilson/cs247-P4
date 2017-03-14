@@ -73,20 +73,26 @@
 </script>
 
 <div class="container screen" id="my-story-screen">
-    <div class="local-story">
-        <div class="header">
-            <img id="profile-image-preview" class="profile-photo img-responsive center-block" src="img/bunch-shawna.jpg">
-            <h1 class="text-center profile-name" id="my-name">Your Name</h1>
-            <p id="profile-location" class="text-center profile-location">Stanford, California</p>
-            <p id="my-bio" class="text-center profile-bio">Your Bio</p>
-            <div class="btn-outer text-center write-chapter">
-                <a class="btn btn-inner" href="#edit-chapter1">Write a New Chapter</a>
-            </div>
+
+        <div class="media">
+          <div class="media-left media-middle">
+              <img class="media-object conversation-img" src="img/bunch-shawna.jpg">
+          </div>
+          <div class="media-body">
+                <h4 class="message-name profile-name" id="my-name">Your Name</h4>
+                <p id="profile-location" class="profile-location">Stanford, California</p>
+                <p id="my-bio" class="profile-bio">Your bio</p>
+                <div class="btn-outer text-center write-chapter">
+                    <a class="btn btn-inner" href="#edit-chapter1">Write a New Chapter</a>
+                </div>
+          </div>
         </div>
-        <hr style="" class="pretty-divider" />
+        <hr class="pretty-divider">
         <div class="main" id="my-chapters-rendered">
             <!-- the chapters will go here from handlebars -->
         </div>
+
+
         <script id="my-story-template" type="text/x-handlebars-template">
             <div class="chapter">
                 <h1 class="chapter-title">{{ title }}</h1>
@@ -94,7 +100,6 @@
                 <p class="chapter-text">{{ content }}</p>
             </div>
         </script>
-    </div>
 </div>
 
 <div class="container screen" id="conversations-screen">
@@ -131,11 +136,12 @@
               <img class="media-object conversation-img" src="img/{{user.img}}">
           </div>
           <div class="media-body">
-            <h4 class="message-name">{{user.fullName}}</h4>
-            <p>{{user.bio}}</p>
-            <div class="btn-outer text-center write-chapter">
-                <a class="btn btn-inner" href="#conversation-with-{{user.firstName}}">Start a Conversation</a>
-            </div>
+                <h4 class="message-name">{{user.fullName}}</h4>
+                <p class="profile-location">{{user.location}}</p>
+                <p>{{user.bio}}</p>
+                <div class="btn-outer text-center write-chapter">
+                    <a class="btn btn-inner" href="#conversation-with-{{user.firstName}}">Start a Conversation</a>
+                </div>
           </div>
         </div>
         <hr class="pretty-divider">
