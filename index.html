@@ -74,7 +74,7 @@
 
 <div class="container screen" id="my-story-screen">
 
-        <div class="media">
+<!--         <div class="media">
           <div class="media-left media-middle">
               <img class="media-object conversation-img" src="img/bunch-shawna.jpg">
           </div>
@@ -89,11 +89,10 @@
         </div>
         <hr class="pretty-divider">
         <div class="main" id="my-chapters-rendered">
-            <!-- the chapters will go here from handlebars -->
-        </div>
+        </div> -->
 
 
-        <script id="my-story-template" type="text/x-handlebars-template">
+<!--         <script id="my-story-template" type="text/x-handlebars-template">
             <div class="chapter">
                 <h1 class="chapter-title">{{ title }}</h1>
                 <div class="row">
@@ -106,7 +105,35 @@
                 </div>
                 <p class="chapter-text">{{ content }}</p>
             </div>
-        </script>
+        </script> -->
+
+
+    <div id="my-profile-rendered">
+
+    </div>
+    <script id="my-profile-template" type="text/x-handlebars-template">
+        <div class="media">
+          <div class="media-left media-middle">
+              <img class="media-object conversation-img" src="img/{{user.img}}">
+          </div>
+          <div class="media-body">
+                <h4 class="message-name">{{user.fullName}}</h4>
+                <p class="profile-location">{{user.location}}</p>
+                <p>{{user.bio}}</p>
+                <div class="btn-outer text-center write-chapter">
+                    <a class="btn btn-inner" href="#edit-chapter1">Write a New Chapter</a>
+                </div>
+          </div>
+        </div>
+        <hr class="pretty-divider">
+        {{#each user.stories}}
+            <div class="chapter">
+                <h1 class="chapter-title">{{ this.title }}</h1>
+                <p class="chapter-date"> March 13, 2017</p>
+                <p class="chapter-text">{{ this.content }}</p>
+            </div>
+        {{/each}}
+    </script>
 </div>
 
 <div class="container screen" id="conversations-screen">
@@ -194,10 +221,10 @@
 <div class="container screen" id="editing-my-profile-screen">
     <div class="editing-my-story">
         <div class="header">
-            <img class="profile-photo img-responsive center-block" src="img/bunch-shawna.jpg">
-            <input class="text-center profile-name" id="edit-profile-name" placeholder="Your Name"></input><br>
-            <input class="text-center profile-location" id="edit-profile-location" value="Stanford, California" placeholder="Your Location"></input><br>
-            <input class="text-center profile-bio" id="edit-profile-bio" placeholder="Write a brief bio"></input>
+            <img class="profile-photo img-responsive center-block" src="img/my-photo.png">
+            <input class="text-center profile-name" id="edit-profile-name" placeholder="Your Name"/><br>
+            <input class="text-center profile-location" id="edit-profile-location" value="Stanford, California" placeholder="Your Location"/><br>
+            <input class="text-center profile-bio" id="edit-profile-bio" placeholder="Write a brief bio"/>
         </div>
         <hr style="" class="pretty-divider" />
         <!--div class="main">
@@ -212,13 +239,13 @@
 </div>
 
 <!-- WELCOME SCREENS ENSEMBLE -->
-<div class="container screen" id="welcome1-screen">
+<div class="container screen full-width" id="welcome1-screen">
 	<center>
         <div class="row">
             <img class="img-responsive center-block welcrumb-breadcome" src="img/signup-img/p_bar_1.png">
         </div>
         <div id="welcome-message">
-            <p class="welcome-pbar-label">Welcome! Please help us to learn more about you. Note that all profile information can be modified later.</p>
+            <p class="welcome-pbar-label">Help us to learn more about you so we can match you with others.</p>
         </div>
 	</center>
 	<div class="container">
@@ -227,7 +254,9 @@
 			<center>
 			<input type="text" name="name" placeholder="Your name" id="name_input"/>
 			</center>
+
 		</div>
+
 		<div class="row q_card">
 			<p class="qcard_title">Profile Photo</p>
 			<center>
@@ -244,20 +273,20 @@
 			     <input type="number" placeholder="Your age" name="age" id="age_input"/>
 			</center>
 		</div>
-		<div class="row q_card">
+		<div class="row q_card text-center">
 			<p class="qcard_title">Bio</p>
-			 <textarea class="chapter-text" rows="3" placeholder="Tell us a little about yourself" name="bio" id="bio_input" style="height:130px" /></textarea>
+            <textarea class="chapter-text" rows="3" placeholder="Tell us a little about yourself" name="bio" id="bio_input" style="height:130px" ></textarea>
 		</div>
 	</div>
 </div>
 
-<div class="container screen" id="welcome2-screen">
+<div class="container screen full-width" id="welcome2-screen">
 	<center>
         <div class="row">
             <img class="img-responsive center-block welcrumb-breadcome"  src="img/signup-img/p_bar_2.png">
         </div>
         <div id="welcome-message">
-            <p class="welcome-pbar-label">You're doing great! Please tell us a little about your family.</p>
+            <p class="welcome-pbar-label">You're doing great! Tell us a bit about your family.</p>
         </div>
 	</center>
     <div class="container">
@@ -282,13 +311,13 @@
 	</div>
 </div>
 
-<div class="container screen" id="welcome3-screen">
+<div class="container screen full-width" id="welcome3-screen">
 	<center>
     <div class="row">
         <img class="img-responsive center-block welcrumb-breadcome" src="img/signup-img/p_bar_3.png">
     </div>
     <div id="welcome-message">
-        <p class="welcome-pbar-label">Please tell us about your breast cancer stage and when were you diagnosed. This will help us match you with other members of the community.</p>
+        <p class="welcome-pbar-label">Tell us about your diagnosis. This will help us match you with other members of the community.</p>
     </div>
 	</center>
     <div class="container">
@@ -310,28 +339,28 @@
 			<center>
 			<div class="row welcome-tab-row">
 			<input type="month" name="diagnose" id="diagnose_input"/>
-			<div>
+            </div>
 			</center>
 		</div>
 	</div>
 </div>
 
-<div class="container screen" id="welcome4-screen">
+<div class="container screen full-width" id="welcome4-screen">
     <div class="row">
         <img class="img-responsive center-block welcrumb-breadcome" src="img/signup-img/p_bar_4.png">
     </div>
     <div id="welcome-message">
-        <p class="welcome-pbar-label">You're done! We'd now invite you to start writing the first chapter of your story. Think of this as you're online diary where you can share your thoughts and feelings with the community. No one but trusted members of the community can read these. </p>
+        <p class="welcome-pbar-label text-center">Thanks, now we'll be able to connect you with people just like you.<br><br>We now invite you to start writing the first chapter of your story. These chapters help the community get to know you.</p>
     </div>
-    <div class="container" style="border-top: thin solid #ff89a0; padding-top: 20px;">
+    <div class="text-center" style="border-top: thin solid #ffced8; padding-top: 20px;">
 		<!--p class="firstchapt-label">Title </p-->
         <input type="text" class="edit-chapter-title" name="stage" id="firstchapt-title" placeholder="Title of your Chapter" />
 
-		<textarea placeholder="Here's where you can share your thoughts in the first chapter of your story. Be as expressive as you want. Let others know what you're going through. Here's where you can make a connection with others in the community." class="chapter-text" rows="10" id="firstchapt"></textarea>
+		<textarea placeholder="Tell a story, reflect, and share your feelings." class="chapter-text" rows="10" id="firstchapt"></textarea>
 	</div>
 </div>
 
-<div class="container screen" id="welcome5-screen">
+<!-- <div class="container screen full-width" id="welcome5-screen">
     <div class="row">
         <img class="img-responsive center-block welcrumb-breadcome" src="img/signup-img/p_bar_4.png">
     </div>
@@ -358,17 +387,21 @@
 		<img class="firstchpt-tag-ref" OnClick="refTag()"  src="tags/reflection-tag.png"/>
 	</div>
 	</center>
-</div>
+</div> -->
 
-<div class="container screen" id="edit-chapter1-screen">
+<div class="container screen full-width" id="edit-chapter1-screen">
     <div id="welcome-message">
-        <p class="welcome-pbar-label">Think of this as you're online diary where you can share your thoughts and feelings with the community. No one but trusted members of the community can read these. </p>
+        <p class="welcome-pbar-label muted small">Think of this as you're online diary where you can share your stories, thoughts, and feelings with others. These chapters help the community get to know you.</p>
     </div>
-    <div class="container" style="border-top: thin solid #ff89a0; padding-top: 20px;">
+    <div class="text-center" style="border-top: thin solid #ffced8; padding-top: 20px;">
         <!--p class="firstchapt-label">Title </p-->
         <input type="text" class="edit-chapter-title" name="stage" id="chapt-title" placeholder="Title of your Chapter" />
 
-        <textarea placeholder="Here's where you can share your thoughts in the first chapter of your story. Be as expressive as you want. Let others know what you're going through. Here's where you can make a connection with others in the community." class="chapter-text" rows="10" id="chapt"></textarea>
+        <textarea placeholder="Tell a story, reflect, and share your feelings." class="chapter-text" rows="10" id="chapt"></textarea>
+
+        <div class="btn-outer text-center share-chapter">
+            <a class="btn btn-inner" href="#my-story">Share</a>
+        </div>
     </div>
 </div>
 
@@ -430,14 +463,14 @@
     </div>
 </footer>
 
-<footer class="bottom-nav bg-faded row" id="footer-save">
+<footer class="bottom-nav bg-faded" id="footer-save">
     <h3><a href="#my-story" class="col-xs-6 text-center footer" onclick="setProfileData()" style="border-right: 1px dotted">Cancel</a></h3>
     <h3><a href="#my-story" class="col-xs-6 text-center footer" onclick="saveProfile()">Save</a></h3>
 </footer>
 
-<footer class="bottom-nav bg-faded row" id="footer-signup">
-    <h3><a onclick="javascript:nextPage(-1)" class="col-xs-6 text-center footer" style="border-right: 1px dotted" id="footer-back-button">&lt Prev</a></h3>
-    <h3><a onclick="javascript:nextPage(1)" class="col-xs-6 text-center footer" id="footer-next-button">Next &gt</a></h3>
+<footer class="bottom-nav bg-faded" id="footer-signup">
+    <h3><a onclick="javascript:nextPage(-1)" class="col-xs-6 text-center footer" style="border-right: 1px dashed" id="footer-back-button">&#8592;</a></h3>
+    <h3><a onclick="javascript:nextPage(1)" class="col-xs-6 text-center footer" id="footer-next-button">&#8594;</a></h3>
 </footer>
 
 </body>
@@ -454,10 +487,10 @@
         const updatedScreen = currentWelcomeScreen + increment;
 
         // hard-code the two views where you'd show the bottom "NEXT" button as "DONE"
-        if (increment == 1 && (document.location.hash == "#edit-chapter1" || document.location.hash == "#welcome4")) {
+        if (increment == 1 && ( document.location.hash == "#welcome3")) {
             $('#footer-next-button').html('DONE &gt');
         } else {
-            $('#footer-next-button').html('Next &gt');
+            $('#footer-next-button').html('&#8594;');
         }
 
         if (increment == -1 && document.location.hash == "#edit-chapter1") {
@@ -466,27 +499,28 @@
         }
 
         // TODO: Perform checks before sending to my story view
-        if (document.location.hash == "#edit-chapter2" && increment == 1) {
-            // if this is the edit chapter view's second page,
-            // it's time to save to the myStoriesData array
-            appendChapterToStory();
+        // if (document.location.hash == "#edit-chapter2" && increment == 1) {
+        //     // if this is the edit chapter view's second page,
+        //     // it's time to save to the myStoriesData array
+        //     appendChapterToStory();
 
-            // take them to the my story page
-            document.location.hash = "#my-story";
-            return;
-        }
+        //     // take them to the my story page
+        //     document.location.hash = "#my-story";
+        //     return;
+        // }
 
-        if (updatedScreen == 6) {
+        if (updatedScreen == 5) {
             // This is only for the "Welcome" view.
             // NOTE: legacy and inefficient code but will NOT be changed at this stage.
             // update the user's story
-            appendChapterToStory();
+            finishCreatingProfile()
+            appendChapterToStory(true);
 
             // take them to the my story page
             document.location.hash = "#my-story";
         }
 
-        if (updatedScreen < 1 || updatedScreen > 5) {
+        if (updatedScreen < 1 || updatedScreen > 4) {
             return;
         } else {
             // grey out BACK button if 1
