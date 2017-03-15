@@ -381,32 +381,32 @@ input:checked + .slider:before {
 }
 
 .nav-icon.book {
-    background-image: url(img/book.png);
+    background-image: url(img/nav-icons/deact-my-story-40.png);
 }
 
 .bottom-nav-item.selected .nav-icon.book {
-    background-image: url(img/book_filled.png);
+    background-image: url(img/nav-icons/act-my-story-40.png);
 }
 
 .nav-icon.conversations {
-    background-image: url(img/conversations.png);
+    background-image: url(img/nav-icons/deact-conversation-40.png);
 }
 
 .bottom-nav-item.selected .nav-icon.conversations {
-    background-image: url(img/conversations_filled.png);
+    background-image: url(img/nav-icons/act-conversation-40.png);
 }
 
 .nav-icon.star {
-    background-image: url(img/star.png);
+    background-image: url(img/nav-icons/deact-local-stories-40.png);
 }
 
 .bottom-nav-item.selected .nav-icon.star {
-    background-image: url(img/star_filled.png);
+    background-image: url(img/nav-icons/act-local-stories-40.png);
 }
 
 .bottom-nav-item span {
   display: block;
-  color: white;
+  color: #95805c;
   position: relative;
   top: -3px;
   font-size: 10px;
@@ -417,10 +417,10 @@ input:checked + .slider:before {
   color: #ffced8;
 }
 
-.bordered-nav-item {
+/*.bordered-nav-item {
   border-left: 1px dashed white;
   border-right: 1px dashed white;
-}
+}*/
 
 .bottom-nav a {
   /* color: white !important; */
@@ -698,7 +698,6 @@ p.button-label{
 }
 
 .selected {
-  background: #ff89a0;
   color:white;
 }
 
