@@ -70,7 +70,7 @@ var marital; var kid; var stage;
 function finishCreatingProfile() {
   myUser.fullName = $('#name_input').val() || myUser.fullName;
   myUser.age = $('#age_input').val() || myUser.age;
-  myUser.bio = $('#bio_input').val();
+  myUser.bio = $('#bio_input').val() || myUser.bio;
   myUser.diagnosisDate = $('#diagnose_input').val() || myUser.diagnosisDate;
   // these vars were set on click...
   myUser.married = marital;
