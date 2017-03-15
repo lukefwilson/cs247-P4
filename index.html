@@ -233,14 +233,14 @@
             <div class="row edit-profile-binary-question">
                 <p class="text-center col-xs-8">Are you married?</p> 
                 <label class="switch col-xs-4">
-                  <input type="checkbox" id="edit-profile-married">
+                  <input type="checkbox" id="edit-profile-married" ng-checked="married">
                   <div class="slider round"></div>
                 </label>
             </div>
             <div class="row edit-profile-binary-question">
                 <p class="text-center col-xs-8">Do you have Children? </p>
                 <label class="switch col-xs-4">
-                  <input type="checkbox" id="edit-profile-children">
+                  <input type="checkbox" id="edit-profile-children" ng-checked="kids">
                   <div class="slider round"></div>
                 </label>
             </div>
@@ -590,7 +590,6 @@
 
     var chevronToggle = function(id_of_button) {
         // toggle chevron for full profile view
-        console.log($(id_of_button));
         $(id_of_button).toggleClass("rotate");
     };
 
