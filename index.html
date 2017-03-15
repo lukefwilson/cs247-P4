@@ -112,7 +112,7 @@
             {{#each user.stories}}
                 <div class="chapter">
                     <h1 class="chapter-title">{{ this.title }}</h1>
-                    <p class="chapter-date"> March 13, 2017</p>
+                    <p class="chapter-date">{{this.date}}</p>
                     <p class="chapter-text">{{ this.content }}</p>
                 </div>
             {{/each}}
@@ -188,7 +188,7 @@
             {{#each user.stories}}
                 <div class="chapter">
                     <h1 class="chapter-title">{{ this.title }}</h1>
-                    <p class="chapter-date"> March 13, 2017</p>
+                    <p class="chapter-date">{{this.date}}</p>
                     <p class="chapter-text">{{ this.content }}</p>
                 </div>
             {{/each}}
@@ -231,7 +231,7 @@
         <div class="edit-story-card">
             <input class="text-center center-block" id="edit-profile-age" placeholder="Your Age" ng-value="age"/>
             <div class="row edit-profile-binary-question">
-                <p class="text-center col-xs-8">Are you married?</p> 
+                <p class="text-center col-xs-8">Are you married?</p>
                 <label class="switch col-xs-4">
                   <input type="checkbox" id="edit-profile-married" ng-checked="married">
                   <div class="slider round"></div>

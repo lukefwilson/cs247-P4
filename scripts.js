@@ -55,9 +55,16 @@ Handlebars.registerHelper('ifCond', function(v1, v2, options) {
   return options.inverse(this);
 });
 
-var defaultStory = new Story('Story Title', 'Some great content');
-var myUser = new User(0, 'Your Name', 34, "2013-12", 2, 'I love to be spontaneous with my family. We travel the world and enjoy life to the fullest.', true, 2, 'Stanford, CA', 'my-photo.png', [],'');
-myUser.stories.push(defaultStory);
+var myUser = new User(0, 'Your Name', 35, "2016-12", 2, 'I love to be spontaneous with my family. We travel the world and enjoy life to the fullest.', true, 2, 'Stanford, CA', 'my-photo.png', [],'');
+var chp1 = new Story('A Feeling of Getting Breast Cancer', "Because of my mom's breast cancer history, I was concerned about developing the same disease. So I have annual routine mammograms starting 5 years ago. However recently I have underwent a lot of stress. I had felt lumps in my breasts. Sooner or later, I would develop breast cancer I think.", 'September 2, 2016');
+var chp2 = new Story('Mammogram Appointment', "My doctor encouraged me to wait to see if I actually developed cancer, but my husband told me seriously last night that he thought I had a lump in my breast. I told him that I had been feeling lumps for a while, but he said it felt larger. “I think you need a mammogram,” he told me. I was due for my annual mammogram, so I made the appointment right away.", 'September 20, 2016');
+var chp3 = new Story('The Results of the Test', "BThe results came by mail this morning. No change had been observed, but the report also stated that I had dense breast tissue, which can sometimes make cancer difficult to see.", 'September 27, 2016');
+var chp4 = new Story('Breast Began Bleeding...', "I can't fall asleep right now ... My right breast started bleeding! I just called my doctor. Hopefully she will refer me to some breast surgeon near my home tomorrow.", 'October 3, 2016');
+var chp5 = new Story('Still Waiting ...?', "The surgeon did an ultrasound yesterday. We saw two areas in my breast that looked suspicious for cancer. I wanted to have the surgery but like my previous physician, the surgeon told me to wait. She wanted to do a biopsy to confirm that the masses were malignant. She said there was time, that the tumors were not going to grow that fast.", 'October 5, 2016');
+var chp6 = new Story('Finally, Surgery', "I had a biopsy six weeks ago, and she confirmed that I had breast cancer one week later. She wanted me to have an MRI before going ahead with any surgical procedure. I was certain there was cancer in at least one lymph node but she was not, and an MRI would reveal any other areas of concern. After a series of confirmation, finally she agreed to recommend that I have a bilateral mastectomy. I waited for another four weeks to have the surgery.", 'December 1, 2016');
+var chp7 = new Story('Should I Travel for Treatment?', "My friend recommended me a breast cancer center, but I didn’t call right away that day. The location is far away from my home. I have three children, one of whom has cerebral palsy and needs constant care, and I didn’t see how I could logistically travel for treatment. So what was the point in calling?", 'December 3, 2016');
+
+myUser.stories = [chp7, chp6, chp5, chp4, chp3, chp2, chp1];
 
 function resetTags() {
   // reset all tags to 0
@@ -91,10 +98,10 @@ function appendChapterToStory(fromSignUp) {
 
   var newStory;
   if (fromSignUp) {
-      newStory = new Story($('#firstchapt-title').val(), $('#firstchapt').val());
-      myUser.stories[0] = newStory;
+      newStory = new Story($('#firstchapt-title').val(), $('#firstchapt').val(), 'March 17, 2017');
+      myUser.stories = [newStory];
   } else {
-      newStory = new Story($('#chapt-title').val(), $('#chapt').val());
+      newStory = new Story($('#chapt-title').val(), $('#chapt').val(), 'March 17, 2017');
       myUser.stories = [newStory].concat(myUser.stories);
   }
 
