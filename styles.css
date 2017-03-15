@@ -478,7 +478,7 @@ p.welcome-pbar-label{
 	padding: 0px 20px;
 	font-family: comingSoon, cursive;
 	color: #624e2f;
-	font-size: 14px;
+	/*font-size: 14px;*/
 }
 
 .row.q_card{
@@ -506,7 +506,7 @@ p.qcard_title{
 }
 
 #diagnose_input, #stage_input{
-	margin-top: 30px;
+	/*margin-top: 30px;*/
   background: white;
 }
 

@@ -167,7 +167,7 @@ $( document ).ready(function() {
           if (document.location.hash == '#welcome1') {
             $("#footer-back-button").addClass("greyed-out");
           } else {
-            $("#footer-back-button").html("< Back");
+            $("#footer-back-button").html("&#8592;");
           }
         }
 
@@ -248,7 +248,7 @@ $( document ).ready(function() {
         }
 
         // handle back button
-        if (userProfile || pageName.indexOf('conversation-with') >= 0) {
+        if (userProfile || pageName.indexOf('conversation-with') >= 0 || pageName == 'edit-chapter1') {
            $('#back').show();
          } else {
            $('#back').hide();
