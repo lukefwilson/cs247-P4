@@ -27,9 +27,9 @@
 <!-- Top Nav test with git -->
 <nav class="navbar navbar-fixed-top top-nav row container">
     <div class="col-xs-2">
-        <a class="top-nav-item back" href="#back" id="back">
+        <span class="top-nav-item back" id="back">
             < Back
-        </a>
+        </span>
     </div>
 
     <div class="top-nav-item title text-center col-xs-8">
@@ -47,71 +47,52 @@
 <!-- Screens -->
 
 <div class="container screen" id="local-stories-screen">
-    <div class="local-story">
-        <div class="header">
-            <img class="profile-photo img-responsive center-block" src="https://files.slack.com/files-pri/T3XQLE47P-F4FTUTWDV/aa-photo.png?pub_secret=96f4476edb">
-            <h1 class="text-center profile-name">Audrey Allen</h1>
-            <p class="text-center profile-location">Edina, Minnesota</p>
-            <p class="text-center profile-bio">My Life today is all about my Family.</p>
-            <div class="btn-outer text-center start-conver">
-                <a href="#conversation-with-audrey"><button class="btn btn-inner">Start a Conversation</button></a>
-            </div>
-            <div class="btn-outer text-center">
-                <button class="btn btn-inner read-more">Read More</button>
-            </div>
-        </div>
-        <hr class="profile-divider" />
-        <div class="main collapse">
-            <div class="chapter">
-                <h1 class="chapter-title">Starting on Anastrazole</h1>
-                <p class="chapter-date">March 8th, 2017</p>
-                <p class="chapter-text">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam pulvinar lacinia felis, at placerat dui finibus quis. Pellentesque vitae tellus cursus, laoreet metus sit amet, ornare diam. Donec finibus dignissim nibh, ut consectetur nunc tristique et. Sed in ipsum aliquam, ullamcorper dolor vitae, tempus magna. Phasellus gravida malesuada nisi, a malesuada erat laoreet in. Maecenas iaculis sem eget felis maximus venenatis. Aliquam erat volutpat. Integer vitae justo non ante blandit dapibus vitae eget enim. Vestibulum finibus suscipit mauris et aliquet. Morbi convallis viverra lorem eget cursus.
-                </p>
-            </div>
-        </div>
-    </div>
-    <div class="local-story">
-        <div class="header">
-            <img class="profile-photo img-responsive center-block" src="img/stephenson-samantha.jpg">
-            <h1 class="text-center profile-name">Samantha Stephenson</h1>
-            <p class="text-center profile-location">Pleasanton, California</p>
-            <p class="text-center profile-bio">Cancer has taught me the different languages of love; Each person "speaks" their love differently.</p>
-            <div class="btn-outer text-center start-conver">
-                <a href="#conversation-with-samantha"><button class="btn btn-inner">Start a Conversation</button></a>
-            </div>
-            <div class="btn-outer text-center">
-                <button class="btn btn-inner read-more">Read More</button>
-            </div>
-        </div>
-        <hr style="" class="pretty-divider" />
-        <div class="main collapse">
-            <div class="chapter">
-                <h1 class="chapter-title">Starting on Anastrazole</h1>
-                <p class="chapter-date">March 8th, 2017</p>
-                <p class="chapter-text">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam pulvinar lacinia felis, at placerat dui finibus quis. Pellentesque vitae tellus cursus, laoreet metus sit amet, ornare diam. Donec finibus dignissim nibh, ut consectetur nunc tristique et. Sed in ipsum aliquam, ullamcorper dolor vitae, tempus magna. Phasellus gravida malesuada nisi, a malesuada erat laoreet in. Maecenas iaculis sem eget felis maximus venenatis. Aliquam erat volutpat. Integer vitae justo non ante blandit dapibus vitae eget enim. Vestibulum finibus suscipit mauris et aliquet. Morbi convallis viverra lorem eget cursus.
-                </p>
-            </div>
-        </div>
+    <p class="muted text-center small">We've found a lot of local women just like you.<br>Connect with them by reading their stories and reaching out.</p>
+    <div id="local-stories-rendered">
     </div>
 </div>
 
-<div class="container screen" id="my-story-screen">
-    <div class="local-story">
-        <div class="header">
-            <img id="profile-image-preview" class="profile-photo img-responsive center-block" src="img/bunch-shawna.jpg">
-            <h1 class="text-center profile-name">Your Name</h1>
-            <p id="profile-location" class="text-center profile-location">Stanford, California</p>
-            <p id="my-bio" class="text-center profile-bio">Your Bio</p>
-            <div class="btn-outer text-center write-chapter">
-                <a class="btn btn-inner" href="#edit-chapter1">Write a New Chapter</a>
+<script id="local-story-card-template" type="text/x-handlebars-template">
+    <div class="local-story-profile-card" onclick="document.location.hash = '{{user.firstName}}'">
+        <div class="media">
+            <div class="media-left media-middle">
+                <img class="media-object profile-photo" src="img/{{user.img}}">
+                <h5 class="text-center">{{user.fullName}}</h5>
+            </div>
+            <div class="media-body">
+                <p class="profile-bio">{{user.cardBio}}</p>
+                <hr style="" class="pretty-divider" />
+                <h5 class="recent-chapters-title">Her recent chapters</h5>
+                <ul class="recent-chapters-list">
+                    <li>{{user.stories.1.title}}</li>
+                    <li>{{user.stories.2.title}}</li>
+                </ul>
             </div>
         </div>
-        <hr style="" class="pretty-divider" />
+    </div>
+</script>
+
+<div class="container screen" id="my-story-screen">
+
+        <div class="media">
+          <div class="media-left media-middle">
+              <img class="media-object conversation-img" src="img/bunch-shawna.jpg">
+          </div>
+          <div class="media-body">
+                <h4 class="message-name profile-name" id="my-name">Your Name</h4>
+                <p id="profile-location" class="profile-location">Stanford, California</p>
+                <p id="my-bio" class="profile-bio">Your bio</p>
+                <div class="btn-outer text-center write-chapter">
+                    <a class="btn btn-inner" href="#edit-chapter1">Write a New Chapter</a>
+                </div>
+          </div>
+        </div>
+        <hr class="pretty-divider">
         <div class="main" id="my-chapters-rendered">
             <!-- the chapters will go here from handlebars -->
         </div>
+
+
         <script id="my-story-template" type="text/x-handlebars-template">
             <div class="chapter">
                 <h1 class="chapter-title">{{ title }}</h1>
@@ -126,28 +107,58 @@
                 <p class="chapter-text">{{ content }}</p>
             </div>
         </script>
-    </div>
 </div>
 
 <div class="container screen" id="conversations-screen">
+    <p class="muted text-center small">Connect with more people by reading stories and starting conversations.</p>
+    <hr class="profile-divider no-margin">
     <div id="conversations-index">
 
     </div>
-    <p class="muted text-center small top-margin">Connect with more people by reading stories<br>and starting conversations!</p>
 
     <script id="conversations-index-template" type="text/x-handlebars-template">
-        <a class="conversation-link" href="#conversation-with-{{user.firstName}}">
+        <div class="conversation-link" onclick="document.location.hash = 'conversation-with-{{user.firstName}}'">
             <div class="media">
               <div class="media-left media-middle">
                   <img class="media-object conversation-img" src="img/{{user.img}}">
               </div>
               <div class="media-body">
-                <h4 class="title">{{user.fullName}}</h4>
+                <h4 class="message-name">{{user.fullName}}</h4>
                 <p>{{lastMessage}}</p>
               </div>
             </div>
-        </a>
-        <hr class="profile-divider small-margin">
+        </div>
+        <hr class="profile-divider no-margin">
+    </script>
+</div>
+
+<div class="container screen" id="profile-screen">
+    <div id="profile-rendered">
+
+    </div>
+
+    <script id="profile-template" type="text/x-handlebars-template">
+        <div class="media">
+          <div class="media-left media-middle">
+              <img class="media-object conversation-img" src="img/{{user.img}}">
+          </div>
+          <div class="media-body">
+                <h4 class="message-name">{{user.fullName}}</h4>
+                <p class="profile-location">{{user.location}}</p>
+                <p>{{user.bio}}</p>
+                <div class="btn-outer text-center write-chapter">
+                    <a class="btn btn-inner" href="#conversation-with-{{user.firstName}}">Start a Conversation</a>
+                </div>
+          </div>
+        </div>
+        <hr class="pretty-divider">
+        {{#each user.stories}}
+            <div class="chapter">
+                <h1 class="chapter-title">{{ this.title }}</h1>
+                <p class="chapter-date"> March 13, 2017</p>
+                <p class="chapter-text">{{ this.content }}</p>
+            </div>
+        {{/each}}
     </script>
 </div>
 
@@ -505,6 +516,7 @@
     function saveProfile() {
         $('#profile-location').html($('#edit-profile-location').val());
         $('#my-bio').html($('#edit-profile-bio').val());
+        $('#my-name').html($('#edit-profile-name').val());
     }
 </script>
 </html>

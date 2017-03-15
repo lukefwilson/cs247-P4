@@ -1,4 +1,7 @@
-/*Light Pink: #ffced8
+/*
+Very light Pink: #fff5f5; // background
+Quite Light Pink: #ffced8; // light hover color
+Light Pink: #ffced8 // darker hover color
 Brown: #624e2f
 Dark Pink: #ff89a0*/
 
@@ -14,6 +17,7 @@ Dark Pink: #ff89a0*/
 
 body {
   font-family: comingSoon;
+  background-color: #fff5f5;
 }
 
 .title {
@@ -22,6 +26,10 @@ body {
 
 .hide {
   display: none !important;
+}
+
+#back:hover {
+  cursor: pointer;
 }
 
 /* Top Nav */
@@ -73,6 +81,11 @@ body {
 
 /* Screens / Pages */
 
+.container.screen {
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
 .pretty-divider {
   border-top: dashed 1px;
   color:#ffced8;
@@ -83,9 +96,8 @@ body {
   color:#ffced8;
 }
 
-.profile-divider.small-margin {
-  margin-top: 5px;
-  margin-bottom: 5px;
+.profile-divider.no-margin {
+    margin: 0px -10px;
 }
 
 .screen {
@@ -95,14 +107,14 @@ body {
 }
 
 .screen .profile-photo {
-  width: 50%;
+  width: 80px;
   border-radius: 50%;
 }
 
 .screen .profile-name {
-  font-family : indieFlower;
+/*  font-family : indieFlower;
   font-size : 2em;
-  color : #624e2f;
+  color : #624e2f;*/
 }
 
 .screen .profile-location {
@@ -118,11 +130,12 @@ body {
 
 .btn-inner {
   background: #ff89a0;
-  border-radius : 0 !important;
+  border-radius: 8px;
+  /*border-radius : 0 !important;*/
   box-sizing: border-box;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
-  border : 1px dotted #ffced8;
+  border : 1px dashed #ffced8;
   padding : 5px;
   width : 100%;
   color : #fff;
@@ -131,6 +144,45 @@ body {
 div.header, div.chapter{
 	padding: 0px 10px;
 }
+
+/*Local Stories Card*/
+
+.local-story-profile-card {
+  border: 1.5px solid #ffced8;
+  margin: 10px 0px;
+  padding: 5px;
+  border-radius: 10px;
+  cursor: pointer;
+  background-color: white;
+}
+
+.local-story-profile-card:hover {
+    background-color: #fbe6e6;
+}
+
+.local-story-profile-card .pretty-divider {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.recent-chapters-title {
+  font-weight: bold;
+  color: #ff89a0;
+}
+
+.recent-chapters-list {
+  padding: 0px;
+  padding-left: 20px;
+}
+
+.recent-chapters-list li {
+  list-style-type: square;
+}
+
+p.profile-bio {
+  margin: 10px 0 10px 0;
+}
+
 
 /* Chapters */
 .chapter {
@@ -223,8 +275,8 @@ div.header, div.chapter{
 }
 
 .bordered-nav-item {
-  border-left: 1px dotted white;
-  border-right: 1px dotted white;
+  border-left: 1px dashed white;
+  border-right: 1px dashed white;
 }
 
 .bottom-nav a {
@@ -250,25 +302,32 @@ div.header, div.chapter{
 
 /* Conversations view */
 
+
 .conversation-img {
   border-radius: 50%;
   width: 75px;
 }
 
 .conversation-link {
-  border-bottom: 1px solid gray;
+  cursor: pointer;
+  padding: 10px 10px;
+  margin: 0px -10px;
+  background-color: white;
+  /*padding-left: 10px;
+  padding-right: 10px;*/
 }
 
-.conversation-link, .conversation-link:hover {
-  text-decoration: none;
-}
-
-.conversation-link:hover .media{
-  background-color: #e8e8e8;
+.conversation-link:hover{
+  background-color: #fff5f5;
 }
 
 .top-margin {
   margin-top: 15px;
+}
+
+.message-name {
+  font-weight: bold;
+  color: #ff89a0;
 }
 
 /* Messaging */
@@ -475,7 +534,7 @@ p.button-label{
   margin-bottom: 15px;
 }
 
-#marital-single, #marital-married, #kid-yes, #kid-no, 
+#marital-single, #marital-married, #kid-yes, #kid-no,
 #stage-one, #stage-two, #stage-three, #stage-four{
 	border: thin dashed #ff89a0;
 	width: 150px;

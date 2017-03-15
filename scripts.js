@@ -120,10 +120,34 @@ $( document ).ready(function() {
         }
     }
 
-    var currentPage;
-    var previousPage;
+    var renderLocalStoriesPage = function() {
+      var source   = $("#local-story-card-template").html();
+      var localStoryCardTemplate = Handlebars.compile(source);
+      var $screen = $('#local-stories-rendered');
+      $screen.html('');
 
-    var changeToPage = function(pageName) {
+      for (var i = 0; i < db.users.length; i++) {
+        var user = db.users[i];
+
+        var html = localStoryCardTemplate({user: user});
+        $screen.append(html);
+      }
+    }
+
+    var renderProfileForUser = function(user) {
+      var source   = $("#profile-template").html();
+      var profileTemplate = Handlebars.compile(source);
+      var $screen = $('#profile-rendered');
+      $screen.html('');
+
+      var html = profileTemplate({user: user});
+      $screen.append(html);
+    }
+
+    var currentPage = 'local-stories';
+    var previousPages = ['local-stories'];
+
+    var changeToPage = function(pageName, wasBack = false) {
         // scroll to top
         window.scrollTo(0, 0);
 
@@ -138,11 +162,26 @@ $( document ).ready(function() {
 
         if (pageName[0] === '#') pageName = pageName.substr(1); // remove leading #
 
-        previousPage = currentPage;
+        if (!wasBack) {
+            previousPages.push(currentPage);
+        }
         currentPage = pageName;
         // Show correct screen by getting name from the url
         $('.screen').hide();
-        $('#' + pageName + '-screen').show();
+
+
+        // Change top title
+        $('.top-nav-item.title').html( pageName.replace(/-/g, ' ') )
+
+        // check if showing user profile page or other
+        userProfile = db.getUserByFirstName(pageName);
+        if (userProfile) {
+          renderProfileForUser(userProfile);
+          $('#profile-screen').show();
+          $('.top-nav-item.title').html(userProfile.firstName + "'s Story");
+        } else {
+          $('#' + pageName + '-screen').show();
+        }
 
         // special: If this is My Story, show edit mode
         if (pageName == 'my-story') {
@@ -152,8 +191,6 @@ $( document ).ready(function() {
             $('#edit-button-top').hide();
         }
 
-        // Change top title
-        $('.top-nav-item.title').html( pageName.replace(/-/g, ' ') )
 
         // if this is edit then show the save button
         if (pageName == 'editing-my-profile') {
@@ -179,27 +216,43 @@ $( document ).ready(function() {
           renderConversationsIndex();
         }
 
+        if (pageName =='local-stories') {
+          renderLocalStoriesPage();
+        }
+
         if (pageName.indexOf('conversation-with') >= 0) {
-          $('#back').show();
           $('#footer-menu').hide();
           $('#direct-conversation-screen').show();
 
           var user = db.getUserByFirstName(pageName.substr(18));
           renderConversationWithUser(user);
         } else {
-          $('#back').hide();
           $('#footer-menu').show();
         }
 
+        // handle back button
+        if (userProfile || pageName.indexOf('conversation-with') >= 0) {
+           $('#back').show();
+         } else {
+           $('#back').hide();
+         }
+
         // Select correct nav item
         $('.bottom-nav-item').removeClass('selected');
-        $('#' + pageName + '-nav').addClass('selected');
+        if (userProfile) {
+          $('#local-stories-nav').addClass('selected');
+        } else {
+          $('#' + pageName + '-nav').addClass('selected');
+        }
     }
 
-    /*=========== start on welcome screen =========*/
-    changeToPage('welcome1');
-    document.location.hash = "#welcome1";
-    $('.start-conver').toggle();  // hide ALL the start conversation buttons
+    /*=========== start on whatever page is in hash =========*/
+    if (document.location.hash.length < 1) {
+      document.location.hash = 'welcome1';
+    } else {
+      changeToPage(document.location.hash);
+    }
+
 
     /*=============================================*/
 
@@ -215,11 +268,14 @@ $( document ).ready(function() {
 
     // Handle Page Changes (anchor link clicks)
     $(window).bind( 'hashchange', function(e) {
-        if (document.location.hash == '#back') {
-          changeToPage(previousPage);
-        } else {
+        if (document.location.hash.length > 1) {
           changeToPage(document.location.hash);
         }
+    });
+
+    $('#back').click(function(e) {
+      changeToPage(previousPages.pop(), true);
+      document.location.hash = '#';
     });
 
 
