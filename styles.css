@@ -165,9 +165,9 @@ body {
   border-radius: 50%;
 }
 
-.screen .profile-name {
+/*.screen .profile-name {
   margin-bottom: 0px;
-}
+}*/
 
 .screen .profile-location {
   font-size: 1em;
@@ -208,9 +208,9 @@ div.header, div.chapter{
   background-color: white;
 }
 
-.local-story-profile-card:hover {
+/*.local-story-profile-card:hover {
     background-color: #fbe6e6;
-}
+}*/
 
 .local-story-profile-card .pretty-divider {
   margin-top: 15px;
@@ -249,11 +249,11 @@ p.profile-bio {
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
+  line-height: 1.5em;
 }
 
 .chapter-date {
   color: #907A56;
-
 }
 
 .chapter-text {
@@ -384,7 +384,7 @@ input:checked + .slider:before {
     background-image: url(img/nav-icons/deact-my-story-40.png);
 }
 
-.bottom-nav-item.selected .nav-icon.book {
+.bottom-nav-item.nav-selected .nav-icon.book {
     background-image: url(img/nav-icons/act-my-story-40.png);
 }
 
@@ -392,7 +392,7 @@ input:checked + .slider:before {
     background-image: url(img/nav-icons/deact-conversation-40.png);
 }
 
-.bottom-nav-item.selected .nav-icon.conversations {
+.bottom-nav-item.nav-selected .nav-icon.conversations {
     background-image: url(img/nav-icons/act-conversation-40.png);
 }
 
@@ -400,7 +400,7 @@ input:checked + .slider:before {
     background-image: url(img/nav-icons/deact-local-stories-40.png);
 }
 
-.bottom-nav-item.selected .nav-icon.star {
+.bottom-nav-item.nav-selected .nav-icon.star {
     background-image: url(img/nav-icons/act-local-stories-40.png);
 }
 
@@ -413,7 +413,7 @@ input:checked + .slider:before {
   font-family: comingSoon;
 }
 
-.bottom-nav-item.selected span {
+.bottom-nav-item.nav-selected span {
   color: #ffced8;
 }
 
@@ -460,8 +460,13 @@ input:checked + .slider:before {
   padding-right: 10px;*/
 }
 
-.conversation-link:hover{
+/*.conversation-link:hover{
   background-color: #fff5f5;
+}*/
+
+#send-message-button{
+	color: white;
+	background-color: #ff89a0;
 }
 
 .top-margin {
@@ -694,11 +699,17 @@ p.button-label{
 	font-family: comingSoon, cursive;
 	border-radius: 10px;
 	margin: 4px;
+	text-align: center;
   background: white;
 }
 
 .selected {
   color:white;
+  background-color: #ff89a0;
+}
+
+.nav-selected{
+	background-color: none;
 }
 
 .row.welcome-tab-row{

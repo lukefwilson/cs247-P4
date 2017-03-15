@@ -315,11 +315,11 @@ $( document ).ready(function() {
          }
 
         // Select correct nav item
-        $('.bottom-nav-item').removeClass('selected');
+        $('.bottom-nav-item').removeClass('nav-selected');
         if (userProfile) {
-          $('#local-stories-nav').addClass('selected');
+          $('#local-stories-nav').addClass('nav-selected');
         } else {
-          $('#' + pageName + '-nav').addClass('selected');
+          $('#' + pageName + '-nav').addClass('nav-selected');
         }
     }
 
