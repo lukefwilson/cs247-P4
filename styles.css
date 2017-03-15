@@ -80,6 +80,43 @@ body {
 }
 
 /* Screens / Pages */
+.profile-screen-bio {
+  margin-bottom: 0px;
+}
+
+.profile-screen-bio:before {
+  font-family: Georgia, serif;
+  font-size: 1.5em;
+  content: "\201C\00a0";
+  vertical-align: middle;
+}
+
+.profile-screen-bio:after {
+  font-family: Georgia, serif;
+  font-size: 1.5em;
+  content: "\00a0\201D";
+  vertical-align: middle;
+}
+
+.wedge {
+  border-top: 1px solid #ff89a0;
+  border-bottom: 1px solid white;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+#full-profile-toggle {
+  -moz-transition: all 0.5s linear;
+  -webkit-transition: all 0.5s linear;
+  transition: all 0.5s linear;
+}
+
+#full-profile-toggle.rotate{
+  -ms-transform:rotate(180deg);
+  -moz-transform:rotate(180deg);
+  -webkit-transform:rotate(180deg);
+  transform:rotate(180deg);
+}
 
 .container.screen {
   padding-right: 10px;
@@ -112,9 +149,7 @@ body {
 }
 
 .screen .profile-name {
-/*  font-family : indieFlower;
-  font-size : 2em;
-  color : #624e2f;*/
+  margin-bottom: 0px;
 }
 
 .screen .profile-location {
@@ -135,7 +170,7 @@ body {
   box-sizing: border-box;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
-  border : 1px dashed #ffced8;
+  /* border : 1px dashed #ffced8; */
   padding : 5px;
   width : 100%;
   color : #fff;

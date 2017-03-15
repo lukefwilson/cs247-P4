@@ -139,19 +139,24 @@
 
     <script id="profile-template" type="text/x-handlebars-template">
         <div class="media">
-          <div class="media-left media-middle">
-              <img class="media-object conversation-img" src="img/{{user.img}}">
+          <div class="media-middle">
+              <img class="media-object conversation-img img-responsive center-block" src="img/{{user.img}}">
           </div>
           <div class="media-body">
-                <h4 class="message-name">{{user.fullName}}</h4>
-                <p class="profile-location">{{user.location}}</p>
-                <p>{{user.bio}}</p>
+                <h4 class="message-name text-center profile-name">{{user.fullName}}</h4>
+                <p class="text-center profile-screen-bio">{{user.bio}}</p>
+                <div class="collapse" id="extra-profile-info">
+                    <p class="profile-location text-center">{{user.location}}</p>
+                    <p class="text-center">Other information she has shared</p>
+                </div>
+                <span data-toggle="collapse" data-target="#extra-profile-info" id="full-profile-toggle" class="glyphicon glyphicon-chevron-down center-block text-center" style="color:#ff89a0; margin-bottom:7px"></span>
+                <hr class="wedge">
                 <div class="btn-outer text-center write-chapter">
                     <a class="btn btn-inner" href="#conversation-with-{{user.firstName}}">Start a Conversation</a>
                 </div>
           </div>
         </div>
-        <hr class="pretty-divider">
+        <hr class="wedge">
         {{#each user.stories}}
             <div class="chapter">
                 <h1 class="chapter-title">{{ this.title }}</h1>
@@ -518,5 +523,13 @@
         $('#my-bio').html($('#edit-profile-bio').val());
         $('#my-name').html($('#edit-profile-name').val());
     }
+
+    $( document ).ready(function() {
+        // toggle chevron for full profile view
+        $('#full-profile-toggle').click(function(){
+            $(this).toggleClass("rotate"); 
+        });
+    });
+    
 </script>
 </html>
