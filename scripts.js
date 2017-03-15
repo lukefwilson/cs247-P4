@@ -9,6 +9,11 @@ var currentTags = {
   "ref" : 0,
 };
 
+var defaultStory = new Story('Story Title', 'Some great content');
+var myUser = new User(0, 'Your Name', 34, '12/2013', 2, 'I love to be spontaneous with my family. We travel the world and enjoy life to the fullest.', true, 2, 'Stanford, CA', 'aa-photo.png', [],'');
+myUser.stories.push(defaultStory);
+
+
 function resetTags() {
   // reset all tags to 0
   for (tag in currentTags) {
@@ -21,43 +26,54 @@ function resetTags() {
   $('#chapt').val("");
 }
 
-function appendChapterToStory() {
+function appendChapterToStory(fromSignUp) {
   // append the current object to the array of myStoriesData
-  if (myStoriesData.length == 0) {
-    // This is the first chapter - get it from the first edit message thing
-    myStoriesData.push({
-      "title" : $('#firstchapt-title').val(),
-      "content" : $('#firstchapt').val(),
-      "tags" : $.extend({}, currentTags)    // make deepcopy - otherwise it'll copy by reference
-    });
+  // if (myStoriesData.length == 0) {
+  //   // This is the first chapter - get it from the first edit message thing
+  //   myStoriesData.push({
+  //     "title" : $('#firstchapt-title').val(),
+  //     "content" : $('#firstchapt').val(),
+  //     "tags" : $.extend({}, currentTags)    // make deepcopy - otherwise it'll copy by reference
+  //   });
+  // } else {
+  //   // This is a normal story - get it from the edit-story view
+  //   myStoriesData.push({
+  //     "title" : $('#chapt-title').val(),
+  //     "content" : $('#chapt').val(),
+  //     "tags" : $.extend({}, currentTags)
+  //   });
+  // }
+
+  var newStory;
+  if (fromSignUp) {
+      newStory = new Story($('#firstchapt-title').val(), $('#firstchapt').val());
+      myUser.stories[0] = newStory;
   } else {
-    // This is a normal story - get it from the edit-story view
-    myStoriesData.push({
-      "title" : $('#chapt-title').val(),
-      "content" : $('#chapt').val(),
-      "tags" : $.extend({}, currentTags)
-    });
+      newStory = new Story($('#chapt-title').val(), $('#chapt').val());
+      myUser.stories = [newStory].concat(myUser.stories);
   }
 
+  $('#chapt-title').val("");
+  $('#chapt').val("");
+}
 
-  // and then reset the tags
-  resetTags();
+var marital; var kid; var stage;
+
+function finishCreatingProfile() {
+  myUser.fullName = $('#name_input').val() || myUser.fullName;
+  myUser.age = $('#age_input').val() || myUser.age;
+  myUser.bio = $('#bio_input').val();
+  // set on click...
+  myUser.married = marital;
+  myUser.kids = kid;
+  myUser.stage = stage;
+  myUser.diagnosisDate = $('#diagnose_input').val() || myUser.diagnosisDate;
 }
 
 $( document ).ready(function() {
     // set the "my story" fields the same as those in the welcome screen
-    $('#name_input').change(function() {
-      $('.profile-name').html($('#name_input').val());
-      $('#edit-profile-name').val($('#name_input').val());
-    });
-
-    $('#bio_input').change(function() {
-      $('#my-bio').html($('#bio_input').val());
-    });
-
-    $('#bio_input').change(function() {
-      $('#my-bio').html($('#bio_input').val());
-      $('.profile-bio').val($('#bio_input').val());
+    $('.share-chapter').click(function(e){
+      appendChapterToStory();
     });
 
     var renderConversationsIndex = function() {
@@ -78,17 +94,20 @@ $( document ).ready(function() {
     }
 
     var renderMyStoryPage = function () {
-      var source   = $("#my-story-template").html();
+      var source   = $("#my-profile-template").html();
       var myStoryTemplate = Handlebars.compile(source);
-      var $screen = $('#my-chapters-rendered');
+      var $screen = $('#my-profile-rendered');
       $screen.html('');
 
-      for (var i = myStoriesData.length-1 ; i >= 0; i--) {
-        var story = myStoriesData[i];
+      var html = myStoryTemplate({user: myUser});
+      $screen.append(html);
 
-        var html = myStoryTemplate(story);
-        $screen.append(html);
-      }
+      // for (var i = myUser.stories.length-1 ; i >= 0; i--) {
+      //   var story = myUser.stories[i];
+
+      //   var html = myStoryTemplate(story);
+      //   $screen.append(html);
+      // }
     }
 
     var renderConversationWithUser = function(user) {
@@ -189,7 +208,7 @@ $( document ).ready(function() {
             $('#footer-save').show();
             $('#footer-menu').hide();
             $('#footer-signup').hide();
-        } else  if (pageName.substring(0, 7) == 'welcome' || pageName.substring(0, 12) == 'edit-chapter') {
+        } else  if (pageName.substring(0, 7) == 'welcome') {
             if (pageName.substring(0, 7) == 'welcome') {
               $('.top-nav-item.title').html("Welcome!");
             } else {
@@ -198,6 +217,15 @@ $( document ).ready(function() {
             $('#footer-save').hide();
             $('#footer-menu').hide();
             $('#footer-signup').show();
+        } else if (pageName.substring(0, 12) == 'edit-chapter') {
+            $('.top-nav-item.title').html("Write a New Chapter");
+            $('#footer-menu').hide();
+            $('#footer-save').hide();
+            $('#footer-signup').hide();
+        } else if (pageName.indexOf('conversation-with') >= 0) {
+            $('#footer-menu').hide();
+            $('#footer-save').hide();
+            $('#footer-signup').hide();
         } else {
             $('#footer-menu').show();
             $('#footer-save').hide();
@@ -213,13 +241,10 @@ $( document ).ready(function() {
         }
 
         if (pageName.indexOf('conversation-with') >= 0) {
-          $('#footer-menu').hide();
           $('#direct-conversation-screen').show();
 
           var user = db.getUserByFirstName(pageName.substr(18));
           renderConversationWithUser(user);
-        } else {
-          $('#footer-menu').show();
         }
 
         // handle back button
@@ -294,7 +319,6 @@ $( document ).ready(function() {
 });
 
 /*------sign up tab--------*/
-var marital; var kid; var stage;
 function single(){
 	document.getElementById("marital-single").style.backgroundColor="#ff89a0";
 	document.getElementById("marital-single").style.color="white";
