@@ -572,24 +572,28 @@
 
     $(document).ready(function() {
         $(window).scroll(function() {
-            if ($(window).scrollTop() + 45 > $('#call-to-action-anchor').offset().top) {
-                $('.call-to-action').addClass('sticky');
-                $('.call-to-action').removeClass('nonsticky');
-                $('.full-story').css("margin-top", '82px');
-            } else {
-                $('.call-to-action').removeClass('navbar-fixed-top');
-                $('.call-to-action').removeClass('sticky');
-                $('.full-story').css("margin-top", '0px');
+            if($('#call-to-action-anchor').offset()) {
+                if ($(window).scrollTop() + 45 > $('#call-to-action-anchor').offset().top) {
+                    $('.call-to-action').addClass('sticky');
+                    $('.call-to-action').removeClass('nonsticky');
+                    $('.full-story').css("margin-top", '82px');
+                } else {
+                    $('.call-to-action').removeClass('navbar-fixed-top');
+                    $('.call-to-action').removeClass('sticky');
+                    $('.full-story').css("margin-top", '0px');
+                }
             }
 
-            if ($(window).scrollTop() + 45 > $('#my-call-to-action-anchor').offset().top) {
-                $('.my-call-to-action').addClass('sticky');
-                $('.my-call-to-action').removeClass('nonsticky');
-                $('.my-full-story').css("margin-top", '82px');
-            } else {
-                $('.my-call-to-action').removeClass('navbar-fixed-top');
-                $('.my-call-to-action').removeClass('sticky');
-                $('.my-full-story').css("margin-top", '0px');
+            if($('#my-call-to-action-anchor').offset()) {
+                if ($(window).scrollTop() + 45 > $('#my-call-to-action-anchor').offset().top) {
+                    $('.my-call-to-action').addClass('sticky');
+                    $('.my-call-to-action').removeClass('nonsticky');
+                    $('.my-full-story').css("margin-top", '82px');
+                } else {
+                    $('.my-call-to-action').removeClass('navbar-fixed-top');
+                    $('.my-call-to-action').removeClass('sticky');
+                    $('.my-full-story').css("margin-top", '0px');
+                }
             }
         });
     })
