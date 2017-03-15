@@ -248,7 +248,7 @@ p.profile-bio {
   font-weight: bold;
   text-overflow: ellipsis;
   white-space: nowrap;
-  overflow: hidden;
+  /*overflow: hidden;*/
 }
 
 .chapter-date {
