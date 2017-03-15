@@ -149,7 +149,7 @@
                     <p class="profile-location text-center">{{user.location}}</p>
                     <p class="text-center">Other information she has shared</p>
                 </div>
-                <span data-toggle="collapse" data-target="#extra-profile-info" id="full-profile-toggle" class="glyphicon glyphicon-chevron-down center-block text-center" style="color:#ff89a0; margin-bottom:7px"></span>
+                <button data-toggle="collapse" data-target="#extra-profile-info" id="full-profile-toggle" class="glyphicon glyphicon-chevron-down center-block text-center" style="color:#ff89a0; margin-bottom:7px" onclick="chevronToggle()"></button>
                 <hr class="wedge">
                 <div class="btn-outer text-center write-chapter">
                     <a class="btn btn-inner" href="#conversation-with-{{user.firstName}}">Start a Conversation</a>
@@ -523,13 +523,11 @@
         $('#my-bio').html($('#edit-profile-bio').val());
         $('#my-name').html($('#edit-profile-name').val());
     }
-
-    $( document ).ready(function() {
+        
+    var chevronToggle = function() {
         // toggle chevron for full profile view
-        $('#full-profile-toggle').click(function(){
-            $(this).toggleClass("rotate"); 
-        });
-    });
+        $('#full-profile-toggle').toggleClass("rotate"); 
+    };
     
 </script>
 </html>
