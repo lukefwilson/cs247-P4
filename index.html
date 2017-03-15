@@ -200,13 +200,15 @@
                 </div>
           </div>
         </div>
-        {{#each user.stories}}
-            <div class="chapter">
-                <h1 class="chapter-title">{{ this.title }}</h1>
-                <p class="chapter-date"> March 13, 2017</p>
-                <p class="chapter-text">{{ this.content }}</p>
-            </div>
-        {{/each}}
+        <div class="full-story">
+            {{#each user.stories}}
+                <div class="chapter">
+                    <h1 class="chapter-title">{{ this.title }}</h1>
+                    <p class="chapter-date"> March 13, 2017</p>
+                    <p class="chapter-text">{{ this.content }}</p>
+                </div>
+            {{/each}}
+        </div>
     </script>
 </div>
 
@@ -584,9 +586,11 @@
             if ($(window).scrollTop() + 45 > $('#call-to-action-anchor').offset().top) {
                 $('.call-to-action').addClass('sticky');
                 $('.call-to-action').removeClass('nonsticky');
+                $('.full-story').css("margin-top", '82px');
             } else {
                 $('.call-to-action').removeClass('navbar-fixed-top');
                 $('.call-to-action').removeClass('sticky');
+                $('.full-story').css("margin-top", '0px');
             }
         });
     })
