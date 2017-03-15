@@ -249,13 +249,14 @@
         <hr style="" class="wedge"/>
         <div class="edit-story-card">
             <p class="text-center">Which stage are you at?</p>
-            <div class="row">
-                <div class="col-xs-3"><div class="edit-profile-stage" ng-class="{'selected': stage == 1}">Stage I</div></div>
-                <div class="col-xs-3"><div class="edit-profile-stage" ng-class="{'selected': stage == 2}">Stage II</div></div>
-                <div class="col-xs-3"><div class="edit-profile-stage">Stage III</div></div>
-                <div class="col-xs-3"><div class="edit-profile-stage">Stage IV</div></div>
+            <div class="row" style="margin-bottom:25px">
+                <div class="col-xs-3"><div class="edit-profile-stage" ng-class="{'selected': stage == 1}" ng-click="setStage(1)">Stage I</div></div>
+                <div class="col-xs-3"><div class="edit-profile-stage" ng-class="{'selected': stage == 2}" ng-click="setStage(2)">Stage II</div></div>
+                <div class="col-xs-3"><div class="edit-profile-stage" ng-class="{'selected': stage == 3}" ng-click="setStage(3)">Stage III</div></div>
+                <div class="col-xs-3"><div class="edit-profile-stage" ng-class="{'selected': stage == 4}" ng-click="setStage(4)">Stage IV</div></div>
             </div>
-
+            <p class="text-center">When were you first diagnosed?</p>
+            <input class="text-center center-block" id="edit-profile-date" ng-value="diagnosisDate" type="month" />
         </div>
     </div>
 </div>

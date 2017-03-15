@@ -35,6 +35,10 @@ app.controller('myCtrl', function($scope) {
     updateVariables();
   }
 
+  $scope.setStage = function(stage) {
+    $scope.stage = stage;
+  }
+
   $scope.addPersonalInfo = function() {
     // adding user info for the first time (and defaults)
 
@@ -52,7 +56,7 @@ Handlebars.registerHelper('ifCond', function(v1, v2, options) {
 });
 
 var defaultStory = new Story('Story Title', 'Some great content');
-var myUser = new User(0, 'Your Name', 34, '12/2013', 2, 'I love to be spontaneous with my family. We travel the world and enjoy life to the fullest.', true, 2, 'Stanford, CA', 'my-photo.png', [],'');
+var myUser = new User(0, 'Your Name', 34, "2013-12", 2, 'I love to be spontaneous with my family. We travel the world and enjoy life to the fullest.', true, 2, 'Stanford, CA', 'my-photo.png', [],'');
 myUser.stories.push(defaultStory);
 
 function resetTags() {
