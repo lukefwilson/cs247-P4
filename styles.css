@@ -347,6 +347,15 @@ input:checked + .slider:before {
   margin-top:10px;
 }
 
+.edit-profile-stage {
+  background: #ffced8;
+  border-radius: 5px;
+  padding: 4px;
+}
+
+.edit-story-card .selected {
+  background: #ff89a0;
+}
 /* Bottom Nav */
 
 .bottom-nav .bottom-text {
