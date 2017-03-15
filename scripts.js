@@ -29,7 +29,14 @@ app.controller('myCtrl', function($scope) {
   updateVariables();
 
   $scope.editPersonalInfo = function () {
+    // editing user info
     myUser.fullName = $('#edit-profile-name').val();
+
+    updateVariables();
+  }
+
+  $scope.addPersonalInfo = function() {
+    // adding user info for the first time (and defaults)
 
     updateVariables();
   }

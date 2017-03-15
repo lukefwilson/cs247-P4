@@ -97,7 +97,7 @@
                     <hr class="wedge">
                     <p class="text-center">{{user.firstName}} is at Stage {{user.stage}} and was first diagnosed on {{user.diagnosisDate}}</p>
                 </div>
-                <span data-toggle="collapse" data-target="#my-extra-profile-info" id="full-profile-toggle" class="glyphicon glyphicon-chevron-down center-block text-center" style="color:#ff89a0; margin-bottom:7px" onclick="chevronToggle()"></span>
+                <span data-toggle="collapse" data-target="#my-extra-profile-info" id="my-profile-toggle" class="glyphicon glyphicon-chevron-down center-block text-center" style="color:#ff89a0; margin-bottom:7px" onclick="chevronToggle('#my-profile-toggle')"></span>
                 <div id="my-call-to-action-anchor"></div>
                 <div class="my-call-to-action nonsticky">
                     <hr class="wedge">
@@ -173,7 +173,7 @@
                     <hr class="wedge">
                     <p class="text-center">{{user.firstName}} is at Stage {{user.stage}} and was first diagnosed on {{user.diagnosisDate}}</p>
                 </div>
-                <span data-toggle="collapse" data-target="#extra-profile-info" id="full-profile-toggle" class="glyphicon glyphicon-chevron-down center-block text-center" style="color:#ff89a0; margin-bottom:7px" onclick="chevronToggle()"></span>
+                <span data-toggle="collapse" data-target="#extra-profile-info" id="full-profile-toggle" class="glyphicon glyphicon-chevron-down center-block text-center" style="color:#ff89a0; margin-bottom:7px" onclick="chevronToggle('#full-profile-toggle')"></span>
                 <div id="call-to-action-anchor"></div>
                 <div class="call-to-action nonsticky">
                     <hr class="wedge">
@@ -222,13 +222,28 @@
 
 <div class="container screen" id="editing-my-profile-screen">
     <div class="editing-my-story">
-        <div class="header" style="margin-bottom:10px">
+        <div class="edit-story-card">
             <img class="profile-photo center-block img-responsive center-block" src="img/my-photo.png">
             <input class="text-center center-block profile-name" id="edit-profile-name" placeholder="Your Name" ng-value="fullName" />
             <textarea class="center-block profile-bio" id="edit-profile-bio" placeholder="Write a brief bio"/>{{bio}}</textarea>
         </div>
         <hr style="" class="wedge"/>
-        <div style="margin-top:10px">
+        <div class="edit-story-card">
+            <input class="text-center center-block" id="edit-profile-age" placeholder="Your Age" ng-value="age"/>
+            <div class="row edit-profile-binary-question">
+                <p class="text-center col-xs-8">Are you married?</p> 
+                <label class="switch col-xs-4">
+                  <input type="checkbox" id="edit-profile-married">
+                  <div class="slider round"></div>
+                </label>
+            </div>
+            <div class="row edit-profile-binary-question">
+                <p class="text-center col-xs-8">Do you have Children? </p>
+                <label class="switch col-xs-4">
+                  <input type="checkbox" id="edit-profile-children">
+                  <div class="slider round"></div>
+                </label>
+            </div>
             <input class="text-center center-block profile-location" id="edit-profile-location" value="{{location}}" placeholder="Your Location"/>
         </div>
         <hr style="" class="wedge"/>
@@ -570,9 +585,10 @@
         $('#my-name').html($('#edit-profile-name').val());
     }
 
-    var chevronToggle = function() {
+    var chevronToggle = function(id_of_button) {
         // toggle chevron for full profile view
-        $('#full-profile-toggle').toggleClass("rotate");
+        console.log($(id_of_button));
+        $(id_of_button).toggleClass("rotate");
     };
 
     $(document).ready(function() {
