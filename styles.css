@@ -261,6 +261,14 @@ p.profile-bio {
 }
 
 /* Editing my profile */
+.editing-my-story input {
+  border-radius: 5px;
+  border-top: 1px solid #ff89a0;
+  border-left: 1px solid #ff89a0;
+  border-bottom: 1px solid #ffced8;
+  border-right: 1px solid #ffced8;
+}
+
 .editing-my-story input, .editing-my-story textarea, .chapter-text {
   width: 90% !important;
   margin-top: 5px;

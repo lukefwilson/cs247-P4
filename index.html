@@ -14,15 +14,10 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="styles.css">
 
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
-    <script src="handlebars-v4.0.5.js"></script>
-    <script src="jquery.dotdotdot.min.js"></script>
-    <script src="data.js"></script>
-    <script src="scripts.js"></script>
+    <!-- scripts have been moved to the bottom -->
 </head>
 
-<body>
+<body ng-app="myApp" ng-controller="myCtrl">
 
 <!-- Top Nav test with git -->
 <nav class="navbar navbar-fixed-top top-nav row container">
@@ -227,13 +222,16 @@
 
 <div class="container screen" id="editing-my-profile-screen">
     <div class="editing-my-story">
-        <div class="header">
-            <img class="profile-photo img-responsive center-block" src="img/my-photo.png">
-            <input class="text-center profile-name" id="edit-profile-name" placeholder="Your Name"/><br>
-            <input class="text-center profile-location" id="edit-profile-location" value="Stanford, California" placeholder="Your Location"/><br>
-            <input class="text-center profile-bio" id="edit-profile-bio" placeholder="Write a brief bio"/>
+        <div class="header" style="margin-bottom:10px">
+            <img class="profile-photo center-block img-responsive center-block" src="img/my-photo.png">
+            <input class="text-center center-block profile-name" id="edit-profile-name" placeholder="Your Name" ng-value="fullName" />
+            <textarea class="center-block profile-bio" id="edit-profile-bio" placeholder="Write a brief bio"/>{{bio}}</textarea>
         </div>
-        <hr style="" class="pretty-divider" />
+        <hr style="" class="wedge"/>
+        <div style="margin-top:10px">
+            <input class="text-center center-block profile-location" id="edit-profile-location" value="{{location}}" placeholder="Your Location"/>
+        </div>
+        <hr style="" class="wedge"/>
         <!--div class="main">
             <div class="chapter">
                 <input class="chapter-title" value="Starting on Anastrazole" placeholder="Chapter Title"></input>
@@ -472,7 +470,7 @@
 
 <footer class="bottom-nav bg-faded" id="footer-save">
     <h3><a href="#my-story" class="col-xs-6 text-center footer" onclick="setProfileData()" style="border-right: 1px dotted">Cancel</a></h3>
-    <h3><a href="#my-story" class="col-xs-6 text-center footer" onclick="saveProfile()">Save</a></h3>
+    <h3><a href="#my-story" class="col-xs-6 text-center footer" ng-click="editPersonalInfo()">Save</a></h3>
 </footer>
 
 <footer class="bottom-nav bg-faded" id="footer-signup">
@@ -481,6 +479,13 @@
 </footer>
 
 </body>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+<script src="handlebars-v4.0.5.js"></script>
+<script src="jquery.dotdotdot.min.js"></script>
+<script src="data.js"></script>
+<script src="scripts.js"></script>
 <script>
     // welcome screen - clicking next
     var nextPage = function(increment) {

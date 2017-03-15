@@ -9,6 +9,32 @@ var currentTags = {
   "ref" : 0,
 };
 
+// basic angular controller just to bind the global myUser object to everything
+// general template: id, name, age, diagnosisDate, stage, bio, married, kids, location, img, messages, cardBio
+var app = angular.module('myApp', []);
+app.controller('myCtrl', function($scope) {
+  function updateVariables() {
+    $scope.id = myUser.id;
+    $scope.fullName = myUser.fullName;
+    $scope.firstName = myUser.fullName.split(' ')[0];
+    $scope.lastName = myUser.fullName.split(' ')[1];
+    $scope.age = myUser.age;
+    $scope.diagnosisDate = myUser.diagnosisDate;
+    $scope.stage = myUser.stage;
+    $scope.bio = myUser.bio;
+    $scope.married = myUser.married;
+    $scope.kids = myUser.kids;
+    $scope.location = myUser.location;
+  }
+  updateVariables();
+
+  $scope.editPersonalInfo = function () {
+    myUser.fullName = $('#edit-profile-name').val();
+
+    updateVariables();
+  }
+});
+
 // if conditional handlebars
 // ref: http://stackoverflow.com/questions/8853396/logical-operator-in-a-handlebars-js-if-conditional
 Handlebars.registerHelper('ifCond', function(v1, v2, options) {
