@@ -105,6 +105,23 @@ body {
   margin-bottom: 5px;
 }
 
+.call-to-action {
+  background: #fff5f5;
+}
+
+.nonsticky {
+  /* this is only done to make it show up on top of the topnav */
+  position: relative;
+  z-index: 1500;
+}
+
+.sticky {
+  /* stick to the top */
+  position: fixed;
+  top: 40px;
+  width: 94.5%;
+}
+
 #full-profile-toggle {
   -moz-transition: all 0.5s linear;
   -webkit-transition: all 0.5s linear;

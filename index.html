@@ -173,17 +173,33 @@
                 <h4 class="message-name text-center profile-name">{{user.fullName}}</h4>
                 <p class="text-center profile-screen-bio">{{user.bio}}</p>
                 <div class="collapse" id="extra-profile-info">
-                    <p class="profile-location text-center">{{user.location}}</p>
-                    <p class="text-center">Other information she has shared</p>
+                    <p class="profile-location text-center"></p>
+                    <hr class="wedge">
+                    <p class="text-center">{{user.firstName}} is {{user.age}} years old, 
+                        {{#ifCond user.married true}}
+                            married,
+                        {{else}}
+                            single,
+                        {{/ifCond}}
+                        has
+                        {{#ifCond user.kids 1}}
+                        no
+                        {{/ifCond}}
+                        children and lives in {{user.location}}</p>
+                    <hr class="wedge">
+                    <p class="text-center">{{user.firstName}} is at Stage {{user.stage}} and was first diagnosed on {{user.diagnosisDate}}</p>
                 </div>
                 <button data-toggle="collapse" data-target="#extra-profile-info" id="full-profile-toggle" class="glyphicon glyphicon-chevron-down center-block text-center" style="color:#ff89a0; margin-bottom:7px" onclick="chevronToggle()"></button>
-                <hr class="wedge">
-                <div class="btn-outer text-center write-chapter">
-                    <a class="btn btn-inner" href="#conversation-with-{{user.firstName}}">Start a Conversation</a>
+                <div id="call-to-action-anchor"></div>
+                <div class="call-to-action nonsticky">
+                    <hr class="wedge">
+                    <div class="btn-outer text-center write-chapter">
+                        <a class="btn btn-inner" href="#conversation-with-{{user.firstName}}">Start a Conversation with {{user.firstName}}</a>
+                    </div>
+                    <hr class="wedge">
                 </div>
           </div>
         </div>
-        <hr class="wedge">
         {{#each user.stories}}
             <div class="chapter">
                 <h1 class="chapter-title">{{ this.title }}</h1>
@@ -562,6 +578,18 @@
         // toggle chevron for full profile view
         $('#full-profile-toggle').toggleClass("rotate"); 
     };
+
+    $(document).ready(function() {
+        $(window).scroll(function() {
+            if ($(window).scrollTop() + 45 > $('#call-to-action-anchor').offset().top) {
+                $('.call-to-action').addClass('sticky');
+                $('.call-to-action').removeClass('nonsticky');
+            } else {
+                $('.call-to-action').removeClass('navbar-fixed-top');
+                $('.call-to-action').removeClass('sticky');
+            }
+        });
+    })
     
 </script>
 </html>

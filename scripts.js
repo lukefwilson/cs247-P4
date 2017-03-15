@@ -9,6 +9,15 @@ var currentTags = {
   "ref" : 0,
 };
 
+// if conditional handlebars
+// ref: http://stackoverflow.com/questions/8853396/logical-operator-in-a-handlebars-js-if-conditional
+Handlebars.registerHelper('ifCond', function(v1, v2, options) {
+  if(v1 === v2) {
+    return options.fn(this);
+  }
+  return options.inverse(this);
+});
+
 var defaultStory = new Story('Story Title', 'Some great content');
 var myUser = new User(0, 'Your Name', 34, '12/2013', 2, 'I love to be spontaneous with my family. We travel the world and enjoy life to the fullest.', true, 2, 'Stanford, CA', 'my-photo.png', [],'');
 myUser.stories.push(defaultStory);
