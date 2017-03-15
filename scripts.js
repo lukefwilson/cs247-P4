@@ -71,16 +71,16 @@ function finishCreatingProfile() {
   myUser.fullName = $('#name_input').val() || myUser.fullName;
   myUser.age = $('#age_input').val() || myUser.age;
   myUser.bio = $('#bio_input').val();
-  // set on click...
+  myUser.diagnosisDate = $('#diagnose_input').val() || myUser.diagnosisDate;
+  // these vars were set on click...
   myUser.married = marital;
   myUser.kids = kid;
   myUser.stage = stage;
-  myUser.diagnosisDate = $('#diagnose_input').val() || myUser.diagnosisDate;
 }
 
 $( document ).ready(function() {
     // set the "my story" fields the same as those in the welcome screen
-    $('.share-chapter').click(function(e){
+    $('.share-chapter a').click(function(e){
       appendChapterToStory();
     });
 
