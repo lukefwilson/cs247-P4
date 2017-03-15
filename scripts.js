@@ -10,7 +10,7 @@ var currentTags = {
 };
 
 var defaultStory = new Story('Story Title', 'Some great content');
-var myUser = new User(0, 'Your Name', 34, '12/2013', 2, 'I love to be spontaneous with my family. We travel the world and enjoy life to the fullest.', true, 2, 'Stanford, CA', 'aa-photo.png', [],'');
+var myUser = new User(0, 'Your Name', 34, '12/2013', 2, 'I love to be spontaneous with my family. We travel the world and enjoy life to the fullest.', true, 2, 'Stanford, CA', 'my-photo.png', [],'');
 myUser.stories.push(defaultStory);
 
 
