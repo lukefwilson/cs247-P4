@@ -35,7 +35,6 @@
         <a class="top-nav-item forward hide" href="#">
             Forward >
         </a>
-        <a id="edit-button-top" class="top-nav-item col-xs-2 pull-right" href="#editing-my-profile" ng-click="populateEditPage()">Edit</a>
     </div>
 </nav>
 
@@ -75,7 +74,8 @@
         <script id="my-profile-template" type="text/x-handlebars-template">
         <div class="media">
           <div class="media-middle">
-              <img id="my-profile-pic" class="media-object conversation-img img-responsive center-block" src="{{user.img}}">
+            <a id="edit-button-top" class="top-nav-item pull-right col-xs-3" href="#editing-my-profile" ng-click="populateEditPage()" style="color:#ff89a0">Edit <span class="glyphicon glyphicon-edit"></span></a>
+              <img id="my-profile-pic" class="media-object profile-photo img-responsive center-block" src="{{user.img}}" style="margin-right:45px">
           </div>
           <div class="media-body">
                 <h4 class="message-name text-center profile-name">{{user.fullName}}</h4>
@@ -389,7 +389,7 @@
     </div>
     <div id="welcome-message">
         <p class="welcome-pbar-label text-center">Thank you!<br>
-        <p class="welcome-pbar-label text-left">We'd like to invite you to write a brief bio - everything about yourself that you'd like the members of our community to know. It doesn't have to be too detailed - remember to include things like "proud mom of two kids", or "professional in a multinational organization." </p>
+        <p class="welcome-pbar-label text-left">We'd like to invite you to write a brief bio - everything about yourself that you'd like the members of our community to know. It doesn't have to be too detailed - members of our community have written things like "proud mom of two kids", or "professional in a multinational organization." </p>
     </div>
     <div class="text-center container" style="border-top: thin solid #ffced8; padding-top: 20px;">
         <p class="qcard_title">Your Bio</p>
