@@ -262,7 +262,7 @@
 </div>
 
 <!-- WELCOME SCREENS ENSEMBLE -->
-<div class="container screen full-width" id="welcome1-screen">
+<div class="container screen" id="welcome1-screen">
 	<center>
         <div class="row">
             <img class="img-responsive center-block welcrumb-breadcome" src="img/signup-img/p_bar_1.png">
@@ -287,7 +287,7 @@
             <div class="row qcard">
                 <img id="profile-image-preview" class="img-responsive center-block hide col-xs-12" src="#" style="margin-bottom:15px"/>
                 <p class="qcard_title col-xs-6">Profile Photo</p>
-                <div class="col-xs-6">
+                <div class="col-xs-6" style="padding:0px">
                     <label for="file-upload" class="custom-file-upload">
                          <p class="button-label" id="choose-photo">Choose Photo</p>
                     </label>
@@ -299,33 +299,33 @@
             <div class="row qcard">
                 <p class="qcard_title col-xs-6">Location<span style="color:#ff89a0">*</span></p>
                 <p class="qcard_title col-xs-6" style="color:#ff89a0">Stanford, CA</p>
-                <p class="col-xs-12" style="color:#ff89a0; font-size:15px">*Your location was automatically detected</p>
+                <p class="col-xs-12" style="color:#ff89a0; font-size:14px">*Your location was automatically detected</p>
             </div>
         </div>
 	</div>
 </div>
 
-<div class="container screen full-width" id="welcome2-screen">
+<div class="container screen" id="welcome2-screen">
 	<center>
         <div class="row">
             <img class="img-responsive center-block welcrumb-breadcome"  src="img/signup-img/p_bar_2.png">
         </div>
         <div id="welcome-message">
-            <p class="welcome-pbar-label">You're doing great! Tell us a bit about your family.</p>
+            <p class="welcome-pbar-label">You're doing great! We'd love to invite you to share a little about your family.</p>
         </div>
 	</center>
-    <div class="container q_card">
+    <div class="q_card">
         <div class="container edit-profile-binary-question">
             <div class="qcard row">
-                <p class="qcard_title col-xs-8">Are you married?</p>
-                <label class="switch col-xs-4">
+                <p class="qcard_title col-xs-9">Are you married?</p>
+                <label class="switch col-xs-3">
                   <input type="checkbox" id="edit-profile-married" ng-checked="married">
                   <div class="slider round"></div>
                 </label>
             </div>
             <div class="qcard row">
-                <p class="qcard_title col-xs-8">Have you kids?</p>
-                <label class="switch col-xs-4">
+                <p class="qcard_title col-xs-9">Have you any children?</p>
+                <label class="switch col-xs-3">
                   <input type="checkbox" id="edit-profile-children" ng-checked="kids">
                   <div class="slider round"></div>
                 </label>
@@ -335,7 +335,7 @@
     <div class="container q_card"></div>
 </div>
 
-<div class="container screen full-width" id="welcome3-screen">
+<div class="container screen" id="welcome3-screen">
 	<center>
     <div class="row">
         <img class="img-responsive center-block welcrumb-breadcome" src="img/signup-img/p_bar_3.png">
@@ -344,7 +344,7 @@
         <p class="welcome-pbar-label">Tell us about your diagnosis. This will help us match you with other members of the community.</p>
     </div>
 	</center>
-    <div class="container">
+    <div class="">
         <div class="q_card container">
     		<div class="qcard">
     			<p class="qcard_title">What stage are you at right now?</p>
@@ -358,14 +358,14 @@
             <div class="qcard">
                 <div class="row qcard">
                     <p class="qcard_title col-xs-6">When were you first diagnosed?</p>
-                    <input class="col-xs-6" type="month" name="diagnosisDate" id="age_input" ng-value="diagnosisDate" style="margin-top:2.5em"/>
+                    <input class="col-xs-6" type="month" name="diagnosisDate" id="age_input" ng-value="diagnosisDate" style="margin-top:1.5em"/>
                 </div>
             </div>
     	</div>
     </div>
 </div>
 
-<div class="container screen full-width" id="welcome4-screen">
+<div class="container screen" id="welcome4-screen">
     <div class="row">
         <img class="img-responsive center-block welcrumb-breadcome" src="img/signup-img/p_bar_4.png">
     </div>
@@ -456,7 +456,7 @@
     <h3><a href="#my-story" class="col-xs-6 text-center footer" ng-click="editPersonalInfo()">Save</a></h3>
 </footer>
 
-<footer class="bottom-nav bg-faded" id="footer-signup">
+<footer class="bottom-nav bg-faded container" id="footer-signup">
     <h3><a onclick="javascript:nextPage(-1)" class="col-xs-6 text-center footer" style="border-right: 1px dashed" id="footer-back-button">&#8592;</a></h3>
     <h3><a onclick="javascript:nextPage(1)" class="col-xs-6 text-center footer" id="footer-next-button">&#8594;</a></h3>
 </footer>

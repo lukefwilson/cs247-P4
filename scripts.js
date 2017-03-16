@@ -55,7 +55,7 @@ Handlebars.registerHelper('ifCond', function(v1, v2, options) {
   return options.inverse(this);
 });
 
-var myUser = new User(0, 'Your Name', 35, "2016-12", 2, 'I love to be spontaneous with my family. We travel the world and enjoy life to the fullest.', true, 2, 'Stanford, CA', 'my-photo.png', [],'');
+var myUser = new User(0, 'Your Name', 35, "2016-12", 2, 'I love to be spontaneous with my family. We travel the world and enjoy life to the fullest.', true, false, 'Stanford, CA', 'my-photo.png', [],'');
 var chp1 = new Story('A Feeling of Getting Breast Cancer', "Because of my mom's breast cancer history, I was concerned about developing the same disease. So I have annual routine mammograms starting 5 years ago. However recently I have underwent a lot of stress. I had felt lumps in my breasts. Sooner or later, I would develop breast cancer I think.", 'September 2, 2016');
 var chp2 = new Story('Mammogram Appointment', "My doctor encouraged me to wait to see if I actually developed cancer, but my husband told me seriously last night that he thought I had a lump in my breast. I told him that I had been feeling lumps for a while, but he said it felt larger. “I think you need a mammogram,” he told me. I was due for my annual mammogram, so I made the appointment right away.", 'September 20, 2016');
 var chp3 = new Story('The Results of the Test', "BThe results came by mail this morning. No change had been observed, but the report also stated that I had dense breast tissue, which can sometimes make cancer difficult to see.", 'September 27, 2016');
