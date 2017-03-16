@@ -311,7 +311,7 @@
         <div class="q_card container">
             <div class="row qcard">
                 <p class="qcard_title col-xs-6">Location<span style="color:#ff89a0">*</span></p>
-                <p class="qcard_title col-xs-6" style="color:#ff89a0">Stanford, CA</p>
+                <input class="col-xs-6" type="text" id="user_location" style="color:#ff89a0" value="Stanford, CA" placeholder="Enter your location" />
                 <p class="col-xs-12" style="color:#ff89a0; font-size:14px">*Your location was automatically detected</p>
             </div>
         </div>
@@ -390,7 +390,7 @@
     </div>
     <div class="text-center container" style="border-top: thin solid #ffced8; padding-top: 20px;">
         <p class="qcard_title">Your Bio</p>
-		<textarea placeholder="Tell us about yourself. Write a brief bio, letting the community know who you are and what you'd like to talk about." class="chapter-text" rows="4" id="firstchapt"></textarea>
+		<textarea placeholder="Tell us about yourself. Write a brief bio, letting the community know who you are and what you'd like to talk about." class="chapter-text" rows="4" id="my-profile-bio"></textarea>
 	</div>
 </div>
 
@@ -524,8 +524,6 @@
             // This is only for the "Welcome" view.
             // NOTE: legacy and inefficient code but will NOT be changed at this stage.
             // update the user's story
-            finishCreatingProfile()
-            appendChapterToStory(true);
 
             // take them to the local stories page when they finish creating their profile
             document.location.hash = "#local-stories";

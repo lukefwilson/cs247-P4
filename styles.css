@@ -649,7 +649,7 @@ p.welcome-pbar-label{
   border-radius: 50%;
 }
 
-#name_input, #age_input, #diagnose_input, #stage_input, #bio_input{
+#name_input, #age_input, #diagnosisDate_input, #stage_input, #bio_input, #user_location {
 	/* width: 300px; */
 	height: 40px;
 	border: thin dashed #ff89a0;

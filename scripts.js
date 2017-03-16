@@ -16,8 +16,8 @@ app.controller('myCtrl', function($scope) {
   function updateVariables() {
     $scope.id = myUser.id;
     $scope.fullName = myUser.fullName;
-    $scope.firstName = myUser.fullName.split(' ')[0];
-    $scope.lastName = myUser.fullName.split(' ')[1];
+    $scope.firstName = myUser.firstName;
+    $scope.lastName = myUser.lastName;
     $scope.age = myUser.age;
     $scope.diagnosisDate = myUser.diagnosisDate;
     $scope.stage = myUser.stage;
@@ -43,14 +43,31 @@ app.controller('myCtrl', function($scope) {
     console.log("setting user variables to $scope");
 
     // adding user info for the first time (and defaults)
+    // simply update the values of myUser if they have been changed
     if ($('#name_input').val() != "") {
       myUser.fullName = $('#name_input').val();
+      myUser.firstName = myUser.fullName.split(' ')[0];
+      myUser.lastName = myUser.fullName.split(' ')[1];
     }
     if ($('#age_input').val() != "") {
       $scope.dob = $('#age_input').val();
-      myUser.age = Math.floor(Date.now() - new Date($('#age_input').val()))/(1000*3600*24*365);
+      myUser.age = Math.floor((Date.now() - new Date($('#age_input').val()))/(1000*3600*24*365));
     }
+    // the myUser.img is set by clicking on preview itself
+    if ($('#user_location').val() != "") {
+      myUser.location = $('#user_location').val();
+    }
+    // set from the checkboxes
+    myUser.married = $('#edit-profile-married:checked').val() == "on";
+    myUser.kids = $('#edit-profile-children:checked').val() == "on";
 
+    // get stage from $scope 
+    myUser.stage = $scope.stage;
+
+    myUser.diagnosisDate = $('#diagnosisDate_input').val();
+    if ($('#my-profile-bio').val() != "") {
+      myUser.bio = $('#my-profile-bio').val();
+    }
 
     updateVariables();
   }
@@ -65,7 +82,7 @@ Handlebars.registerHelper('ifCond', function(v1, v2, options) {
   return options.inverse(this);
 });
 
-var myUser = new User(0, 'Samantha Stanford', 35, "2016-12", 2, 'I love to be spontaneous with my family. We travel the world and enjoy life to the fullest.', true, false, 'Stanford, CA', 'img/my-photo.png', [],'');
+var myUser = new User(0, 'Samantha Stanford', 35, "2016-12", 1, 'I love to be spontaneous with my family. We travel the world and enjoy life to the fullest.', false, false, 'Stanford, CA', 'img/my-photo.png', [],'');
 var chp1 = new Story('A Feeling of Getting Breast Cancer', "Because of my mom's breast cancer history, I was concerned about developing the same disease. So I have annual routine mammograms starting 5 years ago. However recently I have underwent a lot of stress. I had felt lumps in my breasts. Sooner or later, I would develop breast cancer I think.", 'September 2, 2016');
 var chp2 = new Story('Mammogram Appointment', "My doctor encouraged me to wait to see if I actually developed cancer, but my husband told me seriously last night that he thought I had a lump in my breast. I told him that I had been feeling lumps for a while, but he said it felt larger. “I think you need a mammogram,” he told me. I was due for my annual mammogram, so I made the appointment right away.", 'September 20, 2016');
 var chp3 = new Story('The Results of the Test', "BThe results came by mail this morning. No change had been observed, but the report also stated that I had dense breast tissue, which can sometimes make cancer difficult to see.", 'September 27, 2016');
