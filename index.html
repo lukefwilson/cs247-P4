@@ -120,7 +120,7 @@
               </div>
             </div>
         </div>
-        <span data-toggle="collapse" data-target="#my-extra-profile-info" id="full-profile-toggle" class="glyphicon glyphicon-chevron-down center-block text-center" style="color:#ff89a0; margin-bottom:7px" onclick="chevronToggle('#full-profile-toggle')"></span>
+        <span data-toggle="collapse" data-target="#my-extra-profile-info" id="my-profile-toggle" class="glyphicon glyphicon-chevron-down center-block text-center" style="color:#ff89a0; margin-bottom:7px" onclick="chevronToggle('#my-profile-toggle')"></span>
 
         <div id="my-call-to-action-anchor"></div>
         <div class="my-call-to-action nonsticky">
@@ -610,6 +610,7 @@
 
     var chevronToggle = function(id_of_button) {
         // toggle chevron for full profile view
+        console.log(id_of_button);
         $(id_of_button).toggleClass("rotate");
     };
 
