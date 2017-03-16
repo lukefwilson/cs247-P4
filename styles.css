@@ -86,15 +86,15 @@ body {
 
 .profile-screen-bio:before {
   font-family: Georgia, serif;
-  font-size: 1.5em;
-  content: "\201C\00a0";
+  /*font-size: 1.5em;*/
+  content: "\201C";
   vertical-align: middle;
 }
 
 .profile-screen-bio:after {
   font-family: Georgia, serif;
-  font-size: 1.5em;
-  content: "\00a0\201D";
+  /*font-size: 1.5em;*/
+  content: "\201D";
   vertical-align: middle;
 }
 
@@ -645,6 +645,11 @@ p.welcome-pbar-label{
   line-height: 40px;
 }
 
+.qcard_item {
+  text-align: left;
+  line-height: 40px;
+}
+
 #profile-image-preview {
   border-radius: 50%;
 }
@@ -770,4 +775,18 @@ p.welcome-tag-title{
 
 .btn:hover {
   color: white;
+}
+
+.profile-details-icon {
+  width:32px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.profile-icon-parent {
+  width: 80px;
+}
+
+.invisible {
+  visibility: none!important;
 }
