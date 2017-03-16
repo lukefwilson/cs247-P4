@@ -417,9 +417,9 @@
         <p class="welcome-pbar-label muted small">Currently editing Chapter ""</p>
     </div>
     <div class="text-center container" style="border-top: thin solid #ffced8; padding-top: 20px;">
-        <input type="text" class="edit-chapter-title" name="stage" id="chapt-title" maxlength="35" placeholder="Title of your Chapter. Please limit to 35 chars." />
+        <input type="text" class="edit-chapter-title" name="stage" id="editing-chapt-title" maxlength="35" placeholder="Title of your Chapter. Please limit to 35 chars." />
 
-        <textarea placeholder="Tell a story, reflect, and share your feelings. There are no size limits on a chapter." class="chapter-text" rows="10" id="chapt"></textarea>
+        <textarea placeholder="Tell a story, reflect, and share your feelings. There are no size limits on a chapter." class="chapter-text" rows="10" id="editing-chapt"></textarea>
     </div>
 </div>
 
@@ -457,7 +457,7 @@
 
 <footer class="bottom-nav bg-faded" id="footer-save">
     <h3><a href="#my-story" class="col-xs-6 text-center footer" ng-click="updateVariables()" style="border-right: 1px solid #513d1e">Cancel</a></h3>
-    <h3><a href="#my-story" class="col-xs-6 text-center footer" ng-click="editPersonalInfo()" style="border-left: 1px solid #735f40">Save</a></h3>
+    <h3><a href="#my-story" class="col-xs-6 text-center footer" ng-click="editPersonalInfo()" onclick="javascript:updateChapter()" style="border-left: 1px solid #735f40">Save</a></h3>
 </footer>
 
 <footer class="bottom-nav bg-faded container" id="footer-signup">

@@ -8,7 +8,35 @@ var currentTags = {
   "fam" : 0,
   "ref" : 0,
 };
-var currentChapterBeingEdited = 0;
+var currentChapterBeingEdited = -1;
+
+var editChapter = function(id) {
+  if (id == -1) {
+    return;   //dummy case
+  }
+
+  // edit the chapter with ID specified
+  // step 1: set global variable
+  currentChapterBeingEdited = id;
+
+  // step 2: go to edit page
+  document.location.hash = '#editing-chapter';
+
+  // step 3: load content to input boxes in edit page
+  $('#editing-chapt-title').val(myUser.stories[id].title);
+  $('#editing-chapt').val(myUser.stories[id].content);
+}
+
+var updateChapter = function() {
+  if (currentChapterBeingEdited == -1) {
+    return;   //dummy case
+  }
+  myUser.stories[currentChapterBeingEdited].title = $('#editing-chapt-title').val();
+  myUser.stories[currentChapterBeingEdited].content = $('#editing-chapt').val();
+
+  currentChapterBeingEdited = -1; // reset
+}
+
 
 // basic angular controller just to bind the global myUser object to everything
 // general template: id, name, age, diagnosisDate, stage, bio, married, kids, location, img, messages, cardBio
@@ -336,6 +364,10 @@ $( document ).ready(function() {
         } else if (pageName.indexOf('conversation-with') >= 0) {
             $('#footer-menu').hide();
             $('#footer-save').hide();
+            $('#footer-signup').hide();
+        } else if (pageName == 'editing-chapter') {
+            $('#footer-menu').hide();
+            $('#footer-save').show();
             $('#footer-signup').hide();
         } else {
             $('#footer-menu').show();
