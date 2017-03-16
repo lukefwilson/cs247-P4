@@ -8,6 +8,7 @@ var currentTags = {
   "fam" : 0,
   "ref" : 0,
 };
+var currentChapterBeingEdited = 0;
 
 // basic angular controller just to bind the global myUser object to everything
 // general template: id, name, age, diagnosisDate, stage, bio, married, kids, location, img, messages, cardBio
@@ -26,11 +27,33 @@ app.controller('myCtrl', function($scope) {
     $scope.kids = myUser.kids;
     $scope.location = myUser.location;
   }
+  $scope.dob = "1975-04-04";
+  $scope.updateVariables = updateVariables;
   updateVariables();
+
+  $scope.populateEditPage = function() {
+    console.log("populating info..");
+    // re-populate the input fields and stuff on the edit page
+    $('#edit_name_input').val($scope.fullName);
+    $('#edit_age_input').val($scope.dob);
+    $('#edit-profile-bio').val($scope.bio);
+    $('#edit_diagnosisDate_input').val($scope.diagnosisDate);
+  }
 
   $scope.editPersonalInfo = function () {
     // editing user info
-    myUser.fullName = $('#edit-profile-name').val();
+    myUser.fullName = $('#edit_name_input').val();
+    myUser.firstName = myUser.fullName.split(' ')[0];
+    myUser.lastName = myUser.fullName.split(' ')[1];
+
+    myUser.age = Math.floor((Date.now() - new Date($('#edit_age_input').val()))/(1000*3600*24*365));
+
+    myUser.married = $('#edit-profile-married:checked').val() == "on";
+    myUser.kids = $('#edit-profile-children:checked').val() == "on";
+
+    myUser.bio = $('#edit-profile-bio').val();
+
+    myUser.stage = $scope.stage;
 
     updateVariables();
   }
@@ -58,8 +81,8 @@ app.controller('myCtrl', function($scope) {
       myUser.location = $('#user_location').val();
     }
     // set from the checkboxes
-    myUser.married = $('#edit-profile-married:checked').val() == "on";
-    myUser.kids = $('#edit-profile-children:checked').val() == "on";
+    myUser.married = $('#profile-married:checked').val() == "on";
+    myUser.kids = $('#profile-children:checked').val() == "on";
 
     // get stage from $scope 
     myUser.stage = $scope.stage;
