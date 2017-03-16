@@ -61,7 +61,7 @@ function Story(title, content, date, user_id) {
 }
 
 // general template: id, name, age, diagnosisDate, stage, bio, married, kids, location, img, messages, cardBio
-db.addUser(new User(1, 'Audrey Allen', 39, 'November, 2016', 2, 'My life is all about my family.', true, 1, 'San Francisco, CA', 'aa-photo.png', [],'Audrey lives in your neighborhood. She is a single mother battle breast cancer like you.'));
+db.addUser(new User(1, 'Audrey Allen', 39, 'November, 2016', 2, 'My life is all about my family.', true, 1, 'San Francisco, CA', 'aa-photo.png', [],'Audrey lives in your neighborhood. She is a single mother battling breast cancer like you.'));
 db.addStory(new Story('Devastating News', 'I just found that I am having cancer. I am only 48! I think I am healthy, how could this happen to me! My mind went blank, I felt so scared, and now I am numb on it.', 'November 14, 2016', 1));
 db.addStory(new Story('Removed My Tumor', 'I found a surgeon near my home several days ago. I got my tumors removed yesterday.', 'November 18, 2016', 1));
 db.addStory(new Story('Doctors are Terrible!', "I consulted with a local oncologist and radiologist today. They were so impersonal! They didn't want to listen to a word I was saying. They wanted to put me in one of those cookie-cutter scenarios. There were no other options for me. They just wanted to cut, radiate and do the chemo. I felt with the way they were conducting business. I had to get a second opinion.", 'November 19, 2016', 1));
