@@ -98,7 +98,7 @@
                 {{#ifCond user.married true}}
                     married,
                 {{else}}
-                    single,
+                    single, and
                 {{/ifCond}}
                 has
                 {{#ifCond user.kids 1}}
@@ -116,7 +116,7 @@
                   </div>
               </div>
               <div class="media-body">
-                <p class="">{{user.firstName}} is at Stage {{user.stage}} and was first diagnosed on {{user.diagnosisDate}}</p>
+                <p class="">{{user.firstName}} is at Stage {{user.stage}} and was first diagnosed in December, 2016</p>
               </div>
             </div>
         </div>
@@ -200,7 +200,7 @@
                 {{#ifCond user.married true}}
                     married,
                 {{else}}
-                    single,
+                    single, and
                 {{/ifCond}}
                 has
                 {{#ifCond user.kids 1}}
@@ -218,7 +218,7 @@
                   </div>
               </div>
               <div class="media-body">
-                <p class="">{{user.firstName}} is at Stage {{user.stage}} and was first diagnosed on {{user.diagnosisDate}}</p>
+                <p class="">{{user.firstName}} is at Stage {{user.stage}} and was first diagnosed in {{user.diagnosisDate}}</p>
               </div>
             </div>
         </div>
