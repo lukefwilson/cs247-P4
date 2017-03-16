@@ -221,43 +221,53 @@
 </div>
 
 <div class="container screen" id="editing-my-profile-screen">
-    <div class="editing-my-story">
-        <div class="edit-story-card">
-            <img class="profile-photo center-block img-responsive center-block" src="img/my-photo.png">
-            <input class="text-center center-block profile-name" id="edit-profile-name" placeholder="Your Name" ng-value="fullName" />
-            <textarea class="center-block profile-bio" id="edit-profile-bio" placeholder="Write a brief bio"/>{{bio}}</textarea>
+    <div class="container">
+        <img class="profile-photo center-block img-responsive center-block" src="img/my-photo.png" style="margin-bottom:15px">
+        <div class="q_card container">
+            <div class="row qcard">
+                <p class="qcard_title col-xs-6">Name</p>
+                <input class="col-xs-6" type="text" name="name" placeholder="Your name" id="name_input"/>
+            </div>
+            <div class="row qcard">
+                <p class="qcard_title col-xs-6">Date of Birth</p>
+                <input class="col-xs-6" type="date" name="dob" placeholder="Your Date of Birth" id="age_input"/>
+            </div>
         </div>
         <hr style="" class="wedge"/>
-        <div class="edit-story-card">
-            <input class="text-center center-block" id="edit-profile-age" placeholder="Your Age" ng-value="age"/>
-            <div class="row edit-profile-binary-question">
-                <p class="text-center col-xs-8">Are you married?</p>
-                <label class="switch col-xs-4">
+        <div class="container edit-profile-binary-question">
+            <div class="qcard row">
+                <p class="qcard_title col-xs-9">Are you married?</p>
+                <label class="switch col-xs-3">
                   <input type="checkbox" id="edit-profile-married" ng-checked="married">
                   <div class="slider round"></div>
                 </label>
             </div>
-            <div class="row edit-profile-binary-question">
-                <p class="text-center col-xs-8">Do you have Children? </p>
-                <label class="switch col-xs-4">
+            <div class="qcard row">
+                <p class="qcard_title col-xs-9">Have you any children?</p>
+                <label class="switch col-xs-3">
                   <input type="checkbox" id="edit-profile-children" ng-checked="kids">
                   <div class="slider round"></div>
                 </label>
             </div>
-            <input class="text-center center-block profile-location" id="edit-profile-location" value="{{location}}" placeholder="Your Location"/>
+        </div>
+        <div class="q_card container">
+            <div class="qcard">
+                <p class="qcard_title">What stage are you at right now?</p>
+                <div class="row">
+                    <div class="col-xs-6 stage" ng-class="{'selected': stage == 1}" ng-click="setStage(1)">Stage I</div>
+                    <div class="col-xs-6 stage" style="float:right" ng-class="{'selected': stage == 2}" ng-click="setStage(2)">Stage II</div>
+                    <div class="col-xs-6 stage" ng-class="{'selected': stage == 3}" ng-click="setStage(3)">Stage III</div>
+                    <div class="col-xs-6 stage" style="float:right" ng-class="{'selected': stage == 4}" ng-click="setStage(4)">Stage IV</div>
+                </div>
+            </div>
+            <div class="qcard">
+                <div class="row qcard">
+                    <p class="qcard_title col-xs-6">When were you first diagnosed?</p>
+                    <input class="col-xs-6" type="month" name="diagnosisDate" id="age_input" ng-value="diagnosisDate" style="margin-top:1.5em"/>
+                </div>
+            </div>
         </div>
         <hr style="" class="wedge"/>
-        <div class="edit-story-card">
-            <p class="text-center">Which stage are you at?</p>
-            <div class="row" style="margin-bottom:25px">
-                <div class="col-xs-3"><div class="edit-profile-stage" ng-class="{'selected': stage == 1}" ng-click="setStage(1)">Stage I</div></div>
-                <div class="col-xs-3"><div class="edit-profile-stage" ng-class="{'selected': stage == 2}" ng-click="setStage(2)">Stage II</div></div>
-                <div class="col-xs-3"><div class="edit-profile-stage" ng-class="{'selected': stage == 3}" ng-click="setStage(3)">Stage III</div></div>
-                <div class="col-xs-3"><div class="edit-profile-stage" ng-class="{'selected': stage == 4}" ng-click="setStage(4)">Stage IV</div></div>
-            </div>
-            <p class="text-center">When were you first diagnosed?</p>
-            <input class="text-center center-block" id="edit-profile-date" ng-value="diagnosisDate" type="month" />
-        </div>
     </div>
 </div>
 
@@ -348,17 +358,19 @@
         <div class="q_card container">
     		<div class="qcard">
     			<p class="qcard_title">What stage are you at right now?</p>
-    			<div class="row">
-                    <div class="col-xs-6 stage" ng-class="{'selected': stage == 1}" ng-click="setStage(1)">Stage I</div>
-                    <div class="col-xs-6 stage" style="float:right" ng-class="{'selected': stage == 2}" ng-click="setStage(2)">Stage II</div>
-                    <div class="col-xs-6 stage" ng-class="{'selected': stage == 3}" ng-click="setStage(3)">Stage III</div>
-                    <div class="col-xs-6 stage" style="float:right" ng-class="{'selected': stage == 4}" ng-click="setStage(4)">Stage IV</div>
+                <div class="container">
+        			<div class="row">
+                        <div class="col-xs-6 stage" ng-class="{'selected': stage == 1}" ng-click="setStage(1)">Stage I</div>
+                        <div class="col-xs-6 stage" style="float:right" ng-class="{'selected': stage == 2}" ng-click="setStage(2)">Stage II</div>
+                        <div class="col-xs-6 stage" ng-class="{'selected': stage == 3}" ng-click="setStage(3)">Stage III</div>
+                        <div class="col-xs-6 stage" style="float:right" ng-class="{'selected': stage == 4}" ng-click="setStage(4)">Stage IV</div>
+                    </div>
                 </div>
     		</div>
             <div class="qcard">
-                <div class="row qcard">
+                <div class="qcard">
                     <p class="qcard_title col-xs-6">When were you first diagnosed?</p>
-                    <input class="col-xs-6" type="month" name="diagnosisDate" id="age_input" ng-value="diagnosisDate" style="margin-top:1.5em"/>
+                    <input class="col-xs-6" type="month" name="diagnosisDate" id="age_input" ng-value="diagnosisDate" style="margin-top:2.5em"/>
                 </div>
             </div>
     	</div>
@@ -457,8 +469,8 @@
 </footer>
 
 <footer class="bottom-nav bg-faded container" id="footer-signup">
-    <h3><a onclick="javascript:nextPage(-1)" class="col-xs-6 text-center footer" style="border-right: 1px dashed" id="footer-back-button">&#8592;</a></h3>
-    <h3><a onclick="javascript:nextPage(1)" class="col-xs-6 text-center footer" id="footer-next-button">&#8594;</a></h3>
+    <h3><a onclick="javascript:nextPage(-1)" class="col-xs-6 text-center footer" style="border-right: 1px solid #513d1e" id="footer-back-button">&#8592;</a></h3>
+    <h3><a onclick="javascript:nextPage(1)" class="col-xs-6 text-center footer" style="border-left: 1px solid #735f40" id="footer-next-button">&#8594;</a></h3>
 </footer>
 
 </body>
