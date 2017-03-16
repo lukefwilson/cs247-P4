@@ -25,6 +25,7 @@ var editChapter = function(id) {
   // step 3: load content to input boxes in edit page
   $('#editing-chapt-title').val(myUser.stories[id].title);
   $('#editing-chapt').val(myUser.stories[id].content);
+  $('#chapter-being-edited').html("You are editing chapter '" + myUser.stories[id].title + "'");
 }
 
 var updateChapter = function() {
@@ -70,20 +71,23 @@ app.controller('myCtrl', function($scope) {
 
   $scope.editPersonalInfo = function () {
     // editing user info
-    myUser.fullName = $('#edit_name_input').val();
-    myUser.firstName = myUser.fullName.split(' ')[0];
-    myUser.lastName = myUser.fullName.split(' ')[1];
+    if (document.location.hash == '#editing-my-profile') {
+      // to avoid confusion with editing chapter
+      myUser.fullName = $('#edit_name_input').val();
+      myUser.firstName = myUser.fullName.split(' ')[0];
+      myUser.lastName = myUser.fullName.split(' ')[1];
 
-    myUser.age = Math.floor((Date.now() - new Date($('#edit_age_input').val()))/(1000*3600*24*365));
+      myUser.age = Math.floor((Date.now() - new Date($('#edit_age_input').val()))/(1000*3600*24*365));
 
-    myUser.married = $('#edit-profile-married:checked').val() == "on";
-    myUser.kids = $('#edit-profile-children:checked').val() == "on";
+      myUser.married = $('#edit-profile-married:checked').val() == "on";
+      myUser.kids = $('#edit-profile-children:checked').val() == "on";
 
-    myUser.bio = $('#edit-profile-bio').val();
+      myUser.bio = $('#edit-profile-bio').val();
 
-    myUser.stage = $scope.stage;
+      myUser.stage = $scope.stage;
 
-    updateVariables();
+      updateVariables();
+    }
   }
 
   $scope.setStage = function(stage) {
