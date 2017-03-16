@@ -271,7 +271,19 @@
 
 <div class="container screen" id="editing-my-profile-screen">
     <div class="container">
-        <img id="edit-my-profile-pic" class="profile-photo center-block img-responsive center-block" src="img/my-photo.png" style="margin-bottom:15px">
+        <!-- <img id="edit-my-profile-pic" class="profile-photo center-block img-responsive center-block" src="img/my-photo.png" style="margin-bottom:15px"> -->
+
+        <div class=" container">
+            <div class="row " style="padding-bottom:10px;">
+                <div class="col-xs-6">
+                     <img class="profile-photo img-responsive " src="img/my-photo.png">
+                </div>
+                <div class="col-xs-6" style="padding:0px; padding-top: 20px;">                <label for="file-upload-edit" class="custom-file-upload">
+                     <p class="button-label" id="choose-photo">Choose Photo</p>
+                </label>
+                <input id="file-upload-edit" type="file"/></div>
+            </div>
+        </div>
         <div class="q_card container">
             <div class="row qcard">
                 <p class="qcard_title col-xs-6">Name</p>
