@@ -248,7 +248,7 @@ p.profile-bio {
   font-weight: bold;
   text-overflow: ellipsis;
   white-space: nowrap;
-  /*overflow: hidden;*/
+  overflow: hidden;
 }
 
 .chapter-date {
@@ -352,10 +352,6 @@ input:checked + .slider:before {
   background: #ffced8;
   border-radius: 5px;
   padding: 4px;
-}
-
-.edit-story-card .selected {
-  background: #ff89a0;
 }
 /* Bottom Nav */
 
@@ -687,26 +683,23 @@ p.button-label{
 	font-size: 16px;
 }
 
-.row.q_card_2{
-	border-top: thin solid #ffced8;
-	min-height: 200px;
-	padding-top: 20px;
-  margin-bottom: 15px;
-}
-
-#marital-single, #marital-married, #kid-yes, #kid-no,
-#stage-one, #stage-two, #stage-three, #stage-four{
+.stage {
 	border: thin dashed #ff89a0;
-	width: 150px;
-	height: 80px;
+	width: 156px;
+	height: 75px;
 	display: inline-block;
 	color: #ff89a0;
 	line-height: 80px;
 	font-size: 20px;
 	font-family: comingSoon, cursive;
 	border-radius: 10px;
-	margin: 5px;
+	margin: 4px;
   background: white;
+}
+
+.selected {
+  background: #ff89a0;
+  color:white;
 }
 
 .row.welcome-tab-row{
@@ -722,7 +715,7 @@ p.firstchapt-label{
 
 .edit-chapter-title{
 	display: inline-block;
-  width: 90%;
+  width: 100%;
 	height: 40px;
 	border: thin dashed #ff89a0;
 	border-radius: 10px;

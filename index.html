@@ -302,10 +302,6 @@
                 <p class="col-xs-12" style="color:#ff89a0; font-size:15px">*Your location was automatically detected</p>
             </div>
         </div>
-		<div class="row q_card container">
-			<p class="qcard_title">Bio</p>
-            <textarea class="chapter-text" rows="3" placeholder="Tell us a little about yourself" name="bio" id="bio_input" style="height:130px" ></textarea>
-		</div>
 	</div>
 </div>
 
@@ -349,28 +345,24 @@
     </div>
 	</center>
     <div class="container">
-		<div class="row q_card_2" style="padding: 5px;">
-			<p class="qcard_title">What stage are you at right now?</p>
-			<center>
-				<div class="row">
-				<div id="stage-one" OnClick = "stageOne()">Stage I</div>
-				<div id="stage-two" OnClick = "stageTwo()">Stage II</div>
-				</div>
-				<div class="row">
-				<div id="stage-three" OnClick = "stageThree()">Stage III</div>
-				<div id="stage-four" OnClick = "stageFour()">Stage IV</div>
-				</div>
-			</center>
-		</div>
-		<div class="row q_card_2" >
-			<p class="qcard_title">When were you first diagnosed?</p>
-			<center>
-			<div class="row welcome-tab-row">
-			<input type="month" name="diagnose" id="diagnose_input"/>
+        <div class="q_card container">
+    		<div class="qcard">
+    			<p class="qcard_title">What stage are you at right now?</p>
+    			<div class="row">
+                    <div class="col-xs-6 stage" ng-class="{'selected': stage == 1}" ng-click="setStage(1)">Stage I</div>
+                    <div class="col-xs-6 stage" style="float:right" ng-class="{'selected': stage == 2}" ng-click="setStage(2)">Stage II</div>
+                    <div class="col-xs-6 stage" ng-class="{'selected': stage == 3}" ng-click="setStage(3)">Stage III</div>
+                    <div class="col-xs-6 stage" style="float:right" ng-class="{'selected': stage == 4}" ng-click="setStage(4)">Stage IV</div>
+                </div>
+    		</div>
+            <div class="qcard">
+                <div class="row qcard">
+                    <p class="qcard_title col-xs-6">When were you first diagnosed?</p>
+                    <input class="col-xs-6" type="month" name="diagnosisDate" id="age_input" ng-value="diagnosisDate" style="margin-top:2.5em"/>
+                </div>
             </div>
-			</center>
-		</div>
-	</div>
+    	</div>
+    </div>
 </div>
 
 <div class="container screen full-width" id="welcome4-screen">
@@ -378,12 +370,10 @@
         <img class="img-responsive center-block welcrumb-breadcome" src="img/signup-img/p_bar_4.png">
     </div>
     <div id="welcome-message">
-        <p class="welcome-pbar-label text-center">Thanks, now we'll be able to connect you with people just like you.<br><br>We now invite you to start writing the first chapter of your story. These chapters help the community get to know you.</p>
+        <p class="welcome-pbar-label text-center">Thank you!<br>
+        <p class="welcome-pbar-label text-left">We'd like to invite you to write a brief bio - everything about yourself that you'd like the members of our community to know. It doesn't have to be too detailed - remember to include things like "proud mom of two kids", or "professional in a multinational organization." </p>
     </div>
-    <div class="text-center" style="border-top: thin solid #ffced8; padding-top: 20px;">
-		<!--p class="firstchapt-label">Title </p-->
-        <input type="text" class="edit-chapter-title" name="stage" id="firstchapt-title" placeholder="Title of your Chapter" />
-
+    <div class="text-center container" style="border-top: thin solid #ffced8; padding-top: 20px;">
 		<textarea placeholder="Tell a story, reflect, and share your feelings." class="chapter-text" rows="10" id="firstchapt"></textarea>
 	</div>
 </div>
@@ -392,7 +382,7 @@
     <div id="welcome-message">
         <p class="welcome-pbar-label muted small">Think of this as you're online diary where you can share your stories, thoughts, and feelings with others. These chapters help the community get to know you.</p>
     </div>
-    <div class="text-center" style="border-top: thin solid #ffced8; padding-top: 20px;">
+    <div class="text-center container" style="border-top: thin solid #ffced8; padding-top: 20px;">
         <input type="text" class="edit-chapter-title" name="stage" id="chapt-title" placeholder="Title of your Chapter" />
 
         <textarea placeholder="Tell a story, reflect, and share your feelings." class="chapter-text" rows="10" id="chapt"></textarea>
