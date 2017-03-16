@@ -272,29 +272,28 @@
         </div>
 	</center>
 	<div class="container">
-		<div class="row q_card">
-			<p class="qcard_title">Name</p>
-			<center>
-			<input type="text" name="name" placeholder="Your name" id="name_input"/>
-			</center>
-
+		<div class="q_card container">
+			<div class="row qcard">
+                <p class="qcard_title col-xs-6">Name</p>
+                <input class="col-xs-6" type="text" name="name" placeholder="Your name" id="name_input"/>
+            </div>
+            <div class="row qcard">
+                <p class="qcard_title col-xs-6">Date of Birth</p>
+                <input class="col-xs-6" type="date" name="dob" placeholder="Your Date of Birth" id="age_input"/>
+            </div>
 		</div>
 
-		<div class="row q_card">
-			<p class="qcard_title">Profile Photo</p>
-			<center>
-                <img id="profile-image-preview" class="profile-photo img-responsive center-block hide" src="#" style="margin-bottom:15px"/>
-    			<label for="file-upload" class="custom-file-upload">
-    			     <p class="button-label" id="choose-photo">Choose A Photo</p>
-    			</label>
-    			<input id="file-upload" type="file" onchange="previewPic(this);"/>
-			</center>
-		</div>
-		<div class="row q_card">
-			<p class="qcard_title" >Age</p>
-			<center>
-			     <input type="number" placeholder="Your age" name="age" id="age_input"/>
-			</center>
+		<div class="q_card container">
+            <div class="row qcard">
+                <img id="profile-image-preview" class="img-responsive center-block hide col-xs-12" src="#" style="margin-bottom:15px"/>
+                <p class="qcard_title col-xs-6">Profile Photo</p>
+                <div class="col-xs-6">
+                    <label for="file-upload" class="custom-file-upload">
+                         <p class="button-label" id="choose-photo">Choose Photo</p>
+                    </label>
+                    <input id="file-upload" type="file" onchange="previewPic(this);"/>
+                </div>
+            </div>
 		</div>
 		<div class="row q_card text-center">
 			<p class="qcard_title">Bio</p>
@@ -574,7 +573,7 @@
                 $('#profile-image-preview')
                     .attr('src', e.target.result)
                     .removeClass('hide');
-                $('#choose-photo').html("Choose Another Photo");
+                $('#choose-photo').html("Change Photo");
             };
 
             reader.readAsDataURL(input.files[0]);

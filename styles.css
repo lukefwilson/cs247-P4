@@ -626,21 +626,29 @@ p.welcome-pbar-label{
 	/*font-size: 14px;*/
 }
 
-.row.q_card{
+.q_card{
 	border-top: thin solid #ffced8;
 	min-height: 120px;
 }
 
-p.qcard_title{
-	text-align: center;
-	font-family: "indieFlower", cursive;
+.qcard{
 	font-size: 16px;
 	padding: 20px 0px 5px 0px;
 	color: #624e2f;
 }
 
+.qcard_title {
+  text-align: left;
+  font-family: "indieFlower", cursive;
+  line-height: 40px;
+}
+
+#profile-image-preview {
+  border-radius: 50%;
+}
+
 #name_input, #age_input, #diagnose_input, #stage_input, #bio_input{
-	width: 300px;
+	/* width: 300px; */
 	height: 40px;
 	border: thin dashed #ff89a0;
 	padding: 10px;
