@@ -318,26 +318,25 @@
             <p class="welcome-pbar-label">You're doing great! Tell us a bit about your family.</p>
         </div>
 	</center>
-    <div class="container">
-		<div class="row q_card_2">
-			<p class="qcard_title">Marital Status</p>
-			<center>
-			<div class="row welcome-tab-row">
-				<div id="marital-single" OnClick = "single()">Single</div>
-				<div id="marital-married" OnClick = "married()">Married</div>
-			</div>
-			</center>
-		</div>
-		<div class="row q_card_2" >
-			<p class="qcard_title">Have Children</p>
-			<center>
-			<div class="row welcome-tab-row" >
-				<div id="kid-yes" OnClick = haveKid()>Yes</div>
-				<div id="kid-no" OnClick = noKid()>No</div>
-			</div>
-			</center>
-		</div>
+    <div class="container q_card">
+        <div class="container edit-profile-binary-question">
+            <div class="qcard row">
+                <p class="qcard_title col-xs-8">Are you married?</p>
+                <label class="switch col-xs-4">
+                  <input type="checkbox" id="edit-profile-married" ng-checked="married">
+                  <div class="slider round"></div>
+                </label>
+            </div>
+            <div class="qcard row">
+                <p class="qcard_title col-xs-8">Have you kids?</p>
+                <label class="switch col-xs-4">
+                  <input type="checkbox" id="edit-profile-children" ng-checked="kids">
+                  <div class="slider round"></div>
+                </label>
+            </div>
+        </div>
 	</div>
+    <div class="container q_card"></div>
 </div>
 
 <div class="container screen full-width" id="welcome3-screen">
@@ -389,41 +388,11 @@
 	</div>
 </div>
 
-<!-- <div class="container screen full-width" id="welcome5-screen">
-    <div class="row">
-        <img class="img-responsive center-block welcrumb-breadcome" src="img/signup-img/p_bar_4.png">
-    </div>
-    <div id="welcome-message">
-        <p class="welcome-pbar-label">You're doing a fantastic job! Now we're at the "tag" page. Tags are a way to categorize your story - this helps members of the community find stories on topics that matter to them the most. Please tap on two tags below which you believe are most strongly associated with the chapter you just wrote.</p>
-    </div>
-	<center>
-	<hr style="" class="pretty-divider" />
-	<p class="welcome-tag-title"> The Treatment Process </p>
-    <div class="row">
-		<img class="firstchpt-tag-chemo" OnClick="chemoTag()" src="tags/chemo-tag.png"/>
-		<img class="firstchpt-tag-medicine" OnClick="medicineTag()" src="tags/medicine-tag.png" />
-	</div>
-	<hr style="" class="pretty-divider" />
-	<p class="welcome-tag-title"> Interactions at the Hospital </p>
-	<div class="row">
-		<img class="firstchpt-tag-hospital" OnClick="hospitalTag()" src="tags/hospital-tag.png"/>
-		<img class="firstchpt-tag-surgery" OnClick="surgeryTag()" src="tags/surgery-tag.png" />
-	</div>
-	<hr style="" class="pretty-divider" />
-	<p class="welcome-tag-title"> Things closest to your heart </p>
-	<div class="row">
-		<img class="firstchpt-tag-fam" OnClick="famTag()" src="tags/family-tag.png"/>
-		<img class="firstchpt-tag-ref" OnClick="refTag()"  src="tags/reflection-tag.png"/>
-	</div>
-	</center>
-</div> -->
-
 <div class="container screen full-width" id="edit-chapter1-screen">
     <div id="welcome-message">
         <p class="welcome-pbar-label muted small">Think of this as you're online diary where you can share your stories, thoughts, and feelings with others. These chapters help the community get to know you.</p>
     </div>
     <div class="text-center" style="border-top: thin solid #ffced8; padding-top: 20px;">
-        <!--p class="firstchapt-label">Title </p-->
         <input type="text" class="edit-chapter-title" name="stage" id="chapt-title" placeholder="Title of your Chapter" />
 
         <textarea placeholder="Tell a story, reflect, and share your feelings." class="chapter-text" rows="10" id="chapt"></textarea>
