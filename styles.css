@@ -120,6 +120,7 @@ body {
   position: fixed;
   top: 40px;
   width: 94.5%;
+  z-index: 100000;
 }
 
 #full-profile-toggle, #my-profile-toggle {
@@ -254,6 +255,11 @@ p.profile-bio {
 
 .chapter-date {
   color: #907A56;
+  z-index: 0;
+}
+
+.chapter-edit {
+  color: #ff89a0;
 }
 
 .chapter-text {
@@ -654,7 +660,7 @@ p.welcome-pbar-label{
   border-radius: 50%;
 }
 
-#name_input, #age_input, #diagnose_input, #stage_input, #bio_input{
+#name_input, #age_input, #diagnosisDate_input, #stage_input, #bio_input, #user_location, .edit-profile {
 	/* width: 300px; */
 	height: 40px;
 	border: thin dashed #ff89a0;

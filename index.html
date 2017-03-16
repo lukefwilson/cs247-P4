@@ -35,7 +35,6 @@
         <a class="top-nav-item forward hide" href="#">
             Forward >
         </a>
-        <a id="edit-button-top" class="top-nav-item col-xs-2 pull-right" href="#editing-my-profile">Edit</a>
     </div>
 </nav>
 
@@ -79,6 +78,7 @@
               <img class="media-object conversation-img" src="img/{{user.img}}">
           </div>
           <div class="media-body">
+          <a id="edit-button-top" class="chapter-edit pull-right col-xs-3" href="#editing-my-profile" ng-click="populateEditPage()" style="padding-top:10px;">Edit<span class="glyphicon glyphicon-edit"></span></a>
             <h4 class="profile-name message-name">{{user.fullName}}</h4>
             <p>{{user.location}}</p>
             <p class="profile-screen-bio">{{user.bio}}</p>
@@ -135,7 +135,10 @@
             {{#each user.stories}}
                 <div class="chapter">
                     <h1 class="chapter-title">{{ this.title }}</h1>
-                    <p class="chapter-date">{{this.date}}</p>
+                    <div class="row">
+                        <p class="chapter-date col-xs-9">{{this.date}}</p>
+                        <p class="col-xs-3 chapter-edit" onclick="editChapter({{@index}})">Edit <span class="glyphicon glyphicon-edit"></span></p>
+                    </div>
                     <p class="chapter-text">{{ this.content }}</p>
                 </div>
             {{/each}}
@@ -144,7 +147,7 @@
 </div>
 
 <div class="container screen" id="conversations-screen">
-    <p class="muted text-center small">Connect with more people by reading stories and starting conversations.</p>
+    <p class="muted text-center small">Connect with more people by reading stories and starting conversations. All your conversations are listed here.</p>
     <hr class="profile-divider no-margin">
     <div id="conversations-index">
 
@@ -268,20 +271,20 @@
 
 <div class="container screen" id="editing-my-profile-screen">
     <div class="container">
-        <img class="profile-photo center-block img-responsive center-block" src="img/my-photo.png" style="margin-bottom:15px">
+        <img id="edit-my-profile-pic" class="profile-photo center-block img-responsive center-block" src="img/my-photo.png" style="margin-bottom:15px">
         <div class="q_card container">
             <div class="row qcard">
                 <p class="qcard_title col-xs-6">Name</p>
-                <input class="col-xs-6" type="text" name="name" placeholder="Your name" id="name_input"/>
+                <input class="col-xs-6 edit-profile" type="text" name="name" placeholder="Your name" id="edit_name_input"/>
             </div>
             <div class="row qcard">
                 <p class="qcard_title col-xs-6">Date of Birth</p>
-                <input class="col-xs-6" type="date" name="dob" placeholder="Your Date of Birth" id="age_input"/>
+                <input class="col-xs-6 edit-profile" type="date" name="dob" placeholder="Your Date of Birth" id="edit_age_input"/>
             </div>
         </div>
         <hr style="" class="wedge"/>
         <div class="container"><p class="qcard qcard_title" style="line-height:inherit">Your Bio</p></div>
-        <textarea placeholder="Tell us about yourself. Write a brief bio, letting the community know who you are and what you'd like to talk about." class="chapter-text" rows="4" id="firstchapt">{{bio}}</textarea>
+        <textarea placeholder="Tell us about yourself. Write a brief bio, letting the community know who you are and what you'd like to talk about." class="chapter-text" rows="4" id="edit-profile-bio"></textarea>
         <hr style="" class="wedge"/>
         <div class="container edit-profile-binary-question">
             <div class="qcard row">
@@ -312,7 +315,7 @@
             <div class="qcard">
                 <div class="row qcard">
                     <p class="qcard_title col-xs-6">When were you first diagnosed?</p>
-                    <input class="col-xs-6" type="month" name="diagnosisDate" id="age_input" ng-value="diagnosisDate" style="margin-top:1.5em"/>
+                    <input class="col-xs-6 edit-profile" type="month" name="diagnosisDate" id="edit_diagnosisDate_input" ng-value="diagnosisDate" style="margin-top:1.5em"/>
                 </div>
             </div>
         </div>
@@ -357,7 +360,7 @@
         <div class="q_card container">
             <div class="row qcard">
                 <p class="qcard_title col-xs-6">Location<span style="color:#ff89a0">*</span></p>
-                <p class="qcard_item col-xs-6" >Stanford, CA</p>
+                <input class="col-xs-6" type="text" id="user_location" style="color:#ff89a0" value="Stanford, CA" placeholder="Enter your location" />
                 <p class="col-xs-12" style="color:#ff89a0; font-size:14px">*Your location was automatically detected</p>
             </div>
         </div>
@@ -378,14 +381,14 @@
             <div class="qcard row">
                 <p class="qcard_title col-xs-9">Are you married?</p>
                 <label class="switch col-xs-3">
-                  <input type="checkbox" id="edit-profile-married" ng-checked="married">
+                  <input type="checkbox" id="profile-married" ng-checked="married">
                   <div class="slider round"></div>
                 </label>
             </div>
             <div class="qcard row">
                 <p class="qcard_title col-xs-9">Have you any children?</p>
                 <label class="switch col-xs-3">
-                  <input type="checkbox" id="edit-profile-children" ng-checked="kids">
+                  <input type="checkbox" id="profile-children" ng-checked="kids">
                   <div class="slider round"></div>
                 </label>
             </div>
@@ -419,7 +422,7 @@
             <div class="qcard">
                 <div class="qcard">
                     <p class="qcard_title col-xs-6">When were you first diagnosed?</p>
-                    <input class="col-xs-6" type="month" name="diagnosisDate" id="age_input" ng-value="diagnosisDate" style="margin-top:1.5em"/>
+                    <input class="col-xs-6" type="month" name="diagnosisDate" id="diagnosisDate_input" ng-value="diagnosisDate" style="margin-top:1.5em"/>
                 </div>
             </div>
     	</div>
@@ -432,11 +435,11 @@
     </div>
     <div id="welcome-message">
         <p class="welcome-pbar-label text-center">Thank you!<br>
-        <p class="welcome-pbar-label text-left">We'd like to invite you to write a brief bio - everything about yourself that you'd like the members of our community to know. It doesn't have to be too detailed - remember to include things like "proud mom of two kids", or "professional in a multinational organization." </p>
+        <p class="welcome-pbar-label text-left">We'd like to invite you to write a brief bio - everything about yourself that you'd like the members of our community to know. It doesn't have to be too detailed - members of our community have written things like "proud mom of two kids", or "professional in a multinational organization." </p>
     </div>
     <div class="text-center container" style="border-top: thin solid #ffced8; padding-top: 20px;">
         <p class="qcard_title">Your Bio</p>
-		<textarea placeholder="Tell us about yourself. Write a brief bio, letting the community know who you are and what you'd like to talk about." class="chapter-text" rows="4" id="firstchapt"></textarea>
+		<textarea placeholder="Tell us about yourself. Write a brief bio, letting the community know who you are and what you'd like to talk about." class="chapter-text" rows="4" id="my-profile-bio"></textarea>
 	</div>
 </div>
 
@@ -445,9 +448,9 @@
         <p class="welcome-pbar-label muted small">Think of this as you're online diary where you can share your stories, thoughts, and feelings with others. These chapters help the community get to know you.</p>
     </div>
     <div class="text-center container" style="border-top: thin solid #ffced8; padding-top: 20px;">
-        <input type="text" class="edit-chapter-title" name="stage" id="chapt-title" placeholder="Title of your Chapter" />
+        <input type="text" class="edit-chapter-title" name="stage" id="chapt-title" maxlength="35" placeholder="Title of your Chapter. Please limit to 35 chars." />
 
-        <textarea placeholder="Tell a story, reflect, and share your feelings." class="chapter-text" rows="10" id="chapt"></textarea>
+        <textarea placeholder="Tell a story, reflect, and share your feelings. There are no size limits on a chapter." class="chapter-text" rows="10" id="chapt"></textarea>
 
         <div class="btn-outer text-center share-chapter">
             <a class="btn btn-inner" href="#my-story">Share</a>
@@ -455,30 +458,15 @@
     </div>
 </div>
 
-<div class="container screen" id="edit-chapter2-screen">
+<div class="container screen full-width" id="editing-chapter-screen">
     <div id="welcome-message">
-        <p class="welcome-pbar-label">Tags are a way to categorize your story - this helps members of the community find stories on topics that matter to them the most. Please tap on two tags below which you believe are most strongly associated with the chapter you just wrote.</p>
+        <p class="welcome-pbar-label muted small" id="chapter-being-edited">Currently editing Chapter ""</p>
     </div>
-    <center>
-    <hr style="" class="pretty-divider" />
-    <p class="welcome-tag-title"> The Treatment Process </p>
-    <div class="row">
-        <img class="firstchpt-tag-chemo" OnClick="chemoTag()" src="tags/chemo-tag.png"/>
-        <img class="firstchpt-tag-medicine" OnClick="medicineTag()" src="tags/medicine-tag.png" />
+    <div class="text-center container" style="border-top: thin solid #ffced8; padding-top: 20px;">
+        <input type="text" class="edit-chapter-title" name="stage" id="editing-chapt-title" maxlength="35" placeholder="Title of your Chapter. Please limit to 35 chars." />
+
+        <textarea placeholder="Tell a story, reflect, and share your feelings. There are no size limits on a chapter." class="chapter-text" rows="10" id="editing-chapt"></textarea>
     </div>
-    <hr style="" class="pretty-divider" />
-    <p class="welcome-tag-title"> Interactions at the Hospital </p>
-    <div class="row">
-        <img class="firstchpt-tag-hospital" OnClick="hospitalTag()" src="tags/hospital-tag.png"/>
-        <img class="firstchpt-tag-surgery" OnClick="surgeryTag()" src="tags/surgery-tag.png" />
-    </div>
-    <hr style="" class="pretty-divider" />
-    <p class="welcome-tag-title"> Things closest to your heart </p>
-    <div class="row">
-        <img class="firstchpt-tag-fam" OnClick="famTag()" src="tags/family-tag.png"/>
-        <img class="firstchpt-tag-ref" OnClick="refTag()"  src="tags/reflection-tag.png"/>
-    </div>
-    </center>
 </div>
 
 <!-- Bottom Nav -->
@@ -514,13 +502,13 @@
 </footer>
 
 <footer class="bottom-nav bg-faded" id="footer-save">
-    <h3><a href="#my-story" class="col-xs-6 text-center footer" onclick="setProfileData()" style="border-right: 1px solid #513d1e">Cancel</a></h3>
-    <h3><a href="#my-story" class="col-xs-6 text-center footer" ng-click="editPersonalInfo()" style="border-left: 1px solid #735f40">Save</a></h3>
+    <h3><a href="#my-story" class="col-xs-6 text-center footer" ng-click="updateVariables()" style="border-right: 1px solid #513d1e">Cancel</a></h3>
+    <h3><a href="#my-story" class="col-xs-6 text-center footer" ng-click="editPersonalInfo()" onclick="javascript:updateChapter()" style="border-left: 1px solid #735f40">Save</a></h3>
 </footer>
 
 <footer class="bottom-nav bg-faded container" id="footer-signup">
     <h3><a onclick="javascript:nextPage(-1)" class="col-xs-6 text-center footer" style="border-right: 1px solid #513d1e" id="footer-back-button">&#8592;</a></h3>
-    <h3><a onclick="javascript:nextPage(1)" class="col-xs-6 text-center footer" style="border-left: 1px solid #735f40" id="footer-next-button">&#8594;</a></h3>
+    <h3><a onclick="javascript:nextPage(1)" ng-click="setProfileVariables()" class="col-xs-6 text-center footer" style="border-left: 1px solid #735f40" id="footer-next-button">&#8594;</a></h3>
 </footer>
 
 </body>
@@ -570,11 +558,9 @@
             // This is only for the "Welcome" view.
             // NOTE: legacy and inefficient code but will NOT be changed at this stage.
             // update the user's story
-            finishCreatingProfile()
-            appendChapterToStory(true);
 
-            // take them to the my story page
-            document.location.hash = "#my-story";
+            // take them to the local stories page when they finish creating their profile
+            document.location.hash = "#local-stories";
         }
 
         if (updatedScreen < 1 || updatedScreen > 4) {
@@ -601,18 +587,13 @@
                 $('#profile-image-preview')
                     .attr('src', e.target.result)
                     .removeClass('hide');
+                myUser.img = e.target.result;
+                $('#edit-my-profile-pic').attr('src', e.target.result);
                 $('#choose-photo').html("Change Photo");
             };
 
             reader.readAsDataURL(input.files[0]);
         }
-    }
-
-    // clicking save button while editing profile
-    function saveProfile() {
-        $('#profile-location').html($('#edit-profile-location').val());
-        $('#my-bio').html($('#edit-profile-bio').val());
-        $('#my-name').html($('#edit-profile-name').val());
     }
 
     var chevronToggle = function(id_of_button) {

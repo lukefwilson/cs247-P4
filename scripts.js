@@ -8,6 +8,36 @@ var currentTags = {
   "fam" : 0,
   "ref" : 0,
 };
+var currentChapterBeingEdited = -1;
+
+var editChapter = function(id) {
+  if (id == -1) {
+    return;   //dummy case
+  }
+
+  // edit the chapter with ID specified
+  // step 1: set global variable
+  currentChapterBeingEdited = id;
+
+  // step 2: go to edit page
+  document.location.hash = '#editing-chapter';
+
+  // step 3: load content to input boxes in edit page
+  $('#editing-chapt-title').val(myUser.stories[id].title);
+  $('#editing-chapt').val(myUser.stories[id].content);
+  $('#chapter-being-edited').html("You are editing chapter '" + myUser.stories[id].title + "'");
+}
+
+var updateChapter = function() {
+  if (currentChapterBeingEdited == -1) {
+    return;   //dummy case
+  }
+  myUser.stories[currentChapterBeingEdited].title = $('#editing-chapt-title').val();
+  myUser.stories[currentChapterBeingEdited].content = $('#editing-chapt').val();
+
+  currentChapterBeingEdited = -1; // reset
+}
+
 
 // basic angular controller just to bind the global myUser object to everything
 // general template: id, name, age, diagnosisDate, stage, bio, married, kids, location, img, messages, cardBio
@@ -16,8 +46,8 @@ app.controller('myCtrl', function($scope) {
   function updateVariables() {
     $scope.id = myUser.id;
     $scope.fullName = myUser.fullName;
-    $scope.firstName = myUser.fullName.split(' ')[0];
-    $scope.lastName = myUser.fullName.split(' ')[1];
+    $scope.firstName = myUser.firstName;
+    $scope.lastName = myUser.lastName;
     $scope.age = myUser.age;
     $scope.diagnosisDate = myUser.diagnosisDate;
     $scope.stage = myUser.stage;
@@ -26,21 +56,73 @@ app.controller('myCtrl', function($scope) {
     $scope.kids = myUser.kids;
     $scope.location = myUser.location;
   }
+  $scope.dob = "1975-04-04";
+  $scope.updateVariables = updateVariables;
   updateVariables();
+
+  $scope.populateEditPage = function() {
+    console.log("populating info..");
+    // re-populate the input fields and stuff on the edit page
+    $('#edit_name_input').val($scope.fullName);
+    $('#edit_age_input').val($scope.dob);
+    $('#edit-profile-bio').val($scope.bio);
+    $('#edit_diagnosisDate_input').val($scope.diagnosisDate);
+  }
 
   $scope.editPersonalInfo = function () {
     // editing user info
-    myUser.fullName = $('#edit-profile-name').val();
+    if (document.location.hash == '#editing-my-profile') {
+      // to avoid confusion with editing chapter
+      myUser.fullName = $('#edit_name_input').val();
+      myUser.firstName = myUser.fullName.split(' ')[0];
+      myUser.lastName = myUser.fullName.split(' ')[1];
 
-    updateVariables();
+      myUser.age = Math.floor((Date.now() - new Date($('#edit_age_input').val()))/(1000*3600*24*365));
+
+      myUser.married = $('#edit-profile-married:checked').val() == "on";
+      myUser.kids = $('#edit-profile-children:checked').val() == "on";
+
+      myUser.bio = $('#edit-profile-bio').val();
+
+      myUser.stage = $scope.stage;
+
+      updateVariables();
+    }
   }
 
   $scope.setStage = function(stage) {
     $scope.stage = stage;
   }
 
-  $scope.addPersonalInfo = function() {
+  $scope.setProfileVariables = function() {
+    console.log("setting user variables to $scope");
+
     // adding user info for the first time (and defaults)
+    // simply update the values of myUser if they have been changed
+    if ($('#name_input').val() != "") {
+      myUser.fullName = $('#name_input').val();
+      myUser.firstName = myUser.fullName.split(' ')[0];
+      myUser.lastName = myUser.fullName.split(' ')[1];
+    }
+    if ($('#age_input').val() != "") {
+      $scope.dob = $('#age_input').val();
+      myUser.age = Math.floor((Date.now() - new Date($('#age_input').val()))/(1000*3600*24*365));
+    }
+    // the myUser.img is set by clicking on preview itself
+    if ($('#user_location').val() != "") {
+      myUser.location = $('#user_location').val();
+    }
+    // set from the checkboxes
+    myUser.married = $('#profile-married:checked').val() == "on";
+    myUser.kids = $('#profile-children:checked').val() == "on";
+
+    // get stage from $scope
+    myUser.stage = $scope.stage;
+
+    myUser.diagnosisDate = $('#diagnosisDate_input').val();
+    if ($('#my-profile-bio').val() != "") {
+      myUser.bio = $('#my-profile-bio').val();
+    }
 
     updateVariables();
   }
@@ -55,7 +137,7 @@ Handlebars.registerHelper('ifCond', function(v1, v2, options) {
   return options.inverse(this);
 });
 
-var myUser = new User(0, 'Your Name', 35, "2016-12", 2, 'I love to be spontaneous with my family. We travel the world and enjoy life to the fullest.', true, false, 'Stanford, CA', 'my-photo.png', [],'');
+var myUser = new User(0, 'Samantha Stanford', 35, "2016-12", 1, 'I love to be spontaneous with my family. We travel the world and enjoy life to the fullest.', false, false, 'Stanford, CA', 'my-photo.png', [],'');
 var chp1 = new Story('A Feeling of Getting Breast Cancer', "Because of my mom's breast cancer history, I was concerned about developing the same disease. So I have annual routine mammograms starting 5 years ago. However recently I have underwent a lot of stress. I had felt lumps in my breasts. Sooner or later, I would develop breast cancer I think.", 'September 2, 2016');
 var chp2 = new Story('Mammogram Appointment', "My doctor encouraged me to wait to see if I actually developed cancer, but my husband told me seriously last night that he thought I had a lump in my breast. I told him that I had been feeling lumps for a while, but he said it felt larger. “I think you need a mammogram,” he told me. I was due for my annual mammogram, so I made the appointment right away.", 'September 20, 2016');
 var chp3 = new Story('The Results of the Test', "BThe results came by mail this morning. No change had been observed, but the report also stated that I had dense breast tissue, which can sometimes make cancer difficult to see.", 'September 27, 2016');
@@ -153,7 +235,7 @@ $( document ).ready(function() {
       }
     }
 
-    var renderMyStoryPage = function () {
+    var renderMyStoryPage = function (myUser) {
       var source   = $("#my-profile-template").html();
       var myStoryTemplate = Handlebars.compile(source);
       var $screen = $('#my-profile-rendered');
@@ -169,6 +251,7 @@ $( document ).ready(function() {
       //   $screen.append(html);
       // }
     }
+    renderMyStoryPage(myUser);    // call it on page load - updates will happen by and by
 
     var renderConversationWithUser = function(user) {
         var $screen = $('#messages-index');
@@ -257,7 +340,7 @@ $( document ).ready(function() {
         // special: If this is My Story, show edit mode
         if (pageName == 'my-story') {
             $('#edit-button-top').show();
-            renderMyStoryPage();
+            renderMyStoryPage(myUser);
         } else {
             $('#edit-button-top').hide();
         }
@@ -285,6 +368,10 @@ $( document ).ready(function() {
         } else if (pageName.indexOf('conversation-with') >= 0) {
             $('#footer-menu').hide();
             $('#footer-save').hide();
+            $('#footer-signup').hide();
+        } else if (pageName == 'editing-chapter') {
+            $('#footer-menu').hide();
+            $('#footer-save').show();
             $('#footer-signup').hide();
         } else {
             $('#footer-menu').show();
