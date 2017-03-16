@@ -96,11 +96,19 @@ function appendChapterToStory(fromSignUp) {
   //   });
   // }
 
+
+
   var newStory;
   if (fromSignUp) {
+      if ($('#firstchapt-title').val() == '' && $('#firstchapt').val() == '') {
+        return;
+      }
       newStory = new Story($('#firstchapt-title').val(), $('#firstchapt').val(), 'March 17, 2017');
       myUser.stories = [newStory];
   } else {
+      if ($('#chapt-title').val() == '' && $('#chapt').val() == '') {
+       return;
+      }
       newStory = new Story($('#chapt-title').val(), $('#chapt').val(), 'March 17, 2017');
       myUser.stories = [newStory].concat(myUser.stories);
   }
