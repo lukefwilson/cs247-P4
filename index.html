@@ -75,7 +75,7 @@
         <script id="my-profile-template" type="text/x-handlebars-template">
         <div class="media">
           <div class="media-middle">
-              <img class="media-object conversation-img img-responsive center-block" src="img/{{user.img}}">
+              <img id="my-profile-pic" class="media-object conversation-img img-responsive center-block" src="{{user.img}}">
           </div>
           <div class="media-body">
                 <h4 class="message-name text-center profile-name">{{user.fullName}}</h4>
@@ -222,15 +222,15 @@
 
 <div class="container screen" id="editing-my-profile-screen">
     <div class="container">
-        <img class="profile-photo center-block img-responsive center-block" src="img/my-photo.png" style="margin-bottom:15px">
+        <img id="edit-my-profile-pic" class="profile-photo center-block img-responsive center-block" src="img/my-photo.png" style="margin-bottom:15px">
         <div class="q_card container">
             <div class="row qcard">
                 <p class="qcard_title col-xs-6">Name</p>
-                <input class="col-xs-6" type="text" name="name" placeholder="Your name" id="name_input"/>
+                <input class="col-xs-6" type="text" name="name" placeholder="Your name" id="edit_name_input"/>
             </div>
             <div class="row qcard">
                 <p class="qcard_title col-xs-6">Date of Birth</p>
-                <input class="col-xs-6" type="date" name="dob" placeholder="Your Date of Birth" id="age_input"/>
+                <input class="col-xs-6" type="date" name="dob" placeholder="Your Date of Birth" id="edit_age_input"/>
             </div>
         </div>
         <hr style="" class="wedge"/>
@@ -266,7 +266,7 @@
             <div class="qcard">
                 <div class="row qcard">
                     <p class="qcard_title col-xs-6">When were you first diagnosed?</p>
-                    <input class="col-xs-6" type="month" name="diagnosisDate" id="age_input" ng-value="diagnosisDate" style="margin-top:1.5em"/>
+                    <input class="col-xs-6" type="month" name="diagnosisDate" id="edit_diagnosisDate_input" ng-value="diagnosisDate" style="margin-top:1.5em"/>
                 </div>
             </div>
         </div>
@@ -373,7 +373,7 @@
             <div class="qcard">
                 <div class="qcard">
                     <p class="qcard_title col-xs-6">When were you first diagnosed?</p>
-                    <input class="col-xs-6" type="month" name="diagnosisDate" id="age_input" ng-value="diagnosisDate" style="margin-top:1.5em"/>
+                    <input class="col-xs-6" type="month" name="diagnosisDate" id="diagnosisDate_input" ng-value="diagnosisDate" style="margin-top:1.5em"/>
                 </div>
             </div>
     	</div>
@@ -474,7 +474,7 @@
 
 <footer class="bottom-nav bg-faded container" id="footer-signup">
     <h3><a onclick="javascript:nextPage(-1)" class="col-xs-6 text-center footer" style="border-right: 1px solid #513d1e" id="footer-back-button">&#8592;</a></h3>
-    <h3><a onclick="javascript:nextPage(1)" class="col-xs-6 text-center footer" style="border-left: 1px solid #735f40" id="footer-next-button">&#8594;</a></h3>
+    <h3><a onclick="javascript:nextPage(1)" ng-click="setProfileVariables()" class="col-xs-6 text-center footer" style="border-left: 1px solid #735f40" id="footer-next-button">&#8594;</a></h3>
 </footer>
 
 </body>
@@ -527,8 +527,8 @@
             finishCreatingProfile()
             appendChapterToStory(true);
 
-            // take them to the my story page
-            document.location.hash = "#my-story";
+            // take them to the local stories page when they finish creating their profile
+            document.location.hash = "#local-stories";
         }
 
         if (updatedScreen < 1 || updatedScreen > 4) {
@@ -555,18 +555,13 @@
                 $('#profile-image-preview')
                     .attr('src', e.target.result)
                     .removeClass('hide');
+                myUser.img = e.target.result;
+                $('#edit-my-profile-pic').attr('src', e.target.result);
                 $('#choose-photo').html("Change Photo");
             };
 
             reader.readAsDataURL(input.files[0]);
         }
-    }
-
-    // clicking save button while editing profile
-    function saveProfile() {
-        $('#profile-location').html($('#edit-profile-location').val());
-        $('#my-bio').html($('#edit-profile-bio').val());
-        $('#my-name').html($('#edit-profile-name').val());
     }
 
     var chevronToggle = function(id_of_button) {

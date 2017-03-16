@@ -39,8 +39,18 @@ app.controller('myCtrl', function($scope) {
     $scope.stage = stage;
   }
 
-  $scope.addPersonalInfo = function() {
+  $scope.setProfileVariables = function() {
+    console.log("setting user variables to $scope");
+
     // adding user info for the first time (and defaults)
+    if ($('#name_input').val() != "") {
+      myUser.fullName = $('#name_input').val();
+    }
+    if ($('#age_input').val() != "") {
+      $scope.dob = $('#age_input').val();
+      myUser.age = Math.floor(Date.now() - new Date($('#age_input').val()))/(1000*3600*24*365);
+    }
+
 
     updateVariables();
   }
@@ -55,7 +65,7 @@ Handlebars.registerHelper('ifCond', function(v1, v2, options) {
   return options.inverse(this);
 });
 
-var myUser = new User(0, 'Your Name', 35, "2016-12", 2, 'I love to be spontaneous with my family. We travel the world and enjoy life to the fullest.', true, false, 'Stanford, CA', 'my-photo.png', [],'');
+var myUser = new User(0, 'Samantha Stanford', 35, "2016-12", 2, 'I love to be spontaneous with my family. We travel the world and enjoy life to the fullest.', true, false, 'Stanford, CA', 'img/my-photo.png', [],'');
 var chp1 = new Story('A Feeling of Getting Breast Cancer', "Because of my mom's breast cancer history, I was concerned about developing the same disease. So I have annual routine mammograms starting 5 years ago. However recently I have underwent a lot of stress. I had felt lumps in my breasts. Sooner or later, I would develop breast cancer I think.", 'September 2, 2016');
 var chp2 = new Story('Mammogram Appointment', "My doctor encouraged me to wait to see if I actually developed cancer, but my husband told me seriously last night that he thought I had a lump in my breast. I told him that I had been feeling lumps for a while, but he said it felt larger. “I think you need a mammogram,” he told me. I was due for my annual mammogram, so I made the appointment right away.", 'September 20, 2016');
 var chp3 = new Story('The Results of the Test', "BThe results came by mail this morning. No change had been observed, but the report also stated that I had dense breast tissue, which can sometimes make cancer difficult to see.", 'September 27, 2016');
@@ -153,7 +163,7 @@ $( document ).ready(function() {
       }
     }
 
-    var renderMyStoryPage = function () {
+    var renderMyStoryPage = function (myUser) {
       var source   = $("#my-profile-template").html();
       var myStoryTemplate = Handlebars.compile(source);
       var $screen = $('#my-profile-rendered');
@@ -169,6 +179,7 @@ $( document ).ready(function() {
       //   $screen.append(html);
       // }
     }
+    renderMyStoryPage(myUser);    // call it on page load - updates will happen by and by
 
     var renderConversationWithUser = function(user) {
         var $screen = $('#messages-index');
@@ -257,7 +268,7 @@ $( document ).ready(function() {
         // special: If this is My Story, show edit mode
         if (pageName == 'my-story') {
             $('#edit-button-top').show();
-            renderMyStoryPage();
+            renderMyStoryPage(myUser);
         } else {
             $('#edit-button-top').hide();
         }
