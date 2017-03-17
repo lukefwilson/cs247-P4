@@ -256,6 +256,7 @@ p.profile-bio {
 .chapter-date {
   color: #907A56;
   z-index: 0;
+  padding-left: 0px;
 }
 
 .chapter-edit {
