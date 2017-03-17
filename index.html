@@ -134,10 +134,10 @@
         <div class="my-full-story">
             {{#each user.stories}}
                 <div class="chapter">
-                    <p class="col-xs-3 chapter-edit chpt-edit" onclick="editChapter({{@index}})">Edit <span class="glyphicon glyphicon-edit"></span></p>
                     <h1 class="chapter-title">{{ this.title }}</h1>
-                    <div class="row">
+                    <div class="row container">
                         <p class="chapter-date col-xs-9">{{this.date}}</p>
+                        <p class="col-xs-3 chapter-edit chpt-edit" onclick="editChapter({{@index}})">Edit <span class="glyphicon glyphicon-edit"></span></p>
                     </div>
                     <p class="chapter-text">{{ this.content }}</p>
                 </div>

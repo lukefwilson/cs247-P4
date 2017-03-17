@@ -809,5 +809,5 @@ p.welcome-tag-title{
     float: right;
     text-align: right;
     padding: 0px;
-    padding-top: 5px;
+    /* padding-top: 5px; */
 }
